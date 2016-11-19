@@ -21,8 +21,8 @@ Smart-iPad (the name is lame) is an app for people who doesn't have the skill to
  [ ] Add Dark Sky, Huxley, NRE, SwiftlyTimer, Skycons, solarized attributions in a legal screen (and everything this project uses)
  [ ] Add some better transition animations
  
- ## To Build
- 
+## To Build
+
  ```bash
  $ carthage boostrap --platform iOS
  ``` 
