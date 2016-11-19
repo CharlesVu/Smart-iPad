@@ -28,4 +28,7 @@ Smart-iPad (the name is lame) is an app for people who doesn't have the skill to
  $ carthage boostrap --platform iOS
  ``` 
  
- 
+## Screenshots 
+![alt text](https://github.com/CharlesVu/Smart-iPad/raw/master/Screenshots/content_dark.jpg "Screenshot Dark")
+
+![alt text](https://github.com/CharlesVu/Smart-iPad/raw/master/Screenshots/content_light.jpg "Screenshot Light")
