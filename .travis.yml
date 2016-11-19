@@ -1,3 +1,0 @@
-language: objective-c
-xcode_project: MKHome.xcodeproj
-xcode_scheme: MKHome
