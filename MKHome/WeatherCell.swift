@@ -15,4 +15,10 @@ class WeatherCell: UICollectionViewCell
     @IBOutlet weak var temperature: UILabel?
     @IBOutlet weak var time: UILabel?
 
+    override func prepareForReuse()
+    {
+        super.prepareForReuse()
+        icon?.alpha = 0
+        temperature?.alpha = 0
+    }
 }

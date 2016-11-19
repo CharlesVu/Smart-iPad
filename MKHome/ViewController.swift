@@ -56,28 +56,25 @@ class ViewController: UIViewController
     {
         super.viewWillAppear(animated)
         
-
         if UIDevice.current.userInterfaceIdiom == .pad
         {
-            self.refreshWeather()
-
-            Timer.every(15.seconds)
-            {
-                self.displayNextCity()
-            }
-            
-            Timer.every(5.minutes)
-            {
-                self.refreshWeather()
-            }
-            
             trainDestination = "EUS"
             trainSource = "MKC"
         }
-        
+
+        self.refreshWeather()
         self.refreshTrains()
         self.refreshTime()
-
+        
+        Timer.every(15.seconds)
+        {
+            self.displayNextCity()
+        }
+        
+        Timer.every(5.minutes)
+        {
+            self.refreshWeather()
+        }
 
         Timer.every(10.second)
         {
@@ -145,10 +142,12 @@ class ViewController: UIViewController
         let forecast = weatherMap[location]
         
         DispatchQueue.main.async {
+            self.weatherTitle?.pushTransition(duration: 0.3)
             self.weatherTitle?.text = "Weather in \(location)"
 
             if let icon = forecast?.currently?.icon
             {
+                self.currentWeather?.pushTransition(duration: 0.3)
                 self.currentWeather?.setType = icon
                 self.currentWeather?.play()
                 self.currentWeather?.tintColor = UIColor.solarizedBase1
@@ -157,11 +156,13 @@ class ViewController: UIViewController
             
             if let description = forecast?.hourly?.summary
             {
+                self.currentHumanDescription?.pushTransition(duration: 0.3)
                 self.currentHumanDescription?.text = description
             }
             
             if let temperature = forecast?.currently?.temperature
             {
+                self.currentTemerature?.pushTransition(duration: 0.3)
                 self.currentTemerature?.text = "\(Int(temperature))°C"
             }
         }
@@ -198,17 +199,26 @@ extension ViewController: UICollectionViewDataSource
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "weatherCell",
                                                       for: indexPath) as! WeatherCell
         cell.backgroundColor = UIColor.clear
+        
         if let data = forecast?.hourly?.data[indexPath.row]
         {
             cell.icon?.setType = data.icon!
-            cell.icon?.tintColor = UIColor.solarizedBase1
-            cell.icon?.play()
-            
             if let temperature = data.temperature
             {
                 cell.temperature?.text = "\(Int(temperature))°C"
             }
+
+            UIView.animate(withDuration: 0.3)
+            {
+                cell.icon?.alpha = 1
+                cell.temperature?.alpha = 1
+                cell.icon?.play()
+            }
+            
+            cell.icon?.tintColor = UIColor.solarizedBase1
+            
             let time = data.time
+
             cell.time?.text = dateCellFormatter.string(from: time)
         }
         
@@ -298,5 +308,29 @@ extension ViewController
             }
         }
     }
+}
+
+extension UIView
+{
+    func fadeTransition(duration:CFTimeInterval)
+    {
+        let animation:CATransition = CATransition()
+        animation.timingFunction = CAMediaTimingFunction(name:
+            kCAMediaTimingFunctionEaseInEaseOut)
+        animation.type = kCATransitionFromTop
+        animation.duration = duration
+        self.layer.add(animation, forKey: kCATransitionFromTop)
+    }
+    
+    func pushTransition(duration:CFTimeInterval)
+    {
+        let animation:CATransition = CATransition()
+        animation.timingFunction = CAMediaTimingFunction(name:
+            kCAMediaTimingFunctionEaseInEaseOut)
+        animation.type = kCATransitionPush
+        animation.duration = duration
+        self.layer.add(animation, forKey: kCATransitionPush)
+    }
+
 }
 
