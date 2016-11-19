@@ -9,6 +9,7 @@
 import UIKit
 import ForecastIO
 import CoreLocation
+import Huxley
 
 class ViewController: UIViewController
 {
@@ -32,7 +33,7 @@ class ViewController: UIViewController
     let currentDayCellFormatter = DateFormatter()
     
     // Train Stuff
-    fileprivate var trains: [Train.Service] = []
+    fileprivate var departures: Huxley.Departures?
     @IBOutlet weak var tableView: UITableView?
     @IBOutlet weak var trainDestinationLabel: UILabel?
 
@@ -115,9 +116,9 @@ class ViewController: UIViewController
     {
         TrainClient().getTrains(from: trainSource, to: trainDestination)
         {
-            trains in
+            departures in
             
-            self.trains = trains
+            self.departures = departures
             DispatchQueue.main.async {
                 self.tableView?.reloadData()
             }
@@ -250,35 +251,33 @@ extension ViewController: UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return self.trains.count
+        return self.departures?.trainServices.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let service = self.trains[indexPath.row]
+        let service = self.departures!.trainServices[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrainCell") as! TrainCell
-        cell.arivalTime?.text = "Leaving at " + service.normalLeavingTime! + " (\(Int(service.length / 60)) min)"
+        cell.arivalTime?.text = "Leaving at " + service.std! + " (\(Int(service.getJourneyDuration(toStationCRS: self.trainDestination) / 60)) min)"
         cell.arivalTime?.textColor = colorScheme.normalText
         
-        if service.estimatedLeavingTime == service.normalLeavingTime
+        if service.etd == "On time" || service.etd == service.std
         {
             cell.delay?.text = "On time"
             cell.delay?.textColor = colorScheme.positiveText
         }
+        else if service.etd == "Delayed" || service.etd == "Cancelled"
+        {
+            cell.delay?.text = service.etd
+            cell.delay?.textColor = colorScheme.errorText
+            cell.arivalTime?.textColor = colorScheme.errorText
+        }
         else
         {
-            if service.delay == -1
-            {
-                cell.delay?.text = "Delayed"
-                cell.delay?.textColor = colorScheme.errorText
-                cell.arivalTime?.textColor = colorScheme.errorText
-            }
-            else
-            {
-                cell.delay?.text = "(\(Int(service.delay / 60)) min)"
-                cell.delay?.textColor = colorScheme.warningText
-            }
+            cell.delay?.text = "(\(Int(service.delay / 60)) min)"
+            cell.delay?.textColor = colorScheme.warningText
         }
+        
         
         cell.backgroundColor = UIColor.clear
         if UIDevice.current.userInterfaceIdiom == .pad

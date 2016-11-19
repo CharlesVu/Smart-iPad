@@ -8,29 +8,20 @@
 
 import Foundation
 import Alamofire
+import Huxley
 
 class TrainClient
 {
-    func getTrains(from: String, to: String, completion: @escaping ([Train.Service]) -> Void)
+    func getTrains(from: String, to: String, completion: @escaping (Departures) -> Void)
     {
         Alamofire.request("\(Configuration().huxleyProxyEndpoint)/departures/\(from)/to/\(to)?accessToken=\(Configuration().huxleyToken)&expand=true", method: .get)
             .responseJSON
             { response in
-                var result: [Train.Service] = []
-                
                 if let json = response.result.value as? [String: Any]
                 {
-                    if let services = json["trainServices"] as? [[String: Any]]
-                    {
-                        for data in services
-                        {
-                            let service = Train.Service(json: data, source: from, destination: to)
-                            result.append(service)
-                        }
-                    }
+                    let departures = Huxley.Departures(from: json)
+                    completion(departures)
                 }
-                completion(result)
         }
-
     }
 }
