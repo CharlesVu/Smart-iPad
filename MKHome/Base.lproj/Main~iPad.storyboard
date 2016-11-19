@@ -241,6 +241,7 @@
                         <outlet property="currentTime" destination="6Lr-7I-3vB" id="GfQ-GJ-2ZG"/>
                         <outlet property="currentWeather" destination="vrZ-Bb-BxC" id="0K9-7r-Wyh"/>
                         <outlet property="tableView" destination="Dde-8P-Ks3" id="Hn0-DJ-Ahv"/>
+                        <outlet property="trainDestinationLabel" destination="mYI-U1-EsR" id="BOe-VH-wOR"/>
                         <outlet property="weatherTitle" destination="MsB-fS-OZH" id="czE-VR-egV"/>
                     </connections>
                 </viewController>

@@ -12,20 +12,20 @@ import CoreLocation
 
 class ViewController: UIViewController
 {
-    let areasOfInterest = ["Milton Keynes, UK", "Leicester Square Station, London"]
-    var currentAreaIndex = 0
+    fileprivate var colorScheme = ColorScheme.solarizedLight
+    
     // Weather Stuff
     private let client = DarkSkyClient(apiKey: Configuration().darkSkyApiToken)
     fileprivate var weatherMap: [String: Forecast] = [:]
     fileprivate var currentLocation: String = ""
-    
+    private var currentAreaIndex = 0
+
     @IBOutlet weak var currentWeather: SKYIconView?
     @IBOutlet weak var currentTemerature: UILabel?
     @IBOutlet weak var currentHumanDescription: UILabel?
     @IBOutlet weak var currentTime: UILabel?
     @IBOutlet weak var currentDate: UILabel?
     @IBOutlet weak var weatherTitle: UILabel?
-
     @IBOutlet weak var collectionView: UICollectionView?
     
     let dateCellFormatter = DateFormatter()
@@ -34,9 +34,13 @@ class ViewController: UIViewController
     // Train Stuff
     fileprivate var trains: [Train.Service] = []
     @IBOutlet weak var tableView: UITableView?
+    @IBOutlet weak var trainDestinationLabel: UILabel?
+
+    // Fix me stuff which doesn't belong in the VC
+    fileprivate var trainDestination = "MKC"
+    fileprivate var trainSource = "EUS"
     
-    var trainDestination = "MKC"
-    var trainSource = "EUS"
+    fileprivate let areasOfInterest = ["Milton Keynes, UK", "Leicester Square Station, London"]
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -50,6 +54,20 @@ class ViewController: UIViewController
         currentDayCellFormatter.setLocalizedDateFormatFromTemplate("dd MMMM YYYY")
         
         client.units = .si
+        
+        refreshColors()
+    }
+    
+    func refreshColors()
+    {
+        view.backgroundColor = colorScheme.background
+        currentWeather?.tintColor = colorScheme.normalText
+        currentTemerature?.textColor = colorScheme.normalText
+        currentHumanDescription?.textColor = colorScheme.normalText
+        currentTime?.textColor = colorScheme.normalText
+        currentDate?.textColor = colorScheme.normalText
+        weatherTitle?.textColor = colorScheme.normalText
+        trainDestinationLabel?.textColor = colorScheme.normalText
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -62,9 +80,9 @@ class ViewController: UIViewController
             trainSource = "MKC"
         }
 
-        self.refreshWeather()
-        self.refreshTrains()
-        self.refreshTime()
+        refreshWeather()
+        refreshTrains()
+        refreshTime()
         
         Timer.every(15.seconds)
         {
@@ -85,7 +103,6 @@ class ViewController: UIViewController
         {
             self.refreshTrains()
         }
-
     }
     
     func refreshTime()
@@ -150,7 +167,7 @@ class ViewController: UIViewController
                 self.currentWeather?.pushTransition(duration: 0.3)
                 self.currentWeather?.setType = icon
                 self.currentWeather?.play()
-                self.currentWeather?.tintColor = UIColor.solarizedBase1
+                self.currentWeather?.tintColor = self.colorScheme.normalText
             }
             self.collectionView?.reloadData()
             
@@ -206,6 +223,7 @@ extension ViewController: UICollectionViewDataSource
             if let temperature = data.temperature
             {
                 cell.temperature?.text = "\(Int(temperature))°C"
+                cell.temperature?.textColor = self.colorScheme.normalText
             }
 
             UIView.animate(withDuration: 0.3)
@@ -215,11 +233,13 @@ extension ViewController: UICollectionViewDataSource
                 cell.icon?.play()
             }
             
-            cell.icon?.tintColor = UIColor.solarizedBase1
+            cell.icon?.tintColor = self.colorScheme.normalText
             
             let time = data.time
 
             cell.time?.text = dateCellFormatter.string(from: time)
+            cell.time?.textColor = self.colorScheme.alternativeText
+
         }
         
         return cell
@@ -238,25 +258,25 @@ extension ViewController: UITableViewDataSource
         let service = self.trains[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrainCell") as! TrainCell
         cell.arivalTime?.text = "Leaving at " + service.normalLeavingTime! + " (\(Int(service.length / 60)) min)"
-        cell.arivalTime?.textColor = UIColor.solarizedBase1
+        cell.arivalTime?.textColor = colorScheme.normalText
         
         if service.estimatedLeavingTime == service.normalLeavingTime
         {
             cell.delay?.text = "On time"
-            cell.delay?.textColor = UIColor.solarizedGreen
+            cell.delay?.textColor = colorScheme.positiveText
         }
         else
         {
             if service.delay == -1
             {
                 cell.delay?.text = "Delayed"
-                cell.delay?.textColor = UIColor.solarizedRed
-                cell.arivalTime?.textColor = UIColor.solarizedRed
+                cell.delay?.textColor = colorScheme.errorText
+                cell.arivalTime?.textColor = colorScheme.errorText
             }
             else
             {
                 cell.delay?.text = "(\(Int(service.delay / 60)) min)"
-                cell.delay?.textColor = UIColor.solarizedOrange
+                cell.delay?.textColor = colorScheme.warningText
             }
         }
         
@@ -272,11 +292,11 @@ extension ViewController: UITableViewDataSource
         if let platform = service.platform
         {
             cell.platform?.text = "Platform \(platform)"
-            cell.platform?.textColor = UIColor.solarizedBase1
+            cell.platform?.textColor = colorScheme.alternativeText
         }
         else
         {
-            cell.platform?.textColor = UIColor.solarizedOrange
+            cell.platform?.textColor = colorScheme.warningText
             cell.platform?.text = "Platform unknown"
         }
         

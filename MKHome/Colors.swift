@@ -9,16 +9,13 @@
 import Foundation
 import UIKit
 /*
- $base0:     #839496;
-
- $base2:     #eee8d5;
- $base3:     #fdf6e3;
  $yellow:    #b58900;
  $magenta:   #d33682;
  $violet:    #6c71c4;
  $blue:      #268bd2;
  $cyan:      #2aa198;
  */
+
 extension UIColor
 {
     convenience init(fromRGB rgbValue: UInt)
@@ -51,9 +48,24 @@ extension UIColor
         return UIColor(fromRGB: 0x657b83)
     }
     
+    static var solarizedBase0: UIColor
+    {
+        return UIColor(fromRGB: 0x839496)
+    }
+
     static var solarizedBase1: UIColor
     {
         return UIColor(fromRGB: 0x93a1a1)
+    }
+
+    static var solarizedBase2: UIColor
+    {
+        return UIColor(fromRGB: 0xeee8d5)
+    }
+    
+    static var solarizedBase3: UIColor
+    {
+        return UIColor(fromRGB: 0xfdf6e3)
     }
     
     static var solarizedRed: UIColor
@@ -70,4 +82,23 @@ extension UIColor
     {
         return UIColor(fromRGB: 0x859900)
     }
+}
+
+struct ColorScheme
+{
+    let background: UIColor
+    let normalText: UIColor
+    let alternativeText: UIColor
+    let positiveText: UIColor
+    let warningText: UIColor
+    let errorText: UIColor
+}
+
+extension ColorScheme
+{
+    static let solarizedDark = ColorScheme(background: UIColor.solarizedBase02, normalText: UIColor.solarizedBase0, alternativeText: UIColor.solarizedBase00,
+                                           positiveText: UIColor.solarizedGreen, warningText: UIColor.solarizedOrange, errorText: UIColor.solarizedRed)
+    
+    static let solarizedLight = ColorScheme(background: UIColor.solarizedBase2, normalText: UIColor.solarizedBase00, alternativeText: UIColor.solarizedBase0,
+                                            positiveText: UIColor.solarizedGreen, warningText: UIColor.solarizedOrange, errorText: UIColor.solarizedRed)
 }
