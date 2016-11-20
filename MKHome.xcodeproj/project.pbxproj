@@ -31,6 +31,8 @@
 		56BD704A1DDCA37C00CA142D /* TrainServicesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD70491DDCA37C00CA142D /* TrainServicesExtension.swift */; };
 		56BD704C1DDCAFB800CA142D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD704B1DDCAFB800CA142D /* Config.swift */; };
 		56BD704E1DDCBAC200CA142D /* TrainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD704D1DDCBAC200CA142D /* TrainCell.swift */; };
+		56F436851DE1AEE600521991 /* StationChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F436841DE1AEE600521991 /* StationChooserViewController.swift */; };
+		56F436871DE1AF9D00521991 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F436861DE1AF9D00521991 /* AppData.swift */; };
 		56FAE2561DDDE4C80015880C /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 56FAE2551DDDE4C80015880C /* config.plist */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +74,8 @@
 		56BD70491DDCA37C00CA142D /* TrainServicesExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainServicesExtension.swift; sourceTree = "<group>"; };
 		56BD704B1DDCAFB800CA142D /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		56BD704D1DDCBAC200CA142D /* TrainCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainCell.swift; sourceTree = "<group>"; };
+		56F436841DE1AEE600521991 /* StationChooserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationChooserViewController.swift; sourceTree = "<group>"; };
+		56F436861DE1AF9D00521991 /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		56FAE2551DDDE4C80015880C /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +114,7 @@
 		56A1AD191DDC54840014047B /* MKHome */ = {
 			isa = PBXGroup;
 			children = (
+				56F436831DE1AE8700521991 /* Settings */,
 				56BD70461DDCA1E500CA142D /* Train */,
 				56A1AD1A1DDC54840014047B /* AppDelegate.swift */,
 				56A1AD1C1DDC54840014047B /* ViewController.swift */,
@@ -125,8 +130,6 @@
 				56BD70441DDC7E6F00CA142D /* WeatherCell.swift */,
 				56BD704B1DDCAFB800CA142D /* Config.swift */,
 				56FAE2551DDDE4C80015880C /* config.plist */,
-				563FC60F1DE0FB3A00394E4A /* UserSettings.swift */,
-				563FC6111DE108AA00394E4A /* SettingsViewController.swift */,
 			);
 			path = MKHome;
 			sourceTree = "<group>";
@@ -149,6 +152,17 @@
 				563FC60D1DE0EE7B00394E4A /* Journey.swift */,
 			);
 			name = Train;
+			sourceTree = "<group>";
+		};
+		56F436831DE1AE8700521991 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				563FC60F1DE0FB3A00394E4A /* UserSettings.swift */,
+				563FC6111DE108AA00394E4A /* SettingsViewController.swift */,
+				56F436841DE1AEE600521991 /* StationChooserViewController.swift */,
+				56F436861DE1AF9D00521991 /* AppData.swift */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +254,8 @@
 				563FC6121DE108AA00394E4A /* SettingsViewController.swift in Sources */,
 				56BD704E1DDCBAC200CA142D /* TrainCell.swift in Sources */,
 				562A9F5E1DDC6FF600ABC3AD /* Timer.swift in Sources */,
+				56F436851DE1AEE600521991 /* StationChooserViewController.swift in Sources */,
+				56F436871DE1AF9D00521991 /* AppData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,7 +12,7 @@ import Huxley
 
 class TrainClient
 {
-    func getTrains(from: String, to: String, completion: @escaping (Departures) -> Void)
+    static func getTrains(from: String, to: String, completion: @escaping (Departures) -> Void)
     {
         Alamofire.request("\(Configuration().huxleyProxyEndpoint)/departures/\(from)/to/\(to)?accessToken=\(Configuration().huxleyToken)&expand=true", method: .get)
             .responseJSON
@@ -25,7 +25,7 @@ class TrainClient
         }
     }
     
-    func getTrainsNames(completion: @escaping (CRSList) -> Void)
+    static func getTrainsNames(completion: @escaping ([String:String]) -> Void)
     {
         Alamofire.request("\(Configuration().huxleyProxyEndpoint)/crs/?accessToken=\(Configuration().huxleyToken)", method: .get)
             .responseJSON
@@ -33,9 +33,8 @@ class TrainClient
                 if let json = response.result.value as? [[String: String]]
                 {
                     let crsList = Huxley.CRSList(from: json)
-                    completion(crsList)
+                    completion(crsList.crsToName)
                 }
         }
-
     }
 }

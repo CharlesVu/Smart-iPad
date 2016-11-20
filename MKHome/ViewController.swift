@@ -13,7 +13,7 @@ import Huxley
 
 class ViewController: UIViewController
 {
-    fileprivate var colorScheme = ColorScheme.solarizedDark {
+    fileprivate var colorScheme = ColorScheme.solarizedLight {
         didSet {
             self.refreshColors()
             self.tableView?.reloadData()
@@ -113,7 +113,7 @@ class ViewController: UIViewController
     {
         if userSettings.getJourneys().count > 0
         {
-            TrainClient().getTrains(from: userSettings.getJourneys()[0].originCRS,
+            TrainClient.getTrains(from: userSettings.getJourneys()[0].originCRS,
                                     to: userSettings.getJourneys()[0].destinationCRS)
             {
                 departures in

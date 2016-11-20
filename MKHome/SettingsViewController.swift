@@ -11,7 +11,7 @@ import UIKit
 
 class SettingsViewController: UIViewController
 {
-    fileprivate var colorScheme = ColorScheme.solarizedDark
+    fileprivate var colorScheme = ColorScheme.solarizedLight
     let userSettings = UserSettings.sharedInstance
     
     @IBOutlet var trainJourneyTableView: UITableView?
@@ -19,6 +19,11 @@ class SettingsViewController: UIViewController
     override func viewDidLoad()
     {
         view.backgroundColor = colorScheme.alternativeBackground
+    }
+    
+    override func viewWillAppear(_ animated: Bool)
+    {
+        self.trainJourneyTableView?.reloadData()
     }
     
     @IBAction func onButtonClicked(button: UIButton)
