@@ -204,20 +204,20 @@ class ViewController: UIViewController
         if userSettings.getJourneys().count != 0
         {
             currentJourneyIndex = (currentJourneyIndex + 1) % userSettings.getJourneys().count
+
+            let journey = userSettings.getJourneys()[currentJourneyIndex]
+            
+            if let source = appSettings.stationMap[journey.originCRS],
+                let destination = appSettings.stationMap[journey.destinationCRS]
+            {
+                let attributedSource = NSMutableAttributedString(string: source, attributes:[NSForegroundColorAttributeName: colorScheme.normalText])
+                let attributedDestination = NSAttributedString(string: destination, attributes:[NSForegroundColorAttributeName: colorScheme.normalText])
+                attributedSource.append(NSAttributedString(string: " → ", attributes:[NSForegroundColorAttributeName: colorScheme.alternativeText]))
+                attributedSource.append(attributedDestination)
+                trainDestinationLabel?.attributedText = attributedSource
+            }
         }
 
-        let journey = userSettings.getJourneys()[currentJourneyIndex]
-        
-        if let source = appSettings.stationMap[journey.originCRS],
-            let destination = appSettings.stationMap[journey.destinationCRS]
-        {
-            let attributedSource = NSMutableAttributedString(string: source, attributes:[NSForegroundColorAttributeName: colorScheme.normalText])
-            let attributedDestination = NSAttributedString(string: destination, attributes:[NSForegroundColorAttributeName: colorScheme.normalText])
-            attributedSource.append(NSAttributedString(string: " → ", attributes:[NSForegroundColorAttributeName: colorScheme.alternativeText]))
-            attributedSource.append(attributedDestination)
-            trainDestinationLabel?.attributedText = attributedSource
-        }
-        
         self.tableView?.reloadData()
     }
     
