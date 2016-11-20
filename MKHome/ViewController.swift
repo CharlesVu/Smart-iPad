@@ -21,7 +21,9 @@ class ViewController: UIViewController
         }
     }
 
-    let userSettings = UserSettings.sharedInstance
+    fileprivate let userSettings = UserSettings.sharedInstance
+    fileprivate let appSettings = AppData.sharedInstance
+
     // Weather Stuff
     private let client = DarkSkyClient(apiKey: Configuration().darkSkyApiToken)
     fileprivate var weatherMap: [String: Forecast] = [:]
@@ -40,10 +42,12 @@ class ViewController: UIViewController
     let currentDayCellFormatter = DateFormatter()
     
     // Train Stuff
-    fileprivate var departures: Huxley.Departures?
+    fileprivate var departures: [Journey: Huxley.Departures] = [:]
+    fileprivate var currentJourneyIndex = -1
     @IBOutlet weak var tableView: UITableView?
     @IBOutlet weak var trainDestinationLabel: UILabel?
    
+    
     fileprivate let areasOfInterest = ["Milton Keynes, UK", "Leicester Square Station, London"]
     
     override var prefersStatusBarHidden: Bool {
@@ -85,6 +89,7 @@ class ViewController: UIViewController
         Timer.every(15.seconds)
         {
             self.displayNextCity()
+            self.displayNextTrainJourney()
         }
         
         Timer.every(5.minutes)
@@ -113,14 +118,21 @@ class ViewController: UIViewController
     {
         if userSettings.getJourneys().count > 0
         {
-            TrainClient.getTrains(from: userSettings.getJourneys()[0].originCRS,
-                                    to: userSettings.getJourneys()[0].destinationCRS)
+            for journey in userSettings.getJourneys()
             {
-                departures in
-                
-                self.departures = departures
-                DispatchQueue.main.async {
-                    self.tableView?.reloadData()
+                TrainClient.getTrains(from: journey.originCRS,
+                                      to: journey.destinationCRS)
+                {
+                    departures in
+                    
+                    self.departures[journey] = departures
+                    if self.currentJourneyIndex == -1
+                    {
+                        self.displayNextTrainJourney()
+                    }
+                    DispatchQueue.main.async {
+                        self.tableView?.reloadData()
+                    }
                 }
             }
         }
@@ -185,6 +197,28 @@ class ViewController: UIViewController
                 self.currentTemerature?.text = "\(Int(temperature))°C"
             }
         }
+    }
+    
+    func displayNextTrainJourney()
+    {
+        if userSettings.getJourneys().count != 0
+        {
+            currentJourneyIndex = (currentJourneyIndex + 1) % userSettings.getJourneys().count
+        }
+
+        let journey = userSettings.getJourneys()[currentJourneyIndex]
+        
+        if let source = appSettings.stationMap[journey.originCRS],
+            let destination = appSettings.stationMap[journey.destinationCRS]
+        {
+            let attributedSource = NSMutableAttributedString(string: source, attributes:[NSForegroundColorAttributeName: colorScheme.normalText])
+            let attributedDestination = NSAttributedString(string: destination, attributes:[NSForegroundColorAttributeName: colorScheme.normalText])
+            attributedSource.append(NSAttributedString(string: " → ", attributes:[NSForegroundColorAttributeName: colorScheme.alternativeText]))
+            attributedSource.append(attributedDestination)
+            trainDestinationLabel?.attributedText = attributedSource
+        }
+        
+        self.tableView?.reloadData()
     }
     
     override func didReceiveMemoryWarning()
@@ -252,14 +286,21 @@ extension ViewController: UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return self.departures?.trainServices.count ?? 0
+        if currentJourneyIndex == -1
+        {
+            return 0
+        }
+        let currentJourney = userSettings.getJourneys()[currentJourneyIndex]
+        return departures[currentJourney]?.trainServices.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let service = self.departures!.trainServices[indexPath.row]
+        let currentJourney = userSettings.getJourneys()[currentJourneyIndex]
+
+        let service = departures[currentJourney]!.trainServices[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrainCell") as! TrainCell
-        cell.arivalTime?.text = "Leaving at " + service.std! + " (\(Int(service.getJourneyDuration(toStationCRS: userSettings.getJourneys()[0].destinationCRS) / 60)) min)"
+        cell.arivalTime?.text = "Leaving at " + service.std! + " (\(Int(service.getJourneyDuration(toStationCRS: currentJourney.destinationCRS) / 60)) min)"
         cell.arivalTime?.textColor = colorScheme.normalText
         
         if service.etd == "On time" || service.etd == service.std
