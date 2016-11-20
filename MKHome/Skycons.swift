@@ -112,7 +112,7 @@ class SKYIconView: UIView {
         if _timer != nil {
             self.pause()
         }
-        self._timer = Timer.every(1.0 / 60.0) {
+        self._timer = Timer.every(1.0 / 30.0) {
             self.refresh()
         }
     }
