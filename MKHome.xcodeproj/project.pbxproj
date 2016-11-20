@@ -12,6 +12,9 @@
 		563FC60A1DE0CB2800394E4A /* Huxley.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563FC6091DE0CB2800394E4A /* Huxley.framework */; };
 		563FC60B1DE0D35100394E4A /* Huxley.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563FC6091DE0CB2800394E4A /* Huxley.framework */; };
 		563FC60C1DE0D35100394E4A /* Huxley.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 563FC6091DE0CB2800394E4A /* Huxley.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		563FC60E1DE0EE7B00394E4A /* Journey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563FC60D1DE0EE7B00394E4A /* Journey.swift */; };
+		563FC6101DE0FB3A00394E4A /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563FC60F1DE0FB3A00394E4A /* UserSettings.swift */; };
+		563FC6121DE108AA00394E4A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563FC6111DE108AA00394E4A /* SettingsViewController.swift */; };
 		56647FC81DDE5E58004C4CE4 /* Main~iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56647FAB1DDE54A7004C4CE4 /* Main~iPhone.storyboard */; };
 		56A1AD1B1DDC54840014047B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1AD1A1DDC54840014047B /* AppDelegate.swift */; };
 		56A1AD1D1DDC54840014047B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1AD1C1DDC54840014047B /* ViewController.swift */; };
@@ -50,6 +53,9 @@
 		562A9F5D1DDC6FF600ABC3AD /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		562A9F5F1DDC711200ABC3AD /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		563FC6091DE0CB2800394E4A /* Huxley.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Huxley.framework; path = Carthage/Build/iOS/Huxley.framework; sourceTree = "<group>"; };
+		563FC60D1DE0EE7B00394E4A /* Journey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Journey.swift; sourceTree = "<group>"; };
+		563FC60F1DE0FB3A00394E4A /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		563FC6111DE108AA00394E4A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		56647FAC1DDE54A7004C4CE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Main~iPhone.storyboard"; sourceTree = "<group>"; };
 		56A1AD171DDC54840014047B /* BOB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BOB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56A1AD1A1DDC54840014047B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +125,8 @@
 				56BD70441DDC7E6F00CA142D /* WeatherCell.swift */,
 				56BD704B1DDCAFB800CA142D /* Config.swift */,
 				56FAE2551DDDE4C80015880C /* config.plist */,
+				563FC60F1DE0FB3A00394E4A /* UserSettings.swift */,
+				563FC6111DE108AA00394E4A /* SettingsViewController.swift */,
 			);
 			path = MKHome;
 			sourceTree = "<group>";
@@ -138,6 +146,7 @@
 			children = (
 				56BD70471DDCA20400CA142D /* TrainClient.swift */,
 				56BD70491DDCA37C00CA142D /* TrainServicesExtension.swift */,
+				563FC60D1DE0EE7B00394E4A /* Journey.swift */,
 			);
 			name = Train;
 			sourceTree = "<group>";
@@ -219,6 +228,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				56BB04661DDC68DF00C274A9 /* Skycons.swift in Sources */,
+				563FC6101DE0FB3A00394E4A /* UserSettings.swift in Sources */,
+				563FC60E1DE0EE7B00394E4A /* Journey.swift in Sources */,
 				56BD704A1DDCA37C00CA142D /* TrainServicesExtension.swift in Sources */,
 				562A9F601DDC711200ABC3AD /* Colors.swift in Sources */,
 				56BD70451DDC7E6F00CA142D /* WeatherCell.swift in Sources */,
@@ -226,6 +237,7 @@
 				56A1AD1D1DDC54840014047B /* ViewController.swift in Sources */,
 				56A1AD1B1DDC54840014047B /* AppDelegate.swift in Sources */,
 				56BD704C1DDCAFB800CA142D /* Config.swift in Sources */,
+				563FC6121DE108AA00394E4A /* SettingsViewController.swift in Sources */,
 				56BD704E1DDCBAC200CA142D /* TrainCell.swift in Sources */,
 				562A9F5E1DDC6FF600ABC3AD /* Timer.swift in Sources */,
 			);

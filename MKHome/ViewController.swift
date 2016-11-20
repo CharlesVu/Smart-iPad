@@ -13,8 +13,15 @@ import Huxley
 
 class ViewController: UIViewController
 {
-    fileprivate var colorScheme = ColorScheme.solarizedLight
-    
+    fileprivate var colorScheme = ColorScheme.solarizedDark {
+        didSet {
+            self.refreshColors()
+            self.tableView?.reloadData()
+            self.collectionView?.reloadData()
+        }
+    }
+
+    let userSettings = UserSettings.sharedInstance
     // Weather Stuff
     private let client = DarkSkyClient(apiKey: Configuration().darkSkyApiToken)
     fileprivate var weatherMap: [String: Forecast] = [:]
@@ -36,11 +43,7 @@ class ViewController: UIViewController
     fileprivate var departures: Huxley.Departures?
     @IBOutlet weak var tableView: UITableView?
     @IBOutlet weak var trainDestinationLabel: UILabel?
-
-    // Fix me stuff which doesn't belong in the VC
-    fileprivate var trainDestination = "MKC"
-    fileprivate var trainSource = "EUS"
-    
+   
     fileprivate let areasOfInterest = ["Milton Keynes, UK", "Leicester Square Station, London"]
     
     override var prefersStatusBarHidden: Bool {
@@ -75,12 +78,6 @@ class ViewController: UIViewController
     {
         super.viewWillAppear(animated)
         
-        if UIDevice.current.userInterfaceIdiom == .pad
-        {
-            trainDestination = "EUS"
-            trainSource = "MKC"
-        }
-
         refreshWeather()
         refreshTrains()
         refreshTime()
@@ -114,13 +111,17 @@ class ViewController: UIViewController
     
     func refreshTrains()
     {
-        TrainClient().getTrains(from: trainSource, to: trainDestination)
+        if userSettings.getJourneys().count > 0
         {
-            departures in
-            
-            self.departures = departures
-            DispatchQueue.main.async {
-                self.tableView?.reloadData()
+            TrainClient().getTrains(from: userSettings.getJourneys()[0].originCRS,
+                                    to: userSettings.getJourneys()[0].destinationCRS)
+            {
+                departures in
+                
+                self.departures = departures
+                DispatchQueue.main.async {
+                    self.tableView?.reloadData()
+                }
             }
         }
     }
@@ -258,7 +259,7 @@ extension ViewController: UITableViewDataSource
     {
         let service = self.departures!.trainServices[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrainCell") as! TrainCell
-        cell.arivalTime?.text = "Leaving at " + service.std! + " (\(Int(service.getJourneyDuration(toStationCRS: self.trainDestination) / 60)) min)"
+        cell.arivalTime?.text = "Leaving at " + service.std! + " (\(Int(service.getJourneyDuration(toStationCRS: userSettings.getJourneys()[0].destinationCRS) / 60)) min)"
         cell.arivalTime?.textColor = colorScheme.normalText
         
         if service.etd == "On time" || service.etd == service.std

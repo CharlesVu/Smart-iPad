@@ -24,4 +24,18 @@ class TrainClient
                 }
         }
     }
+    
+    func getTrainsNames(completion: @escaping (CRSList) -> Void)
+    {
+        Alamofire.request("\(Configuration().huxleyProxyEndpoint)/crs/?accessToken=\(Configuration().huxleyToken)", method: .get)
+            .responseJSON
+            { response in
+                if let json = response.result.value as? [[String: String]]
+                {
+                    let crsList = Huxley.CRSList(from: json)
+                    completion(crsList)
+                }
+        }
+
+    }
 }
