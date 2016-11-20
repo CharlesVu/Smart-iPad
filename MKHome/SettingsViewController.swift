@@ -12,13 +12,16 @@ import UIKit
 class SettingsViewController: UIViewController
 {
     fileprivate var colorScheme = ColorScheme.solarizedLight
-    let userSettings = UserSettings.sharedInstance
-    
+    fileprivate let userSettings = UserSettings.sharedInstance
+    fileprivate let appSettings = AppData.sharedInstance
+
     @IBOutlet var trainJourneyTableView: UITableView?
     
     override func viewDidLoad()
     {
         view.backgroundColor = colorScheme.alternativeBackground
+        self.trainJourneyTableView?.layer.borderWidth = 1
+        self.trainJourneyTableView?.layer.borderColor = colorScheme.background.cgColor
     }
     
     override func viewWillAppear(_ animated: Bool)
@@ -26,11 +29,6 @@ class SettingsViewController: UIViewController
         self.trainJourneyTableView?.reloadData()
     }
     
-    @IBAction func onButtonClicked(button: UIButton)
-    {
-        UserSettings.sharedInstance.addJourney(Journey(originCRS: "MKC", destinationCRS: "EUS"))
-    }
-
     @IBAction func onCloseClicked(button: UIButton)
     {
         self.dismiss(animated: true)
@@ -49,17 +47,17 @@ extension SettingsViewController: UITableViewDataSource
         let journey = userSettings.getJourneys()[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "journeyCell")!
         
-        cell.textLabel?.text = "\(journey.originCRS) to \(journey.destinationCRS)"
-        cell.textLabel?.textColor = colorScheme.normalText
-        cell.backgroundColor = colorScheme.alternativeBackground
-        
-        if UIDevice.current.userInterfaceIdiom == .pad
+        if let source = appSettings.stationMap[journey.originCRS],
+            let destination = appSettings.stationMap[journey.destinationCRS]
         {
-            cell.preservesSuperviewLayoutMargins = false
-            
-            cell.layoutMargins = .zero
-            cell.separatorInset = .zero
+            let attributedSource = NSMutableAttributedString(string: source, attributes:[NSForegroundColorAttributeName: colorScheme.normalText])
+            let attributedDestination = NSAttributedString(string: destination, attributes:[NSForegroundColorAttributeName: colorScheme.normalText])
+            attributedSource.append(NSAttributedString(string: " → ", attributes:[NSForegroundColorAttributeName: colorScheme.alternativeText]))
+            attributedSource.append(attributedDestination)
+            cell.textLabel?.attributedText = attributedSource
         }
+
+        cell.backgroundColor = colorScheme.alternativeBackground
         
         return cell
     }
