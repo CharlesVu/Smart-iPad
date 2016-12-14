@@ -10,7 +10,6 @@
 		562A9F5E1DDC6FF600ABC3AD /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A9F5D1DDC6FF600ABC3AD /* Timer.swift */; };
 		562A9F601DDC711200ABC3AD /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A9F5F1DDC711200ABC3AD /* Colors.swift */; };
 		563FC60A1DE0CB2800394E4A /* Huxley.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563FC6091DE0CB2800394E4A /* Huxley.framework */; };
-		563FC60B1DE0D35100394E4A /* Huxley.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563FC6091DE0CB2800394E4A /* Huxley.framework */; };
 		563FC60C1DE0D35100394E4A /* Huxley.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 563FC6091DE0CB2800394E4A /* Huxley.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		563FC60E1DE0EE7B00394E4A /* Journey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563FC60D1DE0EE7B00394E4A /* Journey.swift */; };
 		563FC6101DE0FB3A00394E4A /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563FC60F1DE0FB3A00394E4A /* UserSettings.swift */; };
@@ -31,6 +30,7 @@
 		56BD704A1DDCA37C00CA142D /* TrainServicesExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD70491DDCA37C00CA142D /* TrainServicesExtension.swift */; };
 		56BD704C1DDCAFB800CA142D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD704B1DDCAFB800CA142D /* Config.swift */; };
 		56BD704E1DDCBAC200CA142D /* TrainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD704D1DDCBAC200CA142D /* TrainCell.swift */; };
+		56C2E17E1E0172B20073AC82 /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C2E17D1E0172B20073AC82 /* HomeKit.framework */; };
 		56F436851DE1AEE600521991 /* StationChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F436841DE1AEE600521991 /* StationChooserViewController.swift */; };
 		56F436871DE1AF9D00521991 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F436861DE1AF9D00521991 /* AppData.swift */; };
 		56FAE2561DDDE4C80015880C /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 56FAE2551DDDE4C80015880C /* config.plist */; };
@@ -74,6 +74,8 @@
 		56BD70491DDCA37C00CA142D /* TrainServicesExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainServicesExtension.swift; sourceTree = "<group>"; };
 		56BD704B1DDCAFB800CA142D /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		56BD704D1DDCBAC200CA142D /* TrainCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainCell.swift; sourceTree = "<group>"; };
+		56C2E17B1E0172B20073AC82 /* BOB.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BOB.entitlements; sourceTree = "<group>"; };
+		56C2E17D1E0172B20073AC82 /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
 		56F436841DE1AEE600521991 /* StationChooserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationChooserViewController.swift; sourceTree = "<group>"; };
 		56F436861DE1AF9D00521991 /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		56FAE2551DDDE4C80015880C /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
@@ -86,8 +88,8 @@
 			files = (
 				56BB045E1DDC59DA00C274A9 /* ForecastIO.framework in Frameworks */,
 				56BB04601DDC59DF00C274A9 /* Alamofire.framework in Frameworks */,
+				56C2E17E1E0172B20073AC82 /* HomeKit.framework in Frameworks */,
 				563FC60A1DE0CB2800394E4A /* Huxley.framework in Frameworks */,
-				563FC60B1DE0D35100394E4A /* Huxley.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +102,7 @@
 				56BB045C1DDC585800C274A9 /* External */,
 				56A1AD191DDC54840014047B /* MKHome */,
 				56A1AD181DDC54840014047B /* Products */,
+				56C2E17C1E0172B20073AC82 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,6 +117,7 @@
 		56A1AD191DDC54840014047B /* MKHome */ = {
 			isa = PBXGroup;
 			children = (
+				56C2E17B1E0172B20073AC82 /* BOB.entitlements */,
 				56F436831DE1AE8700521991 /* Settings */,
 				56BD70461DDCA1E500CA142D /* Train */,
 				56A1AD1A1DDC54840014047B /* AppDelegate.swift */,
@@ -152,6 +156,14 @@
 				563FC60D1DE0EE7B00394E4A /* Journey.swift */,
 			);
 			name = Train;
+			sourceTree = "<group>";
+		};
+		56C2E17C1E0172B20073AC82 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				56C2E17D1E0172B20073AC82 /* HomeKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		56F436831DE1AE8700521991 /* Settings */ = {
@@ -193,13 +205,18 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = charles;
 				TargetAttributes = {
 					56A1AD161DDC54830014047B = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = TYBW749P94;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HomeKit = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -308,6 +325,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -330,7 +348,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -358,6 +376,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -374,7 +393,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -387,6 +406,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MKHome/BOB.entitlements;
 				DEVELOPMENT_TEAM = TYBW749P94;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -406,6 +426,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MKHome/BOB.entitlements;
 				DEVELOPMENT_TEAM = TYBW749P94;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
