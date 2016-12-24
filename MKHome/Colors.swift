@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 /*
- $yellow:    #b58900;
  $magenta:   #d33682;
  $violet:    #6c71c4;
  $blue:      #268bd2;
@@ -82,6 +81,11 @@ extension UIColor
     {
         return UIColor(fromRGB: 0x859900)
     }
+
+    static var solarizedYellow: UIColor
+    {
+        return UIColor(fromRGB: 0xb58900)
+    }
 }
 
 struct ColorScheme
@@ -93,15 +97,26 @@ struct ColorScheme
     let positiveText: UIColor
     let warningText: UIColor
     let errorText: UIColor
+    let yellow: UIColor
 }
 
 extension ColorScheme
 {
-    static let solarizedDark = ColorScheme(background: UIColor.solarizedBase02, alternativeBackground:UIColor.solarizedBase03,
-                                           normalText: UIColor.solarizedBase0, alternativeText: UIColor.solarizedBase00,
-                                           positiveText: UIColor.solarizedGreen, warningText: UIColor.solarizedOrange, errorText: UIColor.solarizedRed)
+    static let solarizedDark = ColorScheme(background: UIColor.solarizedBase02,
+                                           alternativeBackground:UIColor.solarizedBase03,
+                                           normalText: UIColor.solarizedBase0,
+                                           alternativeText: UIColor.solarizedBase00,
+                                           positiveText: UIColor.solarizedGreen,
+                                           warningText: UIColor.solarizedOrange,
+                                           errorText: UIColor.solarizedRed,
+                                           yellow: UIColor.solarizedYellow)
     
-    static let solarizedLight = ColorScheme(background: UIColor.solarizedBase2, alternativeBackground:UIColor.solarizedBase3,
-                                            normalText: UIColor.solarizedBase00, alternativeText: UIColor.solarizedBase0,
-                                            positiveText: UIColor.solarizedGreen, warningText: UIColor.solarizedOrange, errorText: UIColor.solarizedRed)
+    static let solarizedLight = ColorScheme(background: UIColor.solarizedBase2,
+                                            alternativeBackground:UIColor.solarizedBase3,
+                                            normalText: UIColor.solarizedBase00,
+                                            alternativeText: UIColor.solarizedBase0,
+                                            positiveText: UIColor.solarizedGreen,
+                                            warningText: UIColor.solarizedOrange,
+                                            errorText: UIColor.solarizedRed,
+                                            yellow: UIColor.solarizedYellow)
 }

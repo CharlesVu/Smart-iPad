@@ -27,7 +27,7 @@ class TrainClient
     
     static func getTrainsNames(completion: @escaping ([String:String]) -> Void)
     {
-        Alamofire.request("\(Configuration().huxleyProxyEndpoint)/crs/?accessToken=\(Configuration().huxleyToken)", method: .get)
+        Alamofire.request("\(Configuration().huxleyProxyEndpoint)crs/?accessToken=\(Configuration().huxleyToken)", method: .get)
             .responseJSON
             { response in
                 if let json = response.result.value as? [[String: String]]

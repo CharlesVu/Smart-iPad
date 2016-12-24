@@ -9,15 +9,16 @@
 import UIKit
 import ForecastIO
 import CoreLocation
+import HomeKit
 import Huxley
 
 class ViewController: UIViewController
 {
-    fileprivate var colorScheme = ColorScheme.solarizedLight {
+    fileprivate var colorScheme = ColorScheme.solarizedDark {
         didSet {
-            self.refreshColors()
-            self.tableView?.reloadData()
-            self.collectionView?.reloadData()
+            refreshColors()
+            tableView?.reloadData()
+            weatherView?.colorScheme = colorScheme
         }
     }
 
@@ -30,14 +31,10 @@ class ViewController: UIViewController
     fileprivate var currentLocation: String = ""
     private var currentAreaIndex = 0
 
-    @IBOutlet weak var currentWeather: SKYIconView?
-    @IBOutlet weak var currentTemerature: UILabel?
-    @IBOutlet weak var currentHumanDescription: UILabel?
     @IBOutlet weak var currentTime: UILabel?
     @IBOutlet weak var currentDate: UILabel?
-    @IBOutlet weak var weatherTitle: UILabel?
-    @IBOutlet weak var collectionView: UICollectionView?
-    
+    @IBOutlet weak var weatherView: WeatherView?
+
     let dateCellFormatter = DateFormatter()
     let currentDayCellFormatter = DateFormatter()
     
@@ -46,8 +43,10 @@ class ViewController: UIViewController
     fileprivate var currentJourneyIndex = -1
     @IBOutlet weak var tableView: UITableView?
     @IBOutlet weak var trainDestinationLabel: UILabel?
-   
-    
+
+    // Home Stuff
+
+    // Stuff that need to move from here
     fileprivate let areasOfInterest = ["Milton Keynes, UK", "Leicester Square Station, London"]
     
     override var prefersStatusBarHidden: Bool {
@@ -62,19 +61,14 @@ class ViewController: UIViewController
         currentDayCellFormatter.setLocalizedDateFormatFromTemplate("dd MMMM YYYY")
         
         client.units = .si
-        
         refreshColors()
     }
     
     func refreshColors()
     {
         view.backgroundColor = colorScheme.background
-        currentWeather?.tintColor = colorScheme.normalText
-        currentTemerature?.textColor = colorScheme.normalText
-        currentHumanDescription?.textColor = colorScheme.normalText
         currentTime?.textColor = colorScheme.normalText
         currentDate?.textColor = colorScheme.normalText
-        weatherTitle?.textColor = colorScheme.normalText
         trainDestinationLabel?.textColor = colorScheme.normalText
     }
     
@@ -170,31 +164,10 @@ class ViewController: UIViewController
     
     func displayWeatherFor(_ location: String)
     {
-        let forecast = weatherMap[location]
-        
         DispatchQueue.main.async {
-            self.weatherTitle?.pushTransition(duration: 0.3)
-            self.weatherTitle?.text = "Weather in \(location)"
-
-            if let icon = forecast?.currently?.icon
+            if let forecast = self.weatherMap[location]
             {
-                self.currentWeather?.pushTransition(duration: 0.3)
-                self.currentWeather?.setType = icon
-                self.currentWeather?.play()
-                self.currentWeather?.tintColor = self.colorScheme.normalText
-            }
-            self.collectionView?.reloadData()
-            
-            if let description = forecast?.hourly?.summary
-            {
-                self.currentHumanDescription?.pushTransition(duration: 0.3)
-                self.currentHumanDescription?.text = description
-            }
-            
-            if let temperature = forecast?.currently?.temperature
-            {
-                self.currentTemerature?.pushTransition(duration: 0.3)
-                self.currentTemerature?.text = "\(Int(temperature))°C"
+                self.weatherView?.displayForecast(forecast, location: location)
             }
         }
     }
@@ -225,60 +198,6 @@ class ViewController: UIViewController
     {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-}
-
-extension ViewController: UICollectionViewDataSource
-{
-    func numberOfSections(in collectionView: UICollectionView) -> Int
-    {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        numberOfItemsInSection section: Int) -> Int
-    {
-        let forecast = weatherMap[currentLocation]
-
-        return min(forecast?.hourly?.data.count ?? 0, 10)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
-    {
-        
-        let forecast = weatherMap[currentLocation]
-
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "weatherCell",
-                                                      for: indexPath) as! WeatherCell
-        cell.backgroundColor = UIColor.clear
-        
-        if let data = forecast?.hourly?.data[indexPath.row]
-        {
-            cell.icon?.setType = data.icon!
-            if let temperature = data.temperature
-            {
-                cell.temperature?.text = "\(Int(temperature))°C"
-                cell.temperature?.textColor = self.colorScheme.normalText
-            }
-
-            UIView.animate(withDuration: 0.3)
-            {
-                cell.icon?.alpha = 1
-                cell.temperature?.alpha = 1
-                cell.icon?.play()
-            }
-            
-            cell.icon?.tintColor = self.colorScheme.normalText
-            
-            let time = data.time
-
-            cell.time?.text = dateCellFormatter.string(from: time)
-            cell.time?.textColor = self.colorScheme.alternativeText
-
-        }
-        
-        return cell
     }
 }
 

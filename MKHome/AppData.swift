@@ -23,7 +23,7 @@ class AppData
         }
         let pathURL = URL(fileURLWithPath: libraryPath)
         let fullPath = pathURL.appendingPathComponent("station").appendingPathExtension("plist")
-        
+        TrainClient.getTrainsNames(){_ in }
         do
         {
             let data = try Data(contentsOf: fullPath)
