@@ -110,9 +110,9 @@ class ViewController: UIViewController
     
     func refreshTrains()
     {
-        if userSettings.getJourneys().count > 0
+        if userSettings.rail.getJourneys().count > 0
         {
-            for journey in userSettings.getJourneys()
+            for journey in userSettings.rail.getJourneys()
             {
                 TrainClient.getTrains(from: journey.originCRS,
                                       to: journey.destinationCRS)
@@ -174,11 +174,11 @@ class ViewController: UIViewController
     
     func displayNextTrainJourney()
     {
-        if userSettings.getJourneys().count != 0
+        if userSettings.rail.getJourneys().count != 0
         {
-            currentJourneyIndex = (currentJourneyIndex + 1) % userSettings.getJourneys().count
+            currentJourneyIndex = (currentJourneyIndex + 1) % userSettings.rail.getJourneys().count
 
-            let journey = userSettings.getJourneys()[currentJourneyIndex]
+            let journey = userSettings.rail.getJourneys()[currentJourneyIndex]
             
             if let source = appSettings.stationMap[journey.originCRS],
                 let destination = appSettings.stationMap[journey.destinationCRS]
@@ -209,13 +209,13 @@ extension ViewController: UITableViewDataSource
         {
             return 0
         }
-        let currentJourney = userSettings.getJourneys()[currentJourneyIndex]
+        let currentJourney = userSettings.rail.getJourneys()[currentJourneyIndex]
         return departures[currentJourney]?.trainServices.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let currentJourney = userSettings.getJourneys()[currentJourneyIndex]
+        let currentJourney = userSettings.rail.getJourneys()[currentJourneyIndex]
 
         let service = departures[currentJourney]!.trainServices[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrainCell") as! TrainCell

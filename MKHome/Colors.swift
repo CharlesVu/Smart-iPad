@@ -90,6 +90,7 @@ extension UIColor
 
 struct ColorScheme
 {
+    let name: String
     let background: UIColor
     let alternativeBackground: UIColor
     let normalText: UIColor
@@ -102,7 +103,8 @@ struct ColorScheme
 
 extension ColorScheme
 {
-    static let solarizedDark = ColorScheme(background: UIColor.solarizedBase02,
+    static let solarizedDark = ColorScheme(name: "Solarized Dark",
+                                           background: UIColor.solarizedBase02,
                                            alternativeBackground:UIColor.solarizedBase03,
                                            normalText: UIColor.solarizedBase0,
                                            alternativeText: UIColor.solarizedBase00,
@@ -111,7 +113,8 @@ extension ColorScheme
                                            errorText: UIColor.solarizedRed,
                                            yellow: UIColor.solarizedYellow)
     
-    static let solarizedLight = ColorScheme(background: UIColor.solarizedBase2,
+    static let solarizedLight = ColorScheme(name: "Solarized Light",
+                                            background: UIColor.solarizedBase2,
                                             alternativeBackground:UIColor.solarizedBase3,
                                             normalText: UIColor.solarizedBase00,
                                             alternativeText: UIColor.solarizedBase0,

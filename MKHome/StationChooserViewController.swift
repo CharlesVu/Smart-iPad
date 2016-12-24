@@ -59,7 +59,7 @@ extension StationChooserViewController: UITableViewDelegate
         if let previousCRS = previousCRS, let selectedCRS = selectedCRS
         {
             // Todo : Validate train journey by calling client to see if there is at least a train
-            UserSettings.sharedInstance.addJourney(Journey(originCRS: previousCRS, destinationCRS: selectedCRS))
+            UserSettings.sharedInstance.rail.addJourney(Journey(originCRS: previousCRS, destinationCRS: selectedCRS))
             _ = self.navigationController?.popToRootViewController(animated: true)
         }
         else

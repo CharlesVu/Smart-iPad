@@ -39,12 +39,12 @@ extension SettingsViewController: UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return userSettings.getJourneys().count
+        return userSettings.rail.getJourneys().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let journey = userSettings.getJourneys()[indexPath.row]
+        let journey = userSettings.rail.getJourneys()[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "journeyCell")!
         
         if let source = appSettings.stationMap[journey.originCRS],
@@ -73,8 +73,8 @@ extension SettingsViewController: UITableViewDelegate
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete)
         {
-            let journey = userSettings.getJourneys()[indexPath.row]
-            userSettings.removeJourney(journey)
+            let journey = userSettings.rail.getJourneys()[indexPath.row]
+            userSettings.rail.removeJourney(journey)
             tableView.reloadData()
             // handle delete (by removing the data from your array and updating the tableview)
         }
