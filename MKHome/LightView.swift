@@ -16,8 +16,7 @@ class LightView: UIView
     fileprivate let homeManager = HMHomeManager()
     fileprivate var lights = [HMRoom: [HMCharacteristic]]()
 
-    public var colorScheme: ColorScheme = ColorScheme.solarizedDark
-        {
+    public var colorScheme: ColorScheme = ColorScheme.solarizedDark {
         didSet
         {
             lightCollectionView?.reloadData()

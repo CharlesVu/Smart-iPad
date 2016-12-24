@@ -36,6 +36,7 @@
 		56F4D6AA1E0D66660056BCC4 /* LightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F4D6A91E0D66660056BCC4 /* LightCell.swift */; };
 		56F4D6AC1E0D8EDA0056BCC4 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F4D6AB1E0D8EDA0056BCC4 /* WeatherView.swift */; };
 		56F4D6AE1E0D9A250056BCC4 /* LightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F4D6AD1E0D9A250056BCC4 /* LightView.swift */; };
+		56F4D6B21E0EB9A30056BCC4 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F4D6B11E0EB9A30056BCC4 /* UIView.swift */; };
 		56FAE2561DDDE4C80015880C /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 56FAE2551DDDE4C80015880C /* config.plist */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +85,7 @@
 		56F4D6A91E0D66660056BCC4 /* LightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightCell.swift; sourceTree = "<group>"; };
 		56F4D6AB1E0D8EDA0056BCC4 /* WeatherView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		56F4D6AD1E0D9A250056BCC4 /* LightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightView.swift; sourceTree = "<group>"; };
+		56F4D6B11E0EB9A30056BCC4 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		56FAE2551DDDE4C80015880C /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,26 +125,23 @@
 		56A1AD191DDC54840014047B /* MKHome */ = {
 			isa = PBXGroup;
 			children = (
+				56F4D6B01E0EB7A20056BCC4 /* HomeKit */,
+				56F4D6AF1E0EB7930056BCC4 /* Weather */,
 				56C2E17B1E0172B20073AC82 /* BOB.entitlements */,
 				56FAE2551DDDE4C80015880C /* config.plist */,
 				56A1AD261DDC54840014047B /* Info.plist */,
 				56A1AD1A1DDC54840014047B /* AppDelegate.swift */,
 				562A9F5F1DDC711200ABC3AD /* Colors.swift */,
 				56BD704B1DDCAFB800CA142D /* Config.swift */,
-				56F4D6A91E0D66660056BCC4 /* LightCell.swift */,
-				56BB04651DDC68DF00C274A9 /* Skycons.swift */,
 				562A9F5D1DDC6FF600ABC3AD /* Timer.swift */,
-				56BD704D1DDCBAC200CA142D /* TrainCell.swift */,
 				56A1AD1C1DDC54840014047B /* ViewController.swift */,
-				56BD70441DDC7E6F00CA142D /* WeatherCell.swift */,
-				56F4D6AB1E0D8EDA0056BCC4 /* WeatherView.swift */,
 				56A1AD211DDC54840014047B /* Assets.xcassets */,
 				56A1AD231DDC54840014047B /* LaunchScreen.storyboard */,
 				56A1AD1E1DDC54840014047B /* Main~iPad.storyboard */,
 				56647FAB1DDE54A7004C4CE4 /* Main~iPhone.storyboard */,
 				56F436831DE1AE8700521991 /* Settings */,
 				56BD70461DDCA1E500CA142D /* Train */,
-				56F4D6AD1E0D9A250056BCC4 /* LightView.swift */,
+				56F4D6B11E0EB9A30056BCC4 /* UIView.swift */,
 			);
 			path = MKHome;
 			sourceTree = "<group>";
@@ -160,6 +159,7 @@
 		56BD70461DDCA1E500CA142D /* Train */ = {
 			isa = PBXGroup;
 			children = (
+				56BD704D1DDCBAC200CA142D /* TrainCell.swift */,
 				56BD70471DDCA20400CA142D /* TrainClient.swift */,
 				56BD70491DDCA37C00CA142D /* TrainServicesExtension.swift */,
 				563FC60D1DE0EE7B00394E4A /* Journey.swift */,
@@ -184,6 +184,25 @@
 				56F436861DE1AF9D00521991 /* AppData.swift */,
 			);
 			name = Settings;
+			sourceTree = "<group>";
+		};
+		56F4D6AF1E0EB7930056BCC4 /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				56BB04651DDC68DF00C274A9 /* Skycons.swift */,
+				56BD70441DDC7E6F00CA142D /* WeatherCell.swift */,
+				56F4D6AB1E0D8EDA0056BCC4 /* WeatherView.swift */,
+			);
+			name = Weather;
+			sourceTree = "<group>";
+		};
+		56F4D6B01E0EB7A20056BCC4 /* HomeKit */ = {
+			isa = PBXGroup;
+			children = (
+				56F4D6A91E0D66660056BCC4 /* LightCell.swift */,
+				56F4D6AD1E0D9A250056BCC4 /* LightView.swift */,
+			);
+			name = HomeKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,6 +302,7 @@
 				56A1AD1D1DDC54840014047B /* ViewController.swift in Sources */,
 				56A1AD1B1DDC54840014047B /* AppDelegate.swift in Sources */,
 				56BD704C1DDCAFB800CA142D /* Config.swift in Sources */,
+				56F4D6B21E0EB9A30056BCC4 /* UIView.swift in Sources */,
 				563FC6121DE108AA00394E4A /* SettingsViewController.swift in Sources */,
 				56BD704E1DDCBAC200CA142D /* TrainCell.swift in Sources */,
 				562A9F5E1DDC6FF600ABC3AD /* Timer.swift in Sources */,

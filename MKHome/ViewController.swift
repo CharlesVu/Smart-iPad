@@ -290,27 +290,3 @@ extension ViewController
     }
 }
 
-extension UIView
-{
-    func fadeTransition(duration:CFTimeInterval)
-    {
-        let animation:CATransition = CATransition()
-        animation.timingFunction = CAMediaTimingFunction(name:
-            kCAMediaTimingFunctionEaseInEaseOut)
-        animation.type = kCATransitionFromTop
-        animation.duration = duration
-        self.layer.add(animation, forKey: kCATransitionFromTop)
-    }
-    
-    func pushTransition(duration:CFTimeInterval)
-    {
-        let animation:CATransition = CATransition()
-        animation.timingFunction = CAMediaTimingFunction(name:
-            kCAMediaTimingFunctionEaseInEaseOut)
-        animation.type = kCATransitionPush
-        animation.duration = duration
-        self.layer.add(animation, forKey: kCATransitionPush)
-    }
-
-}
-
