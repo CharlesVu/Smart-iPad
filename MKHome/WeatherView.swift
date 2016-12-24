@@ -13,8 +13,8 @@ import ForecastIO
 class WeatherView: UIView
 {
     private let client = DarkSkyClient(apiKey: Configuration().darkSkyApiToken)
-    fileprivate var weatherMap: [UserSettings.City: Forecast] = [:]
-    fileprivate var currentLocation: UserSettings.City?
+    fileprivate var weatherMap: [City: Forecast] = [:]
+    fileprivate var currentLocation: City?
     private var currentAreaIndex = 0
 
     @IBOutlet weak var currentWeather: SKYIconView?
@@ -41,7 +41,9 @@ class WeatherView: UIView
     {
         dateCellFormatter.setLocalizedDateFormatFromTemplate("HH:mm")
         weatherCollectionView?.dataSource = self
+        UserSettings.sharedInstance.weather.delegate = self
         client.units = .si
+        isHidden = true
     }
 
     override func willMove(toSuperview newSuperview: UIView?)
@@ -69,11 +71,15 @@ class WeatherView: UIView
 
     func displayNextCity()
     {
-        if UserSettings.sharedInstance.weather.getCities().count > 1
+        if UserSettings.sharedInstance.weather.getCities().count > 0
         {
             currentAreaIndex = (currentAreaIndex + 1) % UserSettings.sharedInstance.weather.getCities().count
             currentLocation = UserSettings.sharedInstance.weather.getCities()[currentAreaIndex]
             self.displayWeatherFor(currentLocation)
+        }
+        else
+        {
+            self.isHidden = true
         }
     }
 
@@ -99,13 +105,14 @@ class WeatherView: UIView
         }
     }
 
-    func displayWeatherFor(_ location: UserSettings.City?)
+    func displayWeatherFor(_ location: City?)
     {
         DispatchQueue.main.async {
             if let location = location
             {
                 if let forecast = self.weatherMap[location]
                 {
+                    self.isHidden = false
                     self.displayForecast(forecast, city: location)
                 }
             }
@@ -117,7 +124,7 @@ class WeatherView: UIView
         weatherCollectionView?.reloadData()
     }
 
-    public func displayForecast(_ forecast: Forecast, city: UserSettings.City)
+    public func displayForecast(_ forecast: Forecast, city: City)
     {
         self.forecast = forecast
 
@@ -146,6 +153,14 @@ class WeatherView: UIView
         }
 
         weatherCollectionView?.reloadData()
+    }
+}
+
+extension WeatherView: WeatherDelegate
+{
+    func onCityChanged()
+    {
+        refreshWeather()
     }
 }
 

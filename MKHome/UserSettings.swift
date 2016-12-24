@@ -17,50 +17,19 @@ class UserSettings
     let rail = NationalRail()
 }
 
+protocol WeatherDelegate
+{
+    func onCityChanged()
+}
+
 // Weather
 extension UserSettings
 {
-    struct City: Hashable, Equatable
-    {
-        var name: String
-        var coordinates: CLLocationCoordinate2D
-
-        static func lookup(name: String, completion: @escaping (Error?, CLLocationCoordinate2D?) -> Void)
-        {
-            CLGeocoder().geocodeAddressString(name)
-            { (placemarks, error) in
-                if error != nil
-                {
-                    completion(error, nil)
-                }
-                if let placemarks = placemarks, placemarks.count > 0
-                {
-                    let placemark = placemarks[0]
-                    let location = placemark.location
-                    let coordinate = location?.coordinate
-                    if let coordinate = coordinate
-                    {
-                        completion(nil, coordinate)
-                    }
-                }
-            }
-        }
-
-        var hashValue: Int
-        {
-            return name.hashValue
-        }
-
-        static func ==(lhs: City, rhs: City) -> Bool
-        {
-            return lhs.name == rhs.name
-        }
-    }
-
     class Weather
     {
         static let archiveKey = "weather.cities"
         fileprivate var cities: [City] = []
+        var delegate : WeatherDelegate?
 
         init()
         {
@@ -70,11 +39,12 @@ extension UserSettings
                 {
                     for cityName in weatherCities
                     {
-                        City.lookup(name: cityName)
+                        City.lookupCoordinates(name: cityName)
                         { (error, coordinate) in
                             if let coordinate = coordinate
                             {
                                 self.cities.append(City(name: cityName, coordinates: coordinate))
+                                self.delegate?.onCityChanged()
                             }
                         }
                     }
@@ -87,30 +57,22 @@ extension UserSettings
             return cities
         }
 
-        func addCity(_ city: String)
+        func addCity(_ city: City)
         {
-            City.lookup(name: city)
-            { (error, coordinate) in
-                if let coordinate = coordinate
-                {
-                    self.cities.append(City(name: city, coordinates: coordinate))
-                }
-            }
+            cities.append(city)
             save()
+            delegate?.onCityChanged()
         }
 
-        func removeCity(_ cityName: String)
+        func removeCity(_ city: City)
         {
-            let index = cities.index { (city) -> Bool in
-                return city.name == cityName
-            }
-
-            if let index = index
+            if let index = cities.index(of: city)
             {
                 cities.remove(at: index)
             }
 
             save()
+            delegate?.onCityChanged()
         }
 
         fileprivate func save()

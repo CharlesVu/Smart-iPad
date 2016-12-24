@@ -442,7 +442,7 @@
                                 </constraints>
                                 <inset key="separatorInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="journeyCell" textLabel="1Vq-Nu-2Qh" style="IBUITableViewCellStyleDefault" id="gkE-sc-1QC">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cityCell" textLabel="1Vq-Nu-2Qh" style="IBUITableViewCellStyleDefault" id="gkE-sc-1QC">
                                         <rect key="frame" x="0.0" y="28" width="540" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gkE-sc-1QC" id="2Pc-5B-dOA">
@@ -487,6 +487,9 @@
                                 <state key="normal" title="Add new city">
                                     <color key="titleColor" red="0.52156862749999999" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="6ZG-3G-8xG" kind="show" id="jNj-vK-BkS"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.00034396059349999999" green="0.16847378020000001" blue="0.21198371050000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -518,12 +521,13 @@
                     <navigationItem key="navigationItem" title="Settings" id="GdB-sm-hck"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="cityWeatherTableView" destination="Ovt-Ax-xGr" id="o3S-aw-H5G"/>
                         <outlet property="trainJourneyTableView" destination="2wP-eW-h4L" id="JM3-Nn-6Px"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="45n-oA-9DR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="983.78906249999989" y="43.75"/>
+            <point key="canvasLocation" x="1172" y="38"/>
         </scene>
         <!--Choose a departure station-->
         <scene sceneID="WmL-lf-gk6">
@@ -602,7 +606,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1JH-2E-fGm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1419" y="38"/>
+            <point key="canvasLocation" x="1539" y="-188"/>
         </scene>
         <!--Choose a arrival station-->
         <scene sceneID="KtS-Kv-4GP">
@@ -680,7 +684,85 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MPw-f3-Hjd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1819" y="38"/>
+            <point key="canvasLocation" x="1936" y="-188"/>
+        </scene>
+        <!--Choose a place-->
+        <scene sceneID="U06-aC-dAU">
+            <objects>
+                <viewController title="Choose a place" id="6ZG-3G-8xG" customClass="CityChooserViewController" customModule="BOB" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pz4-RQ-zMs"/>
+                        <viewControllerLayoutGuide type="bottom" id="9CE-9f-Rg8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kCZ-hS-D4K">
+                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Location Name" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2E2-qQ-YVW">
+                                <rect key="frame" x="8" y="44" width="524" height="44"/>
+                                <color key="barTintColor" red="0.00034396059349999999" green="0.16847378020000001" blue="0.21198371050000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="6ZG-3G-8xG" id="mXu-Wu-QBM"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nzx-Ze-bEO">
+                                <rect key="frame" x="16" y="88" width="508" height="516"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CityCell" textLabel="Tz3-Uo-ted" style="IBUITableViewCellStyleDefault" id="dEL-tW-Moi">
+                                        <rect key="frame" x="0.0" y="28" width="508" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dEL-tW-Moi" id="rhZ-Bd-J4V">
+                                            <rect key="frame" x="0.0" y="0.0" width="508" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Tz3-Uo-ted">
+                                                    <rect key="frame" x="15" y="0.0" width="478" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="6ZG-3G-8xG" id="2tf-fo-057"/>
+                                    <outlet property="delegate" destination="6ZG-3G-8xG" id="QwN-il-nIE"/>
+                                </connections>
+                            </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Mxn-vy-xir">
+                                <rect key="frame" x="478" y="56" width="20" height="20"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.00034396059349999999" green="0.16847378020000001" blue="0.21198371050000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Mxn-vy-xir" firstAttribute="trailing" secondItem="kCZ-hS-D4K" secondAttribute="trailingMargin" constant="-22" id="0u7-1f-j5M"/>
+                            <constraint firstItem="Mxn-vy-xir" firstAttribute="top" secondItem="pz4-RQ-zMs" secondAttribute="bottom" constant="12" id="2Xk-CH-0ur"/>
+                            <constraint firstItem="Nzx-Ze-bEO" firstAttribute="top" secondItem="2E2-qQ-YVW" secondAttribute="bottom" id="4Ys-ib-I9T"/>
+                            <constraint firstItem="9CE-9f-Rg8" firstAttribute="top" secondItem="Nzx-Ze-bEO" secondAttribute="bottom" constant="16" id="9RH-vt-dLz"/>
+                            <constraint firstItem="2E2-qQ-YVW" firstAttribute="leading" secondItem="kCZ-hS-D4K" secondAttribute="leading" constant="8" id="HGC-rK-RHq"/>
+                            <constraint firstAttribute="trailing" secondItem="2E2-qQ-YVW" secondAttribute="trailing" constant="8" id="KuY-dM-EIO"/>
+                            <constraint firstAttribute="trailing" secondItem="Nzx-Ze-bEO" secondAttribute="trailing" constant="16" id="P8I-zR-2px"/>
+                            <constraint firstItem="2E2-qQ-YVW" firstAttribute="top" secondItem="pz4-RQ-zMs" secondAttribute="bottom" id="SZB-00-u6l"/>
+                            <constraint firstItem="Nzx-Ze-bEO" firstAttribute="leading" secondItem="kCZ-hS-D4K" secondAttribute="leading" constant="16" id="d08-XH-NrG"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="searchBar" destination="2E2-qQ-YVW" id="Nme-Ei-HcP"/>
+                        <outlet property="spinner" destination="Mxn-vy-xir" id="yzx-hn-ZfO"/>
+                        <outlet property="tableView" destination="Nzx-Ze-bEO" id="JKN-WI-8Tc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xhq-bY-jM4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1452" y="673"/>
         </scene>
     </scenes>
 </document>
