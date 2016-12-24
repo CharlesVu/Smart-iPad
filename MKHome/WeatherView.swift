@@ -12,6 +12,11 @@ import ForecastIO
 
 class WeatherView: UIView
 {
+    private let client = DarkSkyClient(apiKey: Configuration().darkSkyApiToken)
+    fileprivate var weatherMap: [UserSettings.City: Forecast] = [:]
+    fileprivate var currentLocation: UserSettings.City?
+    private var currentAreaIndex = 0
+
     @IBOutlet weak var currentWeather: SKYIconView?
     @IBOutlet weak var currentTemerature: UILabel?
     @IBOutlet weak var currentHumanDescription: UILabel?
@@ -21,14 +26,7 @@ class WeatherView: UIView
     fileprivate var forecast: Forecast?
     let dateCellFormatter = DateFormatter()
 
-    override func awakeFromNib()
-    {
-        dateCellFormatter.setLocalizedDateFormatFromTemplate("HH:mm")
-        weatherCollectionView?.dataSource = self
-    }
-
-    public var colorScheme: ColorScheme = ColorScheme.solarizedDark
-    {
+    public var colorScheme: ColorScheme = ColorScheme.solarizedDark {
         didSet
         {
             currentWeather?.tintColor = colorScheme.normalText
@@ -39,17 +37,92 @@ class WeatherView: UIView
         }
     }
 
+    override func awakeFromNib()
+    {
+        dateCellFormatter.setLocalizedDateFormatFromTemplate("HH:mm")
+        weatherCollectionView?.dataSource = self
+        client.units = .si
+    }
+
+    override func willMove(toSuperview newSuperview: UIView?)
+    {
+        if newSuperview != nil
+        {
+            refreshWeather()
+        }
+
+    }
+    override func didMoveToSuperview()
+    {
+        super.didMoveToSuperview()
+
+        Timer.every(15.seconds)
+        {
+            self.displayNextCity()
+        }
+
+        Timer.every(5.minutes)
+        {
+            self.refreshWeather()
+        }
+    }
+
+    func displayNextCity()
+    {
+        if UserSettings.sharedInstance.weather.getCities().count > 1
+        {
+            currentAreaIndex = (currentAreaIndex + 1) % UserSettings.sharedInstance.weather.getCities().count
+            currentLocation = UserSettings.sharedInstance.weather.getCities()[currentAreaIndex]
+            self.displayWeatherFor(currentLocation)
+        }
+    }
+
+    func refreshWeather()
+    {
+        for location in UserSettings.sharedInstance.weather.getCities()
+        {
+            self.client.getForecast(latitude: location.coordinates.latitude,
+                                    longitude: location.coordinates.longitude)
+            {
+                result in
+                let rootObject = result.value.0
+                self.weatherMap[location] = rootObject
+                if self.currentLocation == nil
+                {
+                    self.currentLocation = location
+                    self.currentAreaIndex = UserSettings.sharedInstance.weather.getCities().index(of: location)!
+                    self.displayWeatherFor(location)
+
+                }
+            }
+
+        }
+    }
+
+    func displayWeatherFor(_ location: UserSettings.City?)
+    {
+        DispatchQueue.main.async {
+            if let location = location
+            {
+                if let forecast = self.weatherMap[location]
+                {
+                    self.displayForecast(forecast, city: location)
+                }
+            }
+        }
+    }
+    
     public func reloadData()
     {
         weatherCollectionView?.reloadData()
     }
 
-    public func displayForecast(_ forecast: Forecast, location: String)
+    public func displayForecast(_ forecast: Forecast, city: UserSettings.City)
     {
         self.forecast = forecast
 
         weatherTitle?.pushTransition(duration: 0.3)
-        weatherTitle?.text = "Weather in \(location)"
+        weatherTitle?.text = "Weather in \(city.name)"
 
         if let icon = forecast.currently?.icon
         {

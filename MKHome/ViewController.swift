@@ -26,11 +26,6 @@ class ViewController: UIViewController
     fileprivate let appSettings = AppData.sharedInstance
 
     // Weather Stuff
-    private let client = DarkSkyClient(apiKey: Configuration().darkSkyApiToken)
-    fileprivate var weatherMap: [String: Forecast] = [:]
-    fileprivate var currentLocation: String = ""
-    private var currentAreaIndex = 0
-
     @IBOutlet weak var currentTime: UILabel?
     @IBOutlet weak var currentDate: UILabel?
     @IBOutlet weak var weatherView: WeatherView?
@@ -44,11 +39,7 @@ class ViewController: UIViewController
     @IBOutlet weak var tableView: UITableView?
     @IBOutlet weak var trainDestinationLabel: UILabel?
 
-    // Home Stuff
-
-    // Stuff that need to move from here
-    fileprivate let areasOfInterest = ["Milton Keynes, UK", "Leicester Square Station, London"]
-    
+    // Home Stuff    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -60,7 +51,6 @@ class ViewController: UIViewController
         dateCellFormatter.setLocalizedDateFormatFromTemplate("HH:mm")
         currentDayCellFormatter.setLocalizedDateFormatFromTemplate("dd MMMM YYYY")
         
-        client.units = .si
         refreshColors()
     }
     
@@ -76,19 +66,12 @@ class ViewController: UIViewController
     {
         super.viewWillAppear(animated)
         
-        refreshWeather()
         refreshTrains()
         refreshTime()
         
         Timer.every(15.seconds)
         {
-            self.displayNextCity()
             self.displayNextTrainJourney()
-        }
-        
-        Timer.every(5.minutes)
-        {
-            self.refreshWeather()
         }
 
         Timer.every(10.second)
@@ -131,47 +114,7 @@ class ViewController: UIViewController
             }
         }
     }
-    
-    func displayNextCity()
-    {
-        currentAreaIndex = (currentAreaIndex + 1) % self.areasOfInterest.count
-        currentLocation = self.areasOfInterest[currentAreaIndex]
-        self.displayWeatherFor(currentLocation)
-    }
-
-    func refreshWeather()
-    {
-        for location in areasOfInterest
-        {
-            ViewController.forwardGeocoding(address: location)
-            { coordinates in
-                self.client.getForecast(latitude: coordinates.latitude, longitude: coordinates.longitude)
-                {
-                    result in
-                    let rootObject = result.value.0
-                    self.weatherMap[location] = rootObject
-                    if self.currentLocation == ""
-                    {
-                        self.currentLocation = location
-                        self.currentAreaIndex = self.areasOfInterest.index(of: location)!
-                        self.displayWeatherFor(location)
-
-                    }
-                }
-            }
-        }
-    }
-    
-    func displayWeatherFor(_ location: String)
-    {
-        DispatchQueue.main.async {
-            if let forecast = self.weatherMap[location]
-            {
-                self.weatherView?.displayForecast(forecast, location: location)
-            }
-        }
-    }
-    
+        
     func displayNextTrainJourney()
     {
         if userSettings.rail.getJourneys().count != 0
@@ -265,28 +208,3 @@ extension ViewController: UITableViewDataSource
         return cell
     }
 }
-
-extension ViewController
-{
-    static func forwardGeocoding(address: String, completion: @escaping (CLLocationCoordinate2D) -> Void)
-    {
-        CLGeocoder().geocodeAddressString(address)
-        { (placemarks, error) in
-            if error != nil
-            {
-                return
-            }
-            if let placemarks = placemarks, placemarks.count > 0
-            {
-                let placemark = placemarks[0]
-                let location = placemark.location
-                let coordinate = location?.coordinate
-                if let coordinate = coordinate
-                {
-                    completion(coordinate)
-                }
-            }
-        }
-    }
-}
-

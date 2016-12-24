@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 
 class UserSettings
 {
@@ -19,10 +20,47 @@ class UserSettings
 // Weather
 extension UserSettings
 {
+    struct City: Hashable, Equatable
+    {
+        var name: String
+        var coordinates: CLLocationCoordinate2D
+
+        static func lookup(name: String, completion: @escaping (Error?, CLLocationCoordinate2D?) -> Void)
+        {
+            CLGeocoder().geocodeAddressString(name)
+            { (placemarks, error) in
+                if error != nil
+                {
+                    completion(error, nil)
+                }
+                if let placemarks = placemarks, placemarks.count > 0
+                {
+                    let placemark = placemarks[0]
+                    let location = placemark.location
+                    let coordinate = location?.coordinate
+                    if let coordinate = coordinate
+                    {
+                        completion(nil, coordinate)
+                    }
+                }
+            }
+        }
+
+        var hashValue: Int
+        {
+            return name.hashValue
+        }
+
+        static func ==(lhs: City, rhs: City) -> Bool
+        {
+            return lhs.name == rhs.name
+        }
+    }
+
     class Weather
     {
         static let archiveKey = "weather.cities"
-        fileprivate var cities: [String] = []
+        fileprivate var cities: [City] = []
 
         init()
         {
@@ -30,25 +68,44 @@ extension UserSettings
             {
                 if let weatherCities = NSKeyedUnarchiver.unarchiveObject(with: data) as? [String]
                 {
-                    cities = weatherCities
+                    for cityName in weatherCities
+                    {
+                        City.lookup(name: cityName)
+                        { (error, coordinate) in
+                            if let coordinate = coordinate
+                            {
+                                self.cities.append(City(name: cityName, coordinates: coordinate))
+                            }
+                        }
+                    }
                 }
             }
         }
 
-        func getCities() -> [String]
+        func getCities() -> [City]
         {
             return cities
         }
 
         func addCity(_ city: String)
         {
-            cities.append(city)
+            City.lookup(name: city)
+            { (error, coordinate) in
+                if let coordinate = coordinate
+                {
+                    self.cities.append(City(name: city, coordinates: coordinate))
+                }
+            }
             save()
         }
 
-        func removeCity(_ city: String)
+        func removeCity(_ cityName: String)
         {
-            if let index = cities.index(of: city)
+            let index = cities.index { (city) -> Bool in
+                return city.name == cityName
+            }
+
+            if let index = index
             {
                 cities.remove(at: index)
             }
@@ -58,7 +115,9 @@ extension UserSettings
 
         fileprivate func save()
         {
-            let data = NSKeyedArchiver.archivedData(withRootObject: cities)
+            let data = NSKeyedArchiver.archivedData(withRootObject: cities.map({ (city) -> String in
+                return city.name
+            }))
             UserDefaults.standard.set(data, forKey: Weather.archiveKey)
         }
     }
