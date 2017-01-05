@@ -6,7 +6,8 @@ Smart-iPad (the name is lame) is an app for people who doesn't have the skill to
  - The Time
  - The Weather (can cycle throught several cities)
  - UK Train informations (via NRE) 
- 
+ - Room Lights status via HomeKit
+
 ## Relies on:
   - Dark Sky API for the weather 
   - Huxley proxy for the train information (proxy between you and the NRE, I was too lazy to implement a SOAP XML client in swift)
