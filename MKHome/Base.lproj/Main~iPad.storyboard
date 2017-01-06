@@ -373,8 +373,8 @@
                                     <action selector="onCloseClickedWithButton:" destination="YHK-vF-7kS" eventType="touchUpInside" id="eQt-KS-1E3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGi-El-qj5">
-                                <rect key="frame" x="20" y="60" width="504" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGi-El-qj5">
+                                <rect key="frame" x="16" y="60" width="508" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="hun-Ew-U9j"/>
                                 </constraints>
@@ -386,8 +386,8 @@
                                     <segue destination="6FB-w7-ARF" kind="show" id="l1V-hG-Qv2"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="List of weather location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hi0-za-281">
-                                <rect key="frame" x="16" y="321" width="160" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List of weather location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hi0-za-281">
+                                <rect key="frame" x="16" y="137" width="160" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="7oY-RZ-Lvn"/>
                                 </constraints>
@@ -395,8 +395,8 @@
                                 <color key="textColor" red="0.51372549020000002" green="0.58039215690000001" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ovt-Ax-xGr">
-                                <rect key="frame" x="0.0" y="359" width="540" height="176"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ovt-Ax-xGr">
+                                <rect key="frame" x="0.0" y="175" width="540" height="176"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="176" id="YA5-4v-z4B"/>
@@ -426,8 +426,8 @@
                                     <outlet property="delegate" destination="YHK-vF-7kS" id="Cnu-FY-jx7"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rKp-Ay-9tF">
-                                <rect key="frame" x="435" y="321" width="89" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rKp-Ay-9tF">
+                                <rect key="frame" x="435" y="137" width="89" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="IyN-QA-Lim"/>
                                 </constraints>
