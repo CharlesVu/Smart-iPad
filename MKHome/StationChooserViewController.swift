@@ -9,19 +9,18 @@
 import Foundation
 import UIKit
 
-class StationChooserViewController: UIViewController
+class StationChooserViewController: ThemableViewController
 {
     @IBOutlet var searchBar: UISearchBar?
     @IBOutlet var tableView: UITableView?
 
     fileprivate let appSettings = AppData.sharedInstance
-    fileprivate var colorScheme = ColorScheme.solarizedLight
     fileprivate var filteredStations: [(crs: String, name: String)]?
     
     var selectedCRS: String?
     var previousCRS: String?
 
-    override func viewDidLoad()
+    override func refreshColors()
     {
         view.backgroundColor = colorScheme.alternativeBackground
         searchBar?.backgroundColor = colorScheme.alternativeBackground
@@ -29,6 +28,12 @@ class StationChooserViewController: UIViewController
         searchBar?.barTintColor = colorScheme.normalText
         let textFieldInsideSearchBar = searchBar?.value(forKey: "searchField") as? UITextField
         textFieldInsideSearchBar?.textColor = colorScheme.normalText
+        tableView?.reloadData()
+    }
+    
+    override func viewDidLoad()
+    {
+        refreshColors()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)

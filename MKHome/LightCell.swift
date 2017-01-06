@@ -16,7 +16,7 @@ class LightCell: UICollectionViewCell
     @IBOutlet weak var roomName: UILabel?
     @IBOutlet weak var lightLevel: SKYIconView?
 
-    fileprivate var colorScheme = ColorScheme.solarizedDark {
+    var colorScheme = UserSettings.sharedInstance.colorScheme.scheme {
         didSet {
             reloadData()
         }
@@ -34,8 +34,8 @@ class LightCell: UICollectionViewCell
 
     func reloadData()
     {
-        backgroundColor = UIColor.clear
         roomName?.text = name
+        backgroundColor = UIColor.clear
         roomName?.textColor = colorScheme.normalText
         lightLevel?.setType = .clearNight
         lightLevel?.tintColor = colorScheme.normalText

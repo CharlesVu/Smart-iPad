@@ -88,7 +88,7 @@ extension UIColor
     }
 }
 
-struct ColorScheme
+public struct ColorScheme
 {
     let name: String
     let background: UIColor
@@ -101,7 +101,7 @@ struct ColorScheme
     let yellow: UIColor
 }
 
-extension ColorScheme
+public extension ColorScheme
 {
     static let solarizedDark = ColorScheme(name: "Solarized Dark",
                                            background: UIColor.solarizedBase02,
@@ -122,4 +122,19 @@ extension ColorScheme
                                             warningText: UIColor.solarizedOrange,
                                             errorText: UIColor.solarizedRed,
                                             yellow: UIColor.solarizedYellow)
+    
+    static let whiteOnBlack = ColorScheme(name: "White on black",
+                                            background: UIColor.black,
+                                            alternativeBackground:UIColor.black,
+                                            normalText: UIColor.white,
+                                            alternativeText: UIColor.white,
+                                            positiveText: UIColor.green,
+                                            warningText: UIColor.orange,
+                                            errorText: UIColor.red,
+                                            yellow: UIColor.yellow)
+    
+    static let allValues = [solarizedDark.name: solarizedDark,
+                            solarizedLight.name: solarizedLight,
+                            whiteOnBlack.name: whiteOnBlack]
+
 }

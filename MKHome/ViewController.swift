@@ -12,16 +12,8 @@ import CoreLocation
 import HomeKit
 import Huxley
 
-class ViewController: UIViewController
+class ViewController: ThemableViewController
 {
-    fileprivate var colorScheme = ColorScheme.solarizedDark {
-        didSet {
-            refreshColors()
-            tableView?.reloadData()
-            weatherView?.colorScheme = colorScheme
-        }
-    }
-
     fileprivate let userSettings = UserSettings.sharedInstance
     fileprivate let appSettings = AppData.sharedInstance
 
@@ -38,6 +30,7 @@ class ViewController: UIViewController
     fileprivate var currentJourneyIndex = -1
     @IBOutlet weak var tableView: UITableView?
     @IBOutlet weak var trainDestinationLabel: UILabel?
+    @IBOutlet weak var lightView: LightView?
 
     // Home Stuff    
     override var prefersStatusBarHidden: Bool {
@@ -54,12 +47,15 @@ class ViewController: UIViewController
         refreshColors()
     }
     
-    func refreshColors()
+    override func refreshColors()
     {
         view.backgroundColor = colorScheme.background
         currentTime?.textColor = colorScheme.normalText
         currentDate?.textColor = colorScheme.normalText
         trainDestinationLabel?.textColor = colorScheme.normalText
+        tableView?.reloadData()
+        weatherView?.colorScheme = colorScheme
+        lightView?.colorScheme = colorScheme
     }
     
     override func viewWillAppear(_ animated: Bool)

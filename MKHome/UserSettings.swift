@@ -15,6 +15,7 @@ class UserSettings
     
     let weather = Weather()
     let rail = NationalRail()
+    let colorScheme = Color()
 }
 
 protocol WeatherDelegate
@@ -130,5 +131,40 @@ extension UserSettings
             let data = NSKeyedArchiver.archivedData(withRootObject: journeys)
             UserDefaults.standard.set(data, forKey: NationalRail.archiveKey)
         }
+    }
+}
+
+extension UserSettings
+{
+    class Color
+    {
+        static let archiveKey = "Color.selected"
+        static let colorChangedNotificationName = NSNotification.Name("Settings.ColorChanged")
+            
+        var scheme: ColorScheme = ColorScheme.solarizedDark
+        {
+            didSet
+            {
+                save()
+                NotificationCenter.default.post(name: Color.colorChangedNotificationName, object: nil, userInfo: ["colorScheme": scheme])
+            }
+        }
+        
+        init()
+        {
+            if let colorSchemeName = UserDefaults.standard.object(forKey: Color.archiveKey) as? String
+            {
+                if let colorScheme = ColorScheme.allValues[colorSchemeName]
+                {
+                    self.scheme = colorScheme
+                }
+            }
+        }
+        
+        fileprivate func save()
+        {
+            UserDefaults.standard.set(scheme.name, forKey: Color.archiveKey)
+        }
+
     }
 }

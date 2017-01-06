@@ -16,7 +16,7 @@ class LightView: UIView
     fileprivate let homeManager = HMHomeManager()
     fileprivate var lights = [HMRoom: [HMCharacteristic]]()
 
-    public var colorScheme: ColorScheme = ColorScheme.solarizedDark {
+    public var colorScheme: ColorScheme = UserSettings.sharedInstance.colorScheme.scheme {
         didSet
         {
             lightCollectionView?.reloadData()
@@ -94,7 +94,7 @@ extension LightView: UICollectionViewDataSource
                                                       for: indexPath) as! LightCell
 
         cell.setProperties(name: room.name, characteristics: lights[room]!)
-
+        cell.colorScheme = colorScheme
         return cell
     }
 

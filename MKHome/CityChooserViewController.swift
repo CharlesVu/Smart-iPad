@@ -10,18 +10,17 @@ import Foundation
 import UIKit
 import MapKit
 
-class CityChooserViewController: UIViewController
+class CityChooserViewController: ThemableViewController
 {
     @IBOutlet var searchBar: UISearchBar?
     @IBOutlet var tableView: UITableView?
     @IBOutlet var spinner: UIActivityIndicatorView?
 
     fileprivate let appSettings = AppData.sharedInstance
-    fileprivate var colorScheme = ColorScheme.solarizedLight
     fileprivate var searchResults : [CLPlacemark] = []
     fileprivate let geocoder = CLGeocoder()
 
-    override func viewDidLoad()
+    override func refreshColors()
     {
         view.backgroundColor = colorScheme.alternativeBackground
         searchBar?.backgroundColor = colorScheme.alternativeBackground
@@ -29,8 +28,9 @@ class CityChooserViewController: UIViewController
         searchBar?.barTintColor = colorScheme.normalText
         let textFieldInsideSearchBar = searchBar?.value(forKey: "searchField") as? UITextField
         textFieldInsideSearchBar?.textColor = colorScheme.normalText
+        tableView?.reloadData()
     }
-
+    
     func lookup(name: String, completion: @escaping (Error?, [CLPlacemark]?) -> Void)
     {
         geocoder.cancelGeocode()
