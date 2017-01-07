@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5610AA5A1E2169D600E8270D /* ThemeChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5610AA591E2169D600E8270D /* ThemeChooserViewController.swift */; };
 		562A9F5E1DDC6FF600ABC3AD /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A9F5D1DDC6FF600ABC3AD /* Timer.swift */; };
 		562A9F601DDC711200ABC3AD /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A9F5F1DDC711200ABC3AD /* Colors.swift */; };
 		562C58E61E2049E200CD000D /* TrainJourneySettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562C58E51E2049E200CD000D /* TrainJourneySettingsViewController.swift */; };
@@ -61,6 +62,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5610AA591E2169D600E8270D /* ThemeChooserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeChooserViewController.swift; sourceTree = "<group>"; };
 		562A9F5D1DDC6FF600ABC3AD /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		562A9F5F1DDC711200ABC3AD /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		562C58E51E2049E200CD000D /* TrainJourneySettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainJourneySettingsViewController.swift; sourceTree = "<group>"; };
@@ -143,9 +145,6 @@
 		56A1AD191DDC54840014047B /* MKHome */ = {
 			isa = PBXGroup;
 			children = (
-				562C58E71E204AB300CD000D /* Common */,
-				56F4D6B01E0EB7A20056BCC4 /* HomeKit */,
-				56F4D6AF1E0EB7930056BCC4 /* Weather */,
 				56C2E17B1E0172B20073AC82 /* BOB.entitlements */,
 				56FAE2551DDDE4C80015880C /* config.plist */,
 				56A1AD261DDC54840014047B /* Info.plist */,
@@ -153,14 +152,17 @@
 				562A9F5F1DDC711200ABC3AD /* Colors.swift */,
 				56BD704B1DDCAFB800CA142D /* Config.swift */,
 				562A9F5D1DDC6FF600ABC3AD /* Timer.swift */,
+				56F4D6B11E0EB9A30056BCC4 /* UIView.swift */,
 				56A1AD1C1DDC54840014047B /* ViewController.swift */,
 				56A1AD211DDC54840014047B /* Assets.xcassets */,
+				562C58E71E204AB300CD000D /* Common */,
+				56F4D6B01E0EB7A20056BCC4 /* HomeKit */,
 				56A1AD231DDC54840014047B /* LaunchScreen.storyboard */,
 				56A1AD1E1DDC54840014047B /* Main~iPad.storyboard */,
 				56647FAB1DDE54A7004C4CE4 /* Main~iPhone.storyboard */,
 				56F436831DE1AE8700521991 /* Settings */,
 				56BD70461DDCA1E500CA142D /* Train */,
-				56F4D6B11E0EB9A30056BCC4 /* UIView.swift */,
+				56F4D6AF1E0EB7930056BCC4 /* Weather */,
 			);
 			path = MKHome;
 			sourceTree = "<group>";
@@ -204,6 +206,7 @@
 				56F4D6B31E0ECE980056BCC4 /* CityChooserViewController.swift */,
 				562C58E51E2049E200CD000D /* TrainJourneySettingsViewController.swift */,
 				568D6FF01E21187500E81E47 /* WeatherSettingsViewController.swift */,
+				5610AA591E2169D600E8270D /* ThemeChooserViewController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				562A9F5E1DDC6FF600ABC3AD /* Timer.swift in Sources */,
 				56F436851DE1AEE600521991 /* StationChooserViewController.swift in Sources */,
 				56F436871DE1AF9D00521991 /* AppData.swift in Sources */,
+				5610AA5A1E2169D600E8270D /* ThemeChooserViewController.swift in Sources */,
 				56F4D6B61E0EDC050056BCC4 /* City.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
