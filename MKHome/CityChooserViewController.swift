@@ -19,7 +19,7 @@ class CityChooserViewController: ThemableViewController
     fileprivate let appSettings = AppData.sharedInstance
     fileprivate var searchResults : [CLPlacemark] = []
     fileprivate let geocoder = CLGeocoder()
-
+   
     override func refreshColors()
     {
         view.backgroundColor = colorScheme.alternativeBackground
@@ -63,7 +63,7 @@ extension CityChooserViewController: UITableViewDelegate
         {
             UserSettings.sharedInstance.weather.addCity(City(name: name, coordinates: coordinate))
         }
-        _ = self.navigationController?.popToRootViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
 }
 

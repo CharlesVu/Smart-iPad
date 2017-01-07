@@ -20,11 +20,6 @@ class TrainJourneySettingsViewController: ThemableViewController
     {
         view.backgroundColor = colorScheme.alternativeBackground
         trainJourneyTableView?.reloadData()
-
-    }
-    override func viewDidLoad()
-    {
-        refreshColors()
     }
     
     override func viewWillAppear(_ animated: Bool)

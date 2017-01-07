@@ -31,11 +31,6 @@ class StationChooserViewController: ThemableViewController
         tableView?.reloadData()
     }
     
-    override func viewDidLoad()
-    {
-        refreshColors()
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         if segue.identifier == "Arrival"
@@ -65,7 +60,10 @@ extension StationChooserViewController: UITableViewDelegate
         {
             // Todo : Validate train journey by calling client to see if there is at least a train
             UserSettings.sharedInstance.rail.addJourney(Journey(originCRS: previousCRS, destinationCRS: selectedCRS))
-            _ = self.navigationController?.popToRootViewController(animated: true)
+            if let viewController = self.navigationController?.viewControllers[1]
+            {
+                _ = self.navigationController?.popToViewController(viewController, animated: true)
+            }
         }
         else
         {

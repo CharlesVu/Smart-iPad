@@ -17,6 +17,7 @@
 		563FC6101DE0FB3A00394E4A /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563FC60F1DE0FB3A00394E4A /* UserSettings.swift */; };
 		563FC6121DE108AA00394E4A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563FC6111DE108AA00394E4A /* SettingsViewController.swift */; };
 		56647FC81DDE5E58004C4CE4 /* Main~iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56647FAB1DDE54A7004C4CE4 /* Main~iPhone.storyboard */; };
+		568D6FF11E21187500E81E47 /* WeatherSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D6FF01E21187500E81E47 /* WeatherSettingsViewController.swift */; };
 		56A1AD1B1DDC54840014047B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1AD1A1DDC54840014047B /* AppDelegate.swift */; };
 		56A1AD1D1DDC54840014047B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1AD1C1DDC54840014047B /* ViewController.swift */; };
 		56A1AD201DDC54840014047B /* Main~iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56A1AD1E1DDC54840014047B /* Main~iPad.storyboard */; };
@@ -69,6 +70,7 @@
 		563FC60F1DE0FB3A00394E4A /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		563FC6111DE108AA00394E4A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		56647FAC1DDE54A7004C4CE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Main~iPhone.storyboard"; sourceTree = "<group>"; };
+		568D6FF01E21187500E81E47 /* WeatherSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherSettingsViewController.swift; sourceTree = "<group>"; };
 		56A1AD171DDC54840014047B /* BOB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BOB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56A1AD1A1DDC54840014047B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56A1AD1C1DDC54840014047B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				56F436861DE1AF9D00521991 /* AppData.swift */,
 				56F4D6B31E0ECE980056BCC4 /* CityChooserViewController.swift */,
 				562C58E51E2049E200CD000D /* TrainJourneySettingsViewController.swift */,
+				568D6FF01E21187500E81E47 /* WeatherSettingsViewController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				56F4D6AA1E0D66660056BCC4 /* LightCell.swift in Sources */,
 				563FC60E1DE0EE7B00394E4A /* Journey.swift in Sources */,
 				56BD704A1DDCA37C00CA142D /* TrainServicesExtension.swift in Sources */,
+				568D6FF11E21187500E81E47 /* WeatherSettingsViewController.swift in Sources */,
 				562C58E91E204D0F00CD000D /* ThemableViewController.swift in Sources */,
 				56F4D6AC1E0D8EDA0056BCC4 /* WeatherView.swift in Sources */,
 				562A9F601DDC711200ABC3AD /* Colors.swift in Sources */,

@@ -43,8 +43,6 @@ class ViewController: ThemableViewController
         
         dateCellFormatter.setLocalizedDateFormatFromTemplate("HH:mm")
         currentDayCellFormatter.setLocalizedDateFormatFromTemplate("dd MMMM YYYY")
-        
-        refreshColors()
     }
     
     override func refreshColors()
