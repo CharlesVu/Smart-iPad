@@ -193,7 +193,7 @@
 				56BD70491DDCA37C00CA142D /* TrainServicesExtension.swift */,
 				563FC60D1DE0EE7B00394E4A /* Journey.swift */,
 			);
-			name = Train;
+			path = Train;
 			sourceTree = "<group>";
 		};
 		56C2E17C1E0172B20073AC82 /* Frameworks */ = {
@@ -216,7 +216,7 @@
 				568D6FF01E21187500E81E47 /* WeatherSettingsViewController.swift */,
 				5610AA591E2169D600E8270D /* ThemeChooserViewController.swift */,
 			);
-			name = Settings;
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		56F4D6AF1E0EB7930056BCC4 /* Weather */ = {
@@ -227,7 +227,7 @@
 				56F4D6AB1E0D8EDA0056BCC4 /* WeatherView.swift */,
 				56F4D6B51E0EDC050056BCC4 /* City.swift */,
 			);
-			name = Weather;
+			path = Weather;
 			sourceTree = "<group>";
 		};
 		56F4D6B01E0EB7A20056BCC4 /* HomeKit */ = {
@@ -236,7 +236,7 @@
 				56F4D6A91E0D66660056BCC4 /* LightCell.swift */,
 				56F4D6AD1E0D9A250056BCC4 /* LightView.swift */,
 			);
-			name = HomeKit;
+			path = HomeKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
