@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5610AA5A1E2169D600E8270D /* ThemeChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5610AA591E2169D600E8270D /* ThemeChooserViewController.swift */; };
+		5610AC7D1E21A2F900E8270D /* TFLSwaggerClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5610AC7C1E21A2F900E8270D /* TFLSwaggerClient.framework */; };
+		5610AC7E1E21A30500E8270D /* TFLSwaggerClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5610AC7C1E21A2F900E8270D /* TFLSwaggerClient.framework */; };
+		5610AC7F1E21A30500E8270D /* TFLSwaggerClient.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5610AC7C1E21A2F900E8270D /* TFLSwaggerClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		562A9F5E1DDC6FF600ABC3AD /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A9F5D1DDC6FF600ABC3AD /* Timer.swift */; };
 		562A9F601DDC711200ABC3AD /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A9F5F1DDC711200ABC3AD /* Colors.swift */; };
 		562C58E61E2049E200CD000D /* TrainJourneySettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562C58E51E2049E200CD000D /* TrainJourneySettingsViewController.swift */; };
@@ -56,6 +59,7 @@
 				56BB04621DDC5A1800C274A9 /* Alamofire.framework in CopyFiles */,
 				56BB04631DDC5A1800C274A9 /* ForecastIO.framework in CopyFiles */,
 				563FC60C1DE0D35100394E4A /* Huxley.framework in CopyFiles */,
+				5610AC7F1E21A30500E8270D /* TFLSwaggerClient.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +67,7 @@
 
 /* Begin PBXFileReference section */
 		5610AA591E2169D600E8270D /* ThemeChooserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeChooserViewController.swift; sourceTree = "<group>"; };
+		5610AC7C1E21A2F900E8270D /* TFLSwaggerClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TFLSwaggerClient.framework; path = Carthage/Build/iOS/TFLSwaggerClient.framework; sourceTree = "<group>"; };
 		562A9F5D1DDC6FF600ABC3AD /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		562A9F5F1DDC711200ABC3AD /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		562C58E51E2049E200CD000D /* TrainJourneySettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainJourneySettingsViewController.swift; sourceTree = "<group>"; };
@@ -107,9 +112,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				56BB045E1DDC59DA00C274A9 /* ForecastIO.framework in Frameworks */,
+				5610AC7D1E21A2F900E8270D /* TFLSwaggerClient.framework in Frameworks */,
 				56BB04601DDC59DF00C274A9 /* Alamofire.framework in Frameworks */,
 				56C2E17E1E0172B20073AC82 /* HomeKit.framework in Frameworks */,
 				563FC60A1DE0CB2800394E4A /* Huxley.framework in Frameworks */,
+				5610AC7E1E21A30500E8270D /* TFLSwaggerClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +177,7 @@
 		56BB045C1DDC585800C274A9 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				5610AC7C1E21A2F900E8270D /* TFLSwaggerClient.framework */,
 				563FC6091DE0CB2800394E4A /* Huxley.framework */,
 				56BB045F1DDC59DF00C274A9 /* Alamofire.framework */,
 				56BB045D1DDC59DA00C274A9 /* ForecastIO.framework */,

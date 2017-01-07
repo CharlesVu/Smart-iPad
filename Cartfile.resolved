@@ -1,3 +1,4 @@
-github "Alamofire/Alamofire" "4.1.0"
+github "Alamofire/Alamofire" "4.2.0"
 github "CharlesVu/ForecastIO" "3.0.3"
 github "CharlesVu/HuxleySwift" "0.6"
+github "CharlesVu/TFLSwaggerSwiftAPI" "1.1"
