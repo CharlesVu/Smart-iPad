@@ -29,6 +29,12 @@ Smart-iPad (the name is lame) is an app for people who doesn't have the skill to
  $ carthage boostrap --platform iOS
  ``` 
  
+## To Run
+- Follow the steps https://github.com/jpsingleton/Huxley to get a proxy working and an API Key
+- Get an API key from https://darksky.net/dev/
+- Copy the config.sample.plist to config.plis and put your Huxley endpoint and both API Keys
+- Run.
+ 
 ## Screenshots 
 ![alt text](https://github.com/CharlesVu/Smart-iPad/raw/master/Screenshots/content_dark.jpg "Screenshot Dark")
 
