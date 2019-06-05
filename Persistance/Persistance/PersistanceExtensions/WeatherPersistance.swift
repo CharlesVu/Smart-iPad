@@ -36,8 +36,8 @@ public extension Persistance {
 
     func removeWeatherCity(city: WeatherCity) {
         try! realm.write {
-            let realmObject = RealmWeatherCity(city: city)
-            realm.delete(realmObject)
+            let realmObject = realm.objects(RealmWeatherCity.self).first(where: { $0.name == city.name} )
+            realm.delete(realmObject!)
         }
     }
 

@@ -33,8 +33,8 @@ public extension Persistance {
 
     func removeJourney(journey: Journey) {
         try! realm.write {
-            let realmObject = RealmJourney(journey: journey)
-            realm.delete(realmObject)
+            let realmObject = realm.objects(RealmJourney.self).first(where: { $0.id == journey.originCRS + journey.destinationCRS} )
+            realm.delete(realmObject!)
         }
     }
 
