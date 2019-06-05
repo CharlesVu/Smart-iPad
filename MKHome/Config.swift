@@ -8,18 +8,14 @@
 
 import Foundation
 
-public class Configuration
-{
+public class Configuration {
     public var darkSkyApiToken: String = ""
     public var huxleyProxyEndpoint: String = ""
     public var huxleyToken: String = ""
 
-    init()
-    {
-        do
-        {
-            if let path = Bundle.main.path(forResource: "config", ofType: "plist")
-            {
+    init() {
+        do {
+            if let path = Bundle.main.path(forResource: "config", ofType: "plist") {
                 let url = URL(fileURLWithPath: path)
                 let data = try Data(contentsOf: url)
                 let plist = try PropertyListSerialization.propertyList(from: data, options: .mutableContainers, format: nil) as? [String: String]
@@ -27,9 +23,7 @@ public class Configuration
                 huxleyProxyEndpoint = (plist?["huxleyProxyEndpoint"])!
                 huxleyToken = (plist?["huxleyToken"])!
             }
-        }
-        catch
-        {
+        } catch {
         }
     }
 }

@@ -9,59 +9,49 @@
 import Foundation
 import UIKit
 
-class WeatherSettingsViewController: ThemableViewController
-{
+class WeatherSettingsViewController: ThemableViewController {
     fileprivate let userSettings = UserSettings.sharedInstance
-    
+
     @IBOutlet var cityWeatherTableView: UITableView?
-    
-    override func refreshColors()
-    {
+
+    override func refreshColors() {
         view.backgroundColor = colorScheme.alternativeBackground
         cityWeatherTableView?.reloadData()
     }
-       
-    override func viewWillAppear(_ animated: Bool)
-    {
+
+    override func viewWillAppear(_ animated: Bool) {
         cityWeatherTableView?.reloadData()
     }
-    
-    @IBAction func onCloseClicked(button: UIButton)
-    {
+
+    @IBAction func onCloseClicked(button: UIButton) {
         dismiss(animated: true)
     }
 }
 
-extension WeatherSettingsViewController: UITableViewDataSource
-{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
+extension WeatherSettingsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return userSettings.weather.getCities().count
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let city = userSettings.weather.getCities()[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cityCell")!
         cell.textLabel?.text = city.name
         cell.backgroundColor = colorScheme.alternativeBackground
         cell.textLabel?.textColor = colorScheme.normalText
-        
+
         return cell
     }
 }
 
-extension WeatherSettingsViewController: UITableViewDelegate
-{
-    func tableView(_ tableView: UITableView, canFocusRowAt indexPath: IndexPath) -> Bool
-    {
+extension WeatherSettingsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, canFocusRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
+
     @objc(tableView:commitEditingStyle:forRowAtIndexPath:)
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if (editingStyle == UITableViewCellEditingStyle.delete)
-        {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCell.EditingStyle.delete) {
             let city = userSettings.weather.getCities()[indexPath.row]
             userSettings.weather.removeCity(city)
             tableView.reloadData()

@@ -11,8 +11,7 @@ import HomeKit
 import UIKit
 import ForecastIO
 
-class LightCell: UICollectionViewCell
-{
+class LightCell: UICollectionViewCell {
     @IBOutlet weak var roomName: UILabel?
     @IBOutlet weak var lightLevel: SKYIconView?
 
@@ -25,15 +24,13 @@ class LightCell: UICollectionViewCell
     fileprivate var characteristics: [HMCharacteristic] = []
     fileprivate var name: String = ""
 
-    func setProperties(name: String, characteristics: [HMCharacteristic])
-    {
+    func setProperties(name: String, characteristics: [HMCharacteristic]) {
         self.characteristics = characteristics
         self.name = name
         reloadData()
     }
 
-    func reloadData()
-    {
+    func reloadData() {
         roomName?.text = name
         backgroundColor = UIColor.clear
         roomName?.textColor = colorScheme.normalText
@@ -41,15 +38,11 @@ class LightCell: UICollectionViewCell
         lightLevel?.tintColor = colorScheme.normalText
         lightLevel?.play()
 
-        for characteristic in characteristics
-        {
-            if let reachable = characteristic.service?.accessory?.isReachable
-            {
-                characteristic.readValue() { (error) in
-                    if error == nil
-                    {
-                        if let value = characteristic.value as? Bool, value, reachable
-                        {
+        for characteristic in characteristics {
+            if let reachable = characteristic.service?.accessory?.isReachable {
+                characteristic.readValue { (error) in
+                    if error == nil {
+                        if let value = characteristic.value as? Bool, value, reachable {
                             self.lightLevel?.setType = .clearDay
                             self.lightLevel?.tintColor = self.colorScheme.yellow
 

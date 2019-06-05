@@ -9,12 +9,12 @@
 import Foundation
 import UIKit
 import ForecastIO
+import Persistance
 
-class WeatherView: UIView
-{
+class WeatherView: UIView {
     private let client = DarkSkyClient(apiKey: Configuration().darkSkyApiToken)
-    fileprivate var weatherMap: [City: Forecast] = [:]
-    fileprivate var currentLocation: City?
+    fileprivate var weatherMap: [WeatherCity: Forecast] = [:]
+    fileprivate var currentLocation: WeatherCity?
     private var currentAreaIndex = 0
 
     @IBOutlet weak var currentWeather: SKYIconView?
@@ -27,8 +27,7 @@ class WeatherView: UIView
     let dateCellFormatter = DateFormatter()
 
     public var colorScheme: ColorScheme = ColorScheme.solarizedDark {
-        didSet
-        {
+        didSet {
             currentWeather?.tintColor = colorScheme.normalText
             currentTemerature?.textColor = colorScheme.normalText
             currentHumanDescription?.textColor = colorScheme.normalText
@@ -37,8 +36,7 @@ class WeatherView: UIView
         }
     }
 
-    override func awakeFromNib()
-    {
+    override func awakeFromNib() {
         dateCellFormatter.setLocalizedDateFormatFromTemplate("HH:mm")
         weatherCollectionView?.dataSource = self
         UserSettings.sharedInstance.weather.delegate = self
@@ -46,93 +44,77 @@ class WeatherView: UIView
         isHidden = true
     }
 
-    override func willMove(toSuperview newSuperview: UIView?)
-    {
-        if newSuperview != nil
-        {
+    override func willMove(toSuperview newSuperview: UIView?) {
+        if newSuperview != nil {
             refreshWeather()
         }
 
     }
-    override func didMoveToSuperview()
-    {
+    override func didMoveToSuperview() {
         super.didMoveToSuperview()
 
-        Timer.every(15.seconds)
-        {
+        Timer.every(15.seconds) {
             self.displayNextCity()
         }
 
-        Timer.every(5.minutes)
-        {
+        Timer.every(5.seconds) {
             self.refreshWeather()
         }
     }
 
-    func displayNextCity()
-    {
-        if UserSettings.sharedInstance.weather.getCities().count > 0
-        {
+    func displayNextCity() {
+        if UserSettings.sharedInstance.weather.getCities().count > 0 {
             currentAreaIndex = (currentAreaIndex + 1) % UserSettings.sharedInstance.weather.getCities().count
             currentLocation = UserSettings.sharedInstance.weather.getCities()[currentAreaIndex]
             self.displayWeatherFor(currentLocation)
-        }
-        else
-        {
+        } else {
             self.isHidden = true
         }
     }
 
-    func refreshWeather()
-    {
-        for location in UserSettings.sharedInstance.weather.getCities()
-        {
-            self.client.getForecast(latitude: location.coordinates.latitude,
-                                    longitude: location.coordinates.longitude)
-            {
+    func refreshWeather() {
+        for location in UserSettings.sharedInstance.weather.getCities() {
+            self.client.getForecast(latitude: location.latitude,
+                                    longitude: location.longitude) {
                 result in
                 let rootObject = result.value.0
-                self.weatherMap[location] = rootObject
-                if self.currentLocation == nil
-                {
-                    self.currentLocation = location
-                    self.currentAreaIndex = UserSettings.sharedInstance.weather.getCities().index(of: location)!
-                    self.displayWeatherFor(location)
+                                        DispatchQueue.main.async {
 
+
+                    self.weatherMap[location] = rootObject
+                    if self.currentLocation == nil {
+                        self.currentLocation = location
+                        self.currentAreaIndex = UserSettings.sharedInstance.weather.getCities().firstIndex(of: location)!
+                        self.displayWeatherFor(location)
+                                            }
                 }
             }
 
         }
     }
 
-    func displayWeatherFor(_ location: City?)
-    {
+    func displayWeatherFor(_ location: WeatherCity?) {
         DispatchQueue.main.async {
-            if let location = location
-            {
-                if let forecast = self.weatherMap[location]
-                {
+            if let location = location {
+                if let forecast = self.weatherMap[location] {
                     self.isHidden = false
                     self.displayForecast(forecast, city: location)
                 }
             }
         }
     }
-    
-    public func reloadData()
-    {
+
+    public func reloadData() {
         weatherCollectionView?.reloadData()
     }
 
-    public func displayForecast(_ forecast: Forecast, city: City)
-    {
+    public func displayForecast(_ forecast: Forecast, city: WeatherCity) {
         self.forecast = forecast
 
         weatherTitle?.pushTransition(duration: 0.3)
         weatherTitle?.text = "Weather in \(city.name)"
 
-        if let icon = forecast.currently?.icon
-        {
+        if let icon = forecast.currently?.icon {
             currentWeather?.pushTransition(duration: 0.3)
             currentWeather?.setType = icon
             currentWeather?.play()
@@ -140,14 +122,12 @@ class WeatherView: UIView
         }
         weatherCollectionView?.reloadData()
 
-        if let description = forecast.hourly?.summary
-        {
+        if let description = forecast.hourly?.summary {
             currentHumanDescription?.pushTransition(duration: 0.3)
             currentHumanDescription?.text = description
         }
 
-        if let temperature = forecast.currently?.temperature
-        {
+        if let temperature = forecast.currently?.temperature {
             currentTemerature?.pushTransition(duration: 0.3)
             currentTemerature?.text = "\(Int(temperature))°C"
         }
@@ -156,46 +136,37 @@ class WeatherView: UIView
     }
 }
 
-extension WeatherView: WeatherDelegate
-{
-    func onCityChanged()
-    {
+extension WeatherView: WeatherDelegate {
+    func onCityChanged() {
         refreshWeather()
     }
 }
 
-extension WeatherView: UICollectionViewDataSource
-{
-    func numberOfSections(in collectionView: UICollectionView) -> Int
-    {
+extension WeatherView: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
 
     func collectionView(_ collectionView: UICollectionView,
-                        numberOfItemsInSection section: Int) -> Int
-    {
+                        numberOfItemsInSection section: Int) -> Int {
         return min(forecast?.hourly?.data.count ?? 0, 10)
     }
 
     func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
-    {
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "weatherCell",
                                                       for: indexPath) as! WeatherCell
         cell.backgroundColor = UIColor.clear
 
-        if let data = forecast?.hourly?.data[indexPath.row]
-        {
+        if let data = forecast?.hourly?.data[indexPath.row] {
             cell.icon?.setType = data.icon!
-            if let temperature = data.temperature
-            {
+            if let temperature = data.temperature {
                 cell.temperature?.text = "\(Int(temperature))°C"
                 cell.temperature?.textColor = self.colorScheme.normalText
             }
 
-            UIView.animate(withDuration: 0.3)
-            {
+            UIView.animate(withDuration: 0.3) {
                 cell.icon?.alpha = 1
                 cell.temperature?.alpha = 1
                 cell.icon?.play()
@@ -209,7 +180,7 @@ extension WeatherView: UICollectionViewDataSource
             cell.time?.textColor = self.colorScheme.alternativeText
 
         }
-        
+
         return cell
     }
 }

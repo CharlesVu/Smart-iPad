@@ -1,4 +1,2 @@
-github "Alamofire/Alamofire" "4.2.0"
-github "CharlesVu/ForecastIO" "3.0.3"
-github "CharlesVu/HuxleySwift" "0.6"
-github "CharlesVu/TFLSwaggerSwiftAPI" "1.1"
+github "realm/realm-cocoa" "14a15cf2bebc83b9b0d066d4095f773bed978c85"
+github "sxg/ForecastIO" "6.0.1"

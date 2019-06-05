@@ -7,63 +7,35 @@
 //
 
 import Foundation
+import Persistance
 
-class AppData
-{
+class AppData {
     static let sharedInstance = AppData()
-    
-    private(set) var stationMap: [String: String] = [:]
-    private(set) var stationList: [(crs: String, name: String)] = []
 
-    private init()
-    {
-        guard let libraryPath = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).last else
-        {
-            return
-        }
-        let pathURL = URL(fileURLWithPath: libraryPath)
-        let fullPath = pathURL.appendingPathComponent("station").appendingPathExtension("plist")
-        TrainClient.getTrainsNames(){_ in }
-        do
-        {
-            let data = try Data(contentsOf: fullPath)
-            if let stationMap = NSKeyedUnarchiver.unarchiveObject(with: data) as? [String: String]
-            {
-                self.stationMap = stationMap
-                self.populateList()
-            }
+    private(set) var stationMap: [String: TrainStation] = [:]
+    private(set) var stationList: [TrainStation] = []
 
-        }
-        catch
-        {
-            TrainClient.getTrainsNames() { map in
-                do
-                {
-                    self.stationMap = map
-                    self.populateList()
-                    let data = NSKeyedArchiver.archivedData(withRootObject: self.stationMap)
-                    try data.write(to: fullPath, options: NSData.WritingOptions.atomic)
-                }
-                catch
-                {
-                    
-                }
+    private init() {
+        stationList = Persistance.shared.allTrainStation()
+        populateMap()
+        if stationList.count == 0 {
+            TrainClient.getTrainsNames { stations in
+                Persistance.shared.addTrainStations(trainStation: stations)
+                self.stationList = stations
+                self.populateMap()
             }
-            
         }
     }
-    
-    func populateList()
-    {
-        stationList.removeAll()
-        
-        for station in stationMap
-        {
-            stationList.append((crs: station.key, name: station.value))
+
+    func populateMap() {
+        stationMap.removeAll()
+
+        for station in stationList {
+            stationMap[station.crsCode] = station
         }
-        
+
         stationList.sort { (e1, e2) -> Bool in
-            return e1.name < e2.name
+            return e1.stationName < e2.stationName
         }
     }
 }

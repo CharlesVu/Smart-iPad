@@ -9,8 +9,7 @@
 import Foundation
 import UIKit
 
-class TrainCell: UITableViewCell
-{
+class TrainCell: UITableViewCell {
     @IBOutlet weak var arivalTime: UILabel?
     @IBOutlet weak var delay: UILabel?
     @IBOutlet weak var platform: UILabel?

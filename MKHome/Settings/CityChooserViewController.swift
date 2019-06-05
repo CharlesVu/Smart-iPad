@@ -9,19 +9,18 @@
 import Foundation
 import UIKit
 import MapKit
+import Persistance
 
-class CityChooserViewController: ThemableViewController
-{
+class CityChooserViewController: ThemableViewController {
     @IBOutlet var searchBar: UISearchBar?
     @IBOutlet var tableView: UITableView?
     @IBOutlet var spinner: UIActivityIndicatorView?
 
     fileprivate let appSettings = AppData.sharedInstance
-    fileprivate var searchResults : [CLPlacemark] = []
+    fileprivate var searchResults: [CLPlacemark] = []
     fileprivate let geocoder = CLGeocoder()
-   
-    override func refreshColors()
-    {
+
+    override func refreshColors() {
         view.backgroundColor = colorScheme.alternativeBackground
         searchBar?.backgroundColor = colorScheme.alternativeBackground
         searchBar?.tintColor = colorScheme.normalText
@@ -30,21 +29,16 @@ class CityChooserViewController: ThemableViewController
         textFieldInsideSearchBar?.textColor = colorScheme.normalText
         tableView?.reloadData()
     }
-    
-    func lookup(name: String, completion: @escaping (Error?, [CLPlacemark]?) -> Void)
-    {
+
+    func lookup(name: String, completion: @escaping (Error?, [CLPlacemark]?) -> Void) {
         geocoder.cancelGeocode()
         spinner?.startAnimating()
-        geocoder.geocodeAddressString(name)
-        { (placemarks, error) in
+        geocoder.geocodeAddressString(name) { (placemarks, error) in
             self.spinner?.stopAnimating()
-            
-            if error != nil
-            {
+
+            if error != nil {
                 completion(error, nil)
-            }
-            else
-            {
+            } else {
                 completion(nil, placemarks)
             }
         }
@@ -52,31 +46,26 @@ class CityChooserViewController: ThemableViewController
 
 }
 
-extension CityChooserViewController: UITableViewDelegate
-{
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
+extension CityChooserViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let placemark = searchResults[indexPath.row]
 
         if let name = placemark.name,
-            let coordinate = placemark.location?.coordinate
-        {
-            UserSettings.sharedInstance.weather.addCity(City(name: name, coordinates: coordinate))
+            let coordinate = placemark.location?.coordinate {
+            UserSettings.sharedInstance.weather.addCity(WeatherCity(name: name,
+                                                                    longitude: coordinate.longitude,
+                                                                    latitude: coordinate.latitude))
         }
         _ = self.navigationController?.popViewController(animated: true)
     }
 }
 
-
-extension CityChooserViewController: UITableViewDataSource
-{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
+extension CityChooserViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchResults.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let placemark = searchResults[indexPath.row]
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell")!
@@ -87,8 +76,7 @@ extension CityChooserViewController: UITableViewDataSource
         cell.textLabel?.textColor = colorScheme.normalText
         cell.backgroundColor = colorScheme.alternativeBackground
 
-        if UIDevice.current.userInterfaceIdiom == .pad
-        {
+        if UIDevice.current.userInterfaceIdiom == .pad {
             cell.preservesSuperviewLayoutMargins = false
 
             cell.layoutMargins = .zero
@@ -99,27 +87,18 @@ extension CityChooserViewController: UITableViewDataSource
     }
 }
 
-
-extension CityChooserViewController: UISearchBarDelegate
-{
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String)
-    {
-        if searchText != ""
-        {
-            lookup(name: searchText, completion: { (error, placemarks) in
-                if let placemarks = placemarks
-                {
+extension CityChooserViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText != "" {
+            lookup(name: searchText, completion: { (_, placemarks) in
+                if let placemarks = placemarks {
                     self.searchResults = placemarks
-                }
-                else
-                {
+                } else {
                     self.searchResults.removeAll()
                 }
                 self.tableView?.reloadData()
             })
-        }
-        else
-        {
+        } else {
             searchResults = []
             self.tableView?.reloadData()
         }

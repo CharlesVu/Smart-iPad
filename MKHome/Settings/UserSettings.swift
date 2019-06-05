@@ -8,161 +8,94 @@
 
 import Foundation
 import MapKit
+import Persistance
 
-class UserSettings
-{
+class UserSettings {
     static let sharedInstance = UserSettings()
-    
+
     let weather = Weather()
     let rail = NationalRail()
     let colorScheme = Color()
 }
 
-protocol WeatherDelegate
-{
+protocol WeatherDelegate {
     func onCityChanged()
 }
 
 // Weather
-extension UserSettings
-{
-    class Weather
-    {
-        static let archiveKey = "weather.cities"
-        fileprivate var cities: [City] = []
-        var delegate : WeatherDelegate?
+extension UserSettings {
+    class Weather {
+        fileprivate var cities: [WeatherCity] = []
+        var delegate: WeatherDelegate?
 
-        init()
-        {
-            if let data = UserDefaults.standard.object(forKey: Weather.archiveKey) as? Data
-            {
-                if let weatherCities = NSKeyedUnarchiver.unarchiveObject(with: data) as? [String]
-                {
-                    for cityName in weatherCities
-                    {
-                        City.lookupCoordinates(name: cityName)
-                        { (error, coordinate) in
-                            if let coordinate = coordinate
-                            {
-                                self.cities.append(City(name: cityName, coordinates: coordinate))
-                                self.delegate?.onCityChanged()
-                            }
-                        }
-                    }
-                }
-            }
+        init() {
+            cities = Persistance.shared.allWeatherCity()
         }
 
-        func getCities() -> [City]
-        {
+        func getCities() -> [WeatherCity] {
             return cities
         }
 
-        func addCity(_ city: City)
-        {
-            cities.append(city)
-            save()
+        func addCity(_ city: WeatherCity) {
+            Persistance.shared.addWeatherCity(city: city)
             delegate?.onCityChanged()
         }
 
-        func removeCity(_ city: City)
-        {
-            if let index = cities.index(of: city)
-            {
-                cities.remove(at: index)
-            }
-
-            save()
+        func removeCity(_ city: WeatherCity) {
+            Persistance.shared.removeWeatherCity(city: city)
             delegate?.onCityChanged()
-        }
-
-        fileprivate func save()
-        {
-            let data = NSKeyedArchiver.archivedData(withRootObject: cities.map({ (city) -> String in
-                return city.name
-            }))
-            UserDefaults.standard.set(data, forKey: Weather.archiveKey)
         }
     }
 }
 
 // Train Related
-extension UserSettings
-{
-    class NationalRail
-    {
+extension UserSettings {
+    class NationalRail {
         static let archiveKey = "NationalRail.journeys"
 
         fileprivate var journeys: [Journey] = []
 
-        init()
-        {
-            if let data = UserDefaults.standard.object(forKey: NationalRail.archiveKey) as? Data
-            {
-                if let journeys = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Journey]
-                {
-                    self.journeys = journeys
-                }
-            }
+        init() {
+            journeys = Persistance.shared.allJourney()
         }
 
-        func getJourneys() -> [Journey]
-        {
+        func getJourneys() -> [Journey] {
             return journeys
         }
 
-        func addJourney(_ journey: Journey)
-        {
+        func addJourney(_ journey: Journey) {
             journeys.append(journey)
-            save()
+            Persistance.shared.addJourney(journey: journey)
         }
 
-        func removeJourney(_ journey: Journey)
-        {
-            if let index = journeys.index(of: journey)
-            {
-                journeys.remove(at: index)
-            }
-            save()
-        }
-
-        fileprivate func save()
-        {
-            let data = NSKeyedArchiver.archivedData(withRootObject: journeys)
-            UserDefaults.standard.set(data, forKey: NationalRail.archiveKey)
+        func removeJourney(_ journey: Journey) {
+            journeys.removeAll { $0 == journey }
+            Persistance.shared.removeJourney(journey: journey)
         }
     }
 }
 
-extension UserSettings
-{
-    class Color
-    {
+extension UserSettings {
+    class Color {
         static let archiveKey = "Color.selected"
         static let colorChangedNotificationName = NSNotification.Name("Settings.ColorChanged")
-            
-        var scheme: ColorScheme = ColorScheme.solarizedDark
-        {
-            didSet
-            {
+
+        var scheme: ColorScheme = ColorScheme.solarizedDark {
+            didSet {
                 save()
                 NotificationCenter.default.post(name: Color.colorChangedNotificationName, object: nil, userInfo: ["colorScheme": scheme])
             }
         }
-        
-        init()
-        {
-            if let colorSchemeName = UserDefaults.standard.object(forKey: Color.archiveKey) as? String
-            {
-                if let colorScheme = ColorScheme.allValues[colorSchemeName]
-                {
+
+        init() {
+            if let colorSchemeName = UserDefaults.standard.object(forKey: Color.archiveKey) as? String {
+                if let colorScheme = ColorScheme.allValues[colorSchemeName] {
                     self.scheme = colorScheme
                 }
             }
         }
-        
-        fileprivate func save()
-        {
+
+        fileprivate func save() {
             UserDefaults.standard.set(scheme.name, forKey: Color.archiveKey)
         }
 

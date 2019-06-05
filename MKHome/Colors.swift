@@ -15,10 +15,8 @@ import UIKit
  $cyan:      #2aa198;
  */
 
-extension UIColor
-{
-    convenience init(fromRGB rgbValue: UInt)
-    {
+extension UIColor {
+    convenience init(fromRGB rgbValue: UInt) {
         self.init(
             red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
             green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
@@ -26,70 +24,57 @@ extension UIColor
             alpha: CGFloat(1.0)
         )
     }
-    
-    static var solarizedBase03: UIColor
-    {
+
+    static var solarizedBase03: UIColor {
         return UIColor(fromRGB: 0x002b36)
     }
-    
-    static var solarizedBase02: UIColor
-    {
+
+    static var solarizedBase02: UIColor {
         return UIColor(fromRGB: 0x073642)
     }
-    
-    static var solarizedBase01: UIColor
-    {
+
+    static var solarizedBase01: UIColor {
         return UIColor(fromRGB: 0x586e75)
     }
-    
-    static var solarizedBase00: UIColor
-    {
+
+    static var solarizedBase00: UIColor {
         return UIColor(fromRGB: 0x657b83)
     }
-    
-    static var solarizedBase0: UIColor
-    {
+
+    static var solarizedBase0: UIColor {
         return UIColor(fromRGB: 0x839496)
     }
 
-    static var solarizedBase1: UIColor
-    {
+    static var solarizedBase1: UIColor {
         return UIColor(fromRGB: 0x93a1a1)
     }
 
-    static var solarizedBase2: UIColor
-    {
+    static var solarizedBase2: UIColor {
         return UIColor(fromRGB: 0xeee8d5)
     }
-    
-    static var solarizedBase3: UIColor
-    {
+
+    static var solarizedBase3: UIColor {
         return UIColor(fromRGB: 0xfdf6e3)
     }
-    
-    static var solarizedRed: UIColor
-    {
+
+    static var solarizedRed: UIColor {
         return UIColor(fromRGB: 0xdc322f)
     }
-    
-    static var solarizedOrange: UIColor
-    {
+
+    static var solarizedOrange: UIColor {
         return UIColor(fromRGB: 0xcb4b16)
     }
-    
-    static var solarizedGreen: UIColor
-    {
+
+    static var solarizedGreen: UIColor {
         return UIColor(fromRGB: 0x859900)
     }
 
-    static var solarizedYellow: UIColor
-    {
+    static var solarizedYellow: UIColor {
         return UIColor(fromRGB: 0xb58900)
     }
 }
 
-public struct ColorScheme
-{
+public struct ColorScheme {
     let name: String
     let background: UIColor
     let alternativeBackground: UIColor
@@ -101,38 +86,37 @@ public struct ColorScheme
     let yellow: UIColor
 }
 
-public extension ColorScheme
-{
+public extension ColorScheme {
     static let solarizedDark = ColorScheme(name: "Solarized Dark",
                                            background: UIColor.solarizedBase02,
-                                           alternativeBackground:UIColor.solarizedBase03,
+                                           alternativeBackground: UIColor.solarizedBase03,
                                            normalText: UIColor.solarizedBase0,
                                            alternativeText: UIColor.solarizedBase00,
                                            positiveText: UIColor.solarizedGreen,
                                            warningText: UIColor.solarizedOrange,
                                            errorText: UIColor.solarizedRed,
                                            yellow: UIColor.solarizedYellow)
-    
+
     static let solarizedLight = ColorScheme(name: "Solarized Light",
                                             background: UIColor.solarizedBase2,
-                                            alternativeBackground:UIColor.solarizedBase3,
+                                            alternativeBackground: UIColor.solarizedBase3,
                                             normalText: UIColor.solarizedBase00,
                                             alternativeText: UIColor.solarizedBase0,
                                             positiveText: UIColor.solarizedGreen,
                                             warningText: UIColor.solarizedOrange,
                                             errorText: UIColor.solarizedRed,
                                             yellow: UIColor.solarizedYellow)
-    
+
     static let whiteOnBlack = ColorScheme(name: "White on black",
                                             background: UIColor.black,
-                                            alternativeBackground:UIColor.black,
+                                            alternativeBackground: UIColor.black,
                                             normalText: UIColor.white,
                                             alternativeText: UIColor.white,
                                             positiveText: UIColor.green,
                                             warningText: UIColor.orange,
                                             errorText: UIColor.red,
                                             yellow: UIColor.yellow)
-    
+
     static let allValues = [solarizedDark.name: solarizedDark,
                             solarizedLight.name: solarizedLight,
                             whiteOnBlack.name: whiteOnBlack]

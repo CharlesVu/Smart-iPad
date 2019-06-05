@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire",
+        "state": {
+          "branch": null,
+          "revision": "75bba56748359f297a83f620d45f72cf4ebee4e7",
+          "version": "4.8.2"
+        }
+      },
+      {
+        "package": "HuxleySwift",
+        "repositoryURL": "git@github.com:CharlesVu/HuxleySwift.git",
+        "state": {
+          "branch": "master",
+          "revision": "ff9cd114d80eb9b12fcfd941aebaff3e6be4fefe",
+          "version": null
+        }
+      },
+      {
+        "package": "TFLSwaggerSwiftAPI",
+        "repositoryURL": "https://github.com/CharlesVu/TFLSwaggerSwiftAPI",
+        "state": {
+          "branch": "feature/ios13",
+          "revision": "1cbcfb018ab67f4059a557b5f5fb8c71e515a3b8",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

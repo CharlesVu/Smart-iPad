@@ -9,25 +9,22 @@
 import Foundation
 import UIKit
 
-extension UIView
-{
-    func fadeTransition(duration:CFTimeInterval)
-    {
-        let animation:CATransition = CATransition()
+extension UIView {
+    func fadeTransition(duration: CFTimeInterval) {
+        let animation: CATransition = CATransition()
         animation.timingFunction = CAMediaTimingFunction(name:
-            kCAMediaTimingFunctionEaseInEaseOut)
-        animation.type = kCATransitionFromTop
+            CAMediaTimingFunctionName.easeInEaseOut)
+        animation.type = .moveIn
         animation.duration = duration
-        self.layer.add(animation, forKey: kCATransitionFromTop)
+        self.layer.add(animation, forKey: CATransitionSubtype.fromTop.rawValue)
     }
 
-    func pushTransition(duration:CFTimeInterval)
-    {
-        let animation:CATransition = CATransition()
+    func pushTransition(duration: CFTimeInterval) {
+        let animation: CATransition = CATransition()
         animation.timingFunction = CAMediaTimingFunction(name:
-            kCAMediaTimingFunctionEaseInEaseOut)
-        animation.type = kCATransitionPush
+            CAMediaTimingFunctionName.easeInEaseOut)
+        animation.type = .push
         animation.duration = duration
-        self.layer.add(animation, forKey: kCATransitionPush)
+        self.layer.add(animation, forKey: CATransitionType.push.rawValue)
     }
 }

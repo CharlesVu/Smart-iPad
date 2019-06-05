@@ -13,22 +13,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func refreshColors()
-    {
+    func refreshColors() {
         let navigationBarAppearace = UINavigationBar.appearance()
         navigationBarAppearace.tintColor = UserSettings.sharedInstance.colorScheme.scheme.normalText
         navigationBarAppearace.barTintColor = UserSettings.sharedInstance.colorScheme.scheme.alternativeBackground
-        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:UserSettings.sharedInstance.colorScheme.scheme.normalText]
+        navigationBarAppearace.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UserSettings.sharedInstance.colorScheme.scheme.normalText]
 
     }
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
-    {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.refreshColors()
 
         NotificationCenter.default.addObserver(forName: NSNotification.Name("Settings.ColorChanged"),
                                                           object: nil,
-                                                          queue: OperationQueue.main)
-        { (_) in
+                                                          queue: OperationQueue.main) { (_) in
             self.refreshColors()
         }
         // change navigation item title color
@@ -59,6 +56,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
 }
-

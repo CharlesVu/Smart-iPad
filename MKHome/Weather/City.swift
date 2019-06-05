@@ -8,42 +8,24 @@
 
 import Foundation
 import MapKit
+import Persistance
 
-struct City: Hashable, Equatable
-{
-    var name: String
-    var coordinates: CLLocationCoordinate2D
-
+extension WeatherCity {
     static func lookupCoordinates(name: String,
-                                  completion: @escaping (Error?, CLLocationCoordinate2D?) -> Void)
-    {
-        CLGeocoder().geocodeAddressString(name)
-        { (placemarks, error) in
-            if error != nil
-            {
+                                  completion: @escaping (Error?, CLLocationCoordinate2D?) -> Void) {
+        CLGeocoder().geocodeAddressString(name) { (placemarks, error) in
+            if error != nil {
                 completion(error, nil)
                 return
             }
-            if let placemarks = placemarks, placemarks.count > 0
-            {
+            if let placemarks = placemarks, placemarks.count > 0 {
                 let placemark = placemarks[0]
                 let location = placemark.location
                 let coordinate = location?.coordinate
-                if let coordinate = coordinate
-                {
+                if let coordinate = coordinate {
                     completion(nil, coordinate)
                 }
             }
         }
-    }
-
-    var hashValue: Int
-    {
-        return name.hashValue
-    }
-
-    static func ==(lhs: City, rhs: City) -> Bool
-    {
-        return lhs.name == rhs.name
     }
 }
