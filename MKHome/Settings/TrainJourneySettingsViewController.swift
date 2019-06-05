@@ -9,16 +9,11 @@
 import Foundation
 import UIKit
 
-class TrainJourneySettingsViewController: ThemableViewController {
+class TrainJourneySettingsViewController: UIViewController {
     @IBOutlet var trainJourneyTableView: UITableView?
 
     fileprivate let userSettings = UserSettings.sharedInstance
     fileprivate let appSettings = AppData.sharedInstance
-
-    override func refreshColors() {
-        view.backgroundColor = colorScheme.alternativeBackground
-        trainJourneyTableView?.reloadData()
-    }
 
     override func viewWillAppear(_ animated: Bool) {
         trainJourneyTableView?.reloadData()
@@ -36,14 +31,12 @@ extension TrainJourneySettingsViewController: UITableViewDataSource {
 
         if let source = appSettings.stationMap[journey.originCRS],
             let destination = appSettings.stationMap[journey.destinationCRS] {
-            let attributedSource = NSMutableAttributedString(string: source.stationName, attributes: [NSAttributedString.Key.foregroundColor: colorScheme.normalText])
-            let attributedDestination = NSAttributedString(string: destination.stationName, attributes: [NSAttributedString.Key.foregroundColor: colorScheme.normalText])
-            attributedSource.append(NSAttributedString(string: " → ", attributes: [NSAttributedString.Key.foregroundColor: colorScheme.alternativeText]))
+            let attributedSource = NSMutableAttributedString(string: source.stationName, attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "normalText")!])
+            let attributedDestination = NSAttributedString(string: destination.stationName, attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "normalText")!])
+            attributedSource.append(NSAttributedString(string: " → ", attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "alternativeText")!]))
             attributedSource.append(attributedDestination)
             cell.textLabel?.attributedText = attributedSource
         }
-
-        cell.backgroundColor = colorScheme.alternativeBackground
 
         return cell
     }

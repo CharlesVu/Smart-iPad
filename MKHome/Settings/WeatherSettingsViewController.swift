@@ -9,15 +9,10 @@
 import Foundation
 import UIKit
 
-class WeatherSettingsViewController: ThemableViewController {
+class WeatherSettingsViewController: UIViewController {
     fileprivate let userSettings = UserSettings.sharedInstance
 
     @IBOutlet var cityWeatherTableView: UITableView?
-
-    override func refreshColors() {
-        view.backgroundColor = colorScheme.alternativeBackground
-        cityWeatherTableView?.reloadData()
-    }
 
     override func viewWillAppear(_ animated: Bool) {
         cityWeatherTableView?.reloadData()
@@ -37,8 +32,6 @@ extension WeatherSettingsViewController: UITableViewDataSource {
         let city = userSettings.weather.getCities()[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cityCell")!
         cell.textLabel?.text = city.name
-        cell.backgroundColor = colorScheme.alternativeBackground
-        cell.textLabel?.textColor = colorScheme.normalText
 
         return cell
     }

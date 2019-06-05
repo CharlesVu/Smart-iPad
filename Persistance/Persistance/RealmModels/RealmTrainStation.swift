@@ -29,4 +29,3 @@ import RealmSwift
         self.stationName = trainStation.stationName
     }
 }
-

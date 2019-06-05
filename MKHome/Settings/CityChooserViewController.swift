@@ -11,7 +11,7 @@ import UIKit
 import MapKit
 import Persistance
 
-class CityChooserViewController: ThemableViewController {
+class CityChooserViewController: UIViewController {
     @IBOutlet var searchBar: UISearchBar?
     @IBOutlet var tableView: UITableView?
     @IBOutlet var spinner: UIActivityIndicatorView?
@@ -19,16 +19,6 @@ class CityChooserViewController: ThemableViewController {
     fileprivate let appSettings = AppData.sharedInstance
     fileprivate var searchResults: [CLPlacemark] = []
     fileprivate let geocoder = CLGeocoder()
-
-    override func refreshColors() {
-        view.backgroundColor = colorScheme.alternativeBackground
-        searchBar?.backgroundColor = colorScheme.alternativeBackground
-        searchBar?.tintColor = colorScheme.normalText
-        searchBar?.barTintColor = colorScheme.normalText
-        let textFieldInsideSearchBar = searchBar?.value(forKey: "searchField") as? UITextField
-        textFieldInsideSearchBar?.textColor = colorScheme.normalText
-        tableView?.reloadData()
-    }
 
     func lookup(name: String, completion: @escaping (Error?, [CLPlacemark]?) -> Void) {
         geocoder.cancelGeocode()
@@ -71,10 +61,6 @@ extension CityChooserViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell")!
 
         cell.textLabel?.text = placemark.name! + ",  " + placemark.country!
-
-        cell.detailTextLabel?.textColor = colorScheme.alternativeText
-        cell.textLabel?.textColor = colorScheme.normalText
-        cell.backgroundColor = colorScheme.alternativeBackground
 
         if UIDevice.current.userInterfaceIdiom == .pad {
             cell.preservesSuperviewLayoutMargins = false

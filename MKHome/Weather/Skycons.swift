@@ -64,7 +64,7 @@ let Wind_OFFSETS = [SKYWindOffset(start: 0.36, end: 0.11), SKYWindOffset(start: 
 class SKYIconView: UIView {
 
     fileprivate var _type = Icon.clearDay
-    fileprivate var _color = ColorScheme.solarizedDark.normalText
+    fileprivate var _color = UIColor(named: "normalText")!
     fileprivate var _timer: Timer!
 
     var w: CGFloat {

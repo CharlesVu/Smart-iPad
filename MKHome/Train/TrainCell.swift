@@ -15,5 +15,4 @@ class TrainCell: UITableViewCell {
     @IBOutlet weak var platform: UILabel?
 
     @IBOutlet weak var operatorImage: UIImageView?
-
 }

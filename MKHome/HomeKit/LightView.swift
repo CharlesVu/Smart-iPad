@@ -15,12 +15,6 @@ class LightView: UIView {
     fileprivate let homeManager = HMHomeManager()
     fileprivate var lights = [HMRoom: [HMCharacteristic]]()
 
-    public var colorScheme: ColorScheme = UserSettings.sharedInstance.colorScheme.scheme {
-        didSet {
-            lightCollectionView?.reloadData()
-        }
-    }
-
     override func awakeFromNib() {
         lightCollectionView?.dataSource = self
         lightCollectionView?.delegate = self
@@ -75,7 +69,6 @@ extension LightView: UICollectionViewDataSource {
                                                       for: indexPath) as! LightCell
 
         cell.setProperties(name: room.name, characteristics: lights[room]!)
-        cell.colorScheme = colorScheme
         return cell
     }
 

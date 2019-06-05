@@ -18,7 +18,7 @@ public struct WeatherCity: Equatable, Hashable {
         self.longitude = realmObject.longitude
         self.latitude = realmObject.latitude
     }
-    
+
     public init(name: String, longitude: Double, latitude: Double) {
         self.name = name
         self.longitude = longitude

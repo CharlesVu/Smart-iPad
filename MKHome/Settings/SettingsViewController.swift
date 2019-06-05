@@ -9,11 +9,7 @@
 import Foundation
 import UIKit
 
-class SettingsViewController: ThemableViewController {
-    override func refreshColors() {
-        view.backgroundColor = colorScheme.alternativeBackground
-    }
-
+class SettingsViewController: UIViewController {
     @IBAction func onCloseClicked(button: UIButton) {
         dismiss(animated: true)
     }

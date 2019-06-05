@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Persistance
 
-class StationChooserViewController: ThemableViewController {
+class StationChooserViewController: UIViewController {
     @IBOutlet var searchBar: UISearchBar?
     @IBOutlet var tableView: UITableView?
 
@@ -19,16 +19,6 @@ class StationChooserViewController: ThemableViewController {
 
     var selectedCRS: String?
     var previousCRS: String?
-
-    override func refreshColors() {
-        view.backgroundColor = colorScheme.alternativeBackground
-        searchBar?.backgroundColor = colorScheme.alternativeBackground
-        searchBar?.tintColor = colorScheme.normalText
-        searchBar?.barTintColor = colorScheme.normalText
-        let textFieldInsideSearchBar = searchBar?.value(forKey: "searchField") as? UITextField
-        textFieldInsideSearchBar?.textColor = colorScheme.normalText
-        tableView?.reloadData()
-    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Arrival" {
@@ -80,10 +70,6 @@ extension StationChooserViewController: UITableViewDataSource {
 
         cell.textLabel?.text = station.stationName
         cell.detailTextLabel?.text = station.crsCode
-
-        cell.detailTextLabel?.textColor = colorScheme.alternativeText
-        cell.textLabel?.textColor = colorScheme.normalText
-        cell.backgroundColor = colorScheme.alternativeBackground
 
         if UIDevice.current.userInterfaceIdiom == .pad {
             cell.preservesSuperviewLayoutMargins = false

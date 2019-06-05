@@ -15,19 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func refreshColors() {
         let navigationBarAppearace = UINavigationBar.appearance()
-        navigationBarAppearace.tintColor = UserSettings.sharedInstance.colorScheme.scheme.normalText
-        navigationBarAppearace.barTintColor = UserSettings.sharedInstance.colorScheme.scheme.alternativeBackground
-        navigationBarAppearace.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UserSettings.sharedInstance.colorScheme.scheme.normalText]
+        navigationBarAppearace.tintColor = UIColor(named: "normalText")
+        navigationBarAppearace.barTintColor = UIColor(named: "alternativeBackground")
+        navigationBarAppearace.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "normalText")!]
 
     }
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.refreshColors()
-
-        NotificationCenter.default.addObserver(forName: NSNotification.Name("Settings.ColorChanged"),
-                                                          object: nil,
-                                                          queue: OperationQueue.main) { (_) in
-            self.refreshColors()
-        }
         // change navigation item title color
 
         // Override point for customization after application launch.

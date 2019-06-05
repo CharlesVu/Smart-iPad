@@ -13,7 +13,7 @@ import HomeKit
 import HuxleySwift
 import Persistance
 
-class ViewController: ThemableViewController {
+class ViewController: UIViewController {
     fileprivate let userSettings = UserSettings.sharedInstance
     fileprivate let appSettings = AppData.sharedInstance
 
@@ -42,16 +42,6 @@ class ViewController: ThemableViewController {
 
         dateCellFormatter.setLocalizedDateFormatFromTemplate("HH:mm")
         currentDayCellFormatter.setLocalizedDateFormatFromTemplate("dd MMMM YYYY")
-    }
-
-    override func refreshColors() {
-        view.backgroundColor = colorScheme.background
-        currentTime?.textColor = colorScheme.normalText
-        currentDate?.textColor = colorScheme.normalText
-        trainDestinationLabel?.textColor = colorScheme.normalText
-        tableView?.reloadData()
-        weatherView?.colorScheme = colorScheme
-        lightView?.colorScheme = colorScheme
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -105,20 +95,15 @@ class ViewController: ThemableViewController {
 
             if let source = appSettings.stationMap[journey.originCRS],
                 let destination = appSettings.stationMap[journey.destinationCRS] {
-                let attributedSource = NSMutableAttributedString(string: source.stationName, attributes: [NSAttributedString.Key.foregroundColor: colorScheme.normalText])
-                let attributedDestination = NSAttributedString(string: destination.stationName, attributes: [NSAttributedString.Key.foregroundColor: colorScheme.normalText])
-                attributedSource.append(NSAttributedString(string: " → ", attributes: [NSAttributedString.Key.foregroundColor: colorScheme.alternativeText]))
+                let attributedSource = NSMutableAttributedString(string: source.stationName, attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "normalText")!])
+                let attributedDestination = NSAttributedString(string: destination.stationName, attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "normalText")!])
+                attributedSource.append(NSAttributedString(string: " → ", attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "alternativeText")!]))
                 attributedSource.append(attributedDestination)
                 trainDestinationLabel?.attributedText = attributedSource
             }
         }
 
         self.tableView?.reloadData()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 
@@ -137,18 +122,17 @@ extension ViewController: UITableViewDataSource {
         let service = departures[currentJourney]!.trainServices[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrainCell") as! TrainCell
         cell.arivalTime?.text = "Leaving at " + service.std! + " (\(Int(service.getJourneyDuration(toStationCRS: currentJourney.destinationCRS) / 60)) min)"
-        cell.arivalTime?.textColor = colorScheme.normalText
 
         if service.etd == "On time" || service.etd == service.std {
             cell.delay?.text = "On time"
-            cell.delay?.textColor = colorScheme.positiveText
+            cell.delay?.textColor = UIColor(named: "positiveText")
         } else if service.etd == "Delayed" || service.etd == "Cancelled" {
             cell.delay?.text = service.etd
-            cell.delay?.textColor = colorScheme.errorText
-            cell.arivalTime?.textColor = colorScheme.errorText
+            cell.delay?.textColor =  UIColor(named: "errorText")
+            cell.arivalTime?.textColor = UIColor(named: "errorText")
         } else {
             cell.delay?.text = "(\(Int(service.delay / 60)) min)"
-            cell.delay?.textColor = colorScheme.warningText
+            cell.delay?.textColor = UIColor(named: "warningText")
         }
 
         cell.backgroundColor = UIColor.clear
@@ -161,9 +145,9 @@ extension ViewController: UITableViewDataSource {
 
         if let platform = service.platform {
             cell.platform?.text = "Platform \(platform)"
-            cell.platform?.textColor = colorScheme.alternativeText
+            cell.platform?.textColor = UIColor(named: "alternativeText")
         } else {
-            cell.platform?.textColor = colorScheme.warningText
+            cell.platform?.textColor = UIColor(named: "warningText")
             cell.platform?.text = "Platform unknown"
         }
 

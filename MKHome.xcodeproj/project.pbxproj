@@ -7,11 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5610AA5A1E2169D600E8270D /* ThemeChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5610AA591E2169D600E8270D /* ThemeChooserViewController.swift */; };
 		562A9F5E1DDC6FF600ABC3AD /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A9F5D1DDC6FF600ABC3AD /* Timer.swift */; };
-		562A9F601DDC711200ABC3AD /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A9F5F1DDC711200ABC3AD /* Colors.swift */; };
 		562C58E61E2049E200CD000D /* TrainJourneySettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562C58E51E2049E200CD000D /* TrainJourneySettingsViewController.swift */; };
-		562C58E91E204D0F00CD000D /* ThemableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562C58E81E204D0F00CD000D /* ThemableViewController.swift */; };
 		563FC6101DE0FB3A00394E4A /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563FC60F1DE0FB3A00394E4A /* UserSettings.swift */; };
 		563FC6121DE108AA00394E4A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563FC6111DE108AA00394E4A /* SettingsViewController.swift */; };
 		5646567B22A7D7D600AC5A97 /* Persistance.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5646566122A7CAD400AC5A97 /* Persistance.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -84,11 +81,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5610AA591E2169D600E8270D /* ThemeChooserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeChooserViewController.swift; sourceTree = "<group>"; };
 		562A9F5D1DDC6FF600ABC3AD /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
-		562A9F5F1DDC711200ABC3AD /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		562C58E51E2049E200CD000D /* TrainJourneySettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainJourneySettingsViewController.swift; sourceTree = "<group>"; };
-		562C58E81E204D0F00CD000D /* ThemableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemableViewController.swift; sourceTree = "<group>"; };
 		563FC60F1DE0FB3A00394E4A /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		563FC6111DE108AA00394E4A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5646565C22A7CAD300AC5A97 /* Persistance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Persistance.xcodeproj; path = Persistance/Persistance.xcodeproj; sourceTree = "<group>"; };
@@ -142,14 +136,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		562C58E71E204AB300CD000D /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				562C58E81E204D0F00CD000D /* ThemableViewController.swift */,
-			);
-			name = Common;
-			sourceTree = "<group>";
-		};
 		5646565D22A7CAD300AC5A97 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,13 +170,11 @@
 				56FAE2551DDDE4C80015880C /* config.plist */,
 				56A1AD261DDC54840014047B /* Info.plist */,
 				56A1AD1A1DDC54840014047B /* AppDelegate.swift */,
-				562A9F5F1DDC711200ABC3AD /* Colors.swift */,
 				56BD704B1DDCAFB800CA142D /* Config.swift */,
 				562A9F5D1DDC6FF600ABC3AD /* Timer.swift */,
 				56F4D6B11E0EB9A30056BCC4 /* UIView.swift */,
 				56A1AD1C1DDC54840014047B /* ViewController.swift */,
 				56A1AD211DDC54840014047B /* Assets.xcassets */,
-				562C58E71E204AB300CD000D /* Common */,
 				56F4D6B01E0EB7A20056BCC4 /* HomeKit */,
 				56A1AD231DDC54840014047B /* LaunchScreen.storyboard */,
 				56A1AD1E1DDC54840014047B /* Main~iPad.storyboard */,
@@ -240,7 +224,6 @@
 				56F4D6B31E0ECE980056BCC4 /* CityChooserViewController.swift */,
 				562C58E51E2049E200CD000D /* TrainJourneySettingsViewController.swift */,
 				568D6FF01E21187500E81E47 /* WeatherSettingsViewController.swift */,
-				5610AA591E2169D600E8270D /* ThemeChooserViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -382,9 +365,7 @@
 				56F4D6AA1E0D66660056BCC4 /* LightCell.swift in Sources */,
 				56BD704A1DDCA37C00CA142D /* TrainServicesExtension.swift in Sources */,
 				568D6FF11E21187500E81E47 /* WeatherSettingsViewController.swift in Sources */,
-				562C58E91E204D0F00CD000D /* ThemableViewController.swift in Sources */,
 				56F4D6AC1E0D8EDA0056BCC4 /* WeatherView.swift in Sources */,
-				562A9F601DDC711200ABC3AD /* Colors.swift in Sources */,
 				56BD70451DDC7E6F00CA142D /* WeatherCell.swift in Sources */,
 				56BD70481DDCA20400CA142D /* TrainClient.swift in Sources */,
 				56F4D6B41E0ECE980056BCC4 /* CityChooserViewController.swift in Sources */,
@@ -398,7 +379,6 @@
 				562A9F5E1DDC6FF600ABC3AD /* Timer.swift in Sources */,
 				56F436851DE1AEE600521991 /* StationChooserViewController.swift in Sources */,
 				56F436871DE1AF9D00521991 /* AppData.swift in Sources */,
-				5610AA5A1E2169D600E8270D /* ThemeChooserViewController.swift in Sources */,
 				56F4D6B61E0EDC050056BCC4 /* City.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

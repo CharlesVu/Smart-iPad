@@ -39,7 +39,7 @@ public class Persistance {
 
     static private func realmConfiguration(migrationBlock: MigrationBlock) -> Realm.Configuration {
         var configuration = Realm.Configuration()
-        configuration.fileURL = localDocumentPath(for : "realm")
+        configuration.fileURL = localDocumentPath(for: "realm")
         configuration.schemaVersion = Version.current
         return configuration
     }

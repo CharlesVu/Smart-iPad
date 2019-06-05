@@ -15,12 +15,6 @@ class LightCell: UICollectionViewCell {
     @IBOutlet weak var roomName: UILabel?
     @IBOutlet weak var lightLevel: SKYIconView?
 
-    var colorScheme = UserSettings.sharedInstance.colorScheme.scheme {
-        didSet {
-            reloadData()
-        }
-    }
-
     fileprivate var characteristics: [HMCharacteristic] = []
     fileprivate var name: String = ""
 
@@ -33,9 +27,9 @@ class LightCell: UICollectionViewCell {
     func reloadData() {
         roomName?.text = name
         backgroundColor = UIColor.clear
-        roomName?.textColor = colorScheme.normalText
+        roomName?.textColor = UIColor(named: "normalText")
         lightLevel?.setType = .clearNight
-        lightLevel?.tintColor = colorScheme.normalText
+        lightLevel?.tintColor = UIColor(named: "normalText")
         lightLevel?.play()
 
         for characteristic in characteristics {
@@ -44,7 +38,7 @@ class LightCell: UICollectionViewCell {
                     if error == nil {
                         if let value = characteristic.value as? Bool, value, reachable {
                             self.lightLevel?.setType = .clearDay
-                            self.lightLevel?.tintColor = self.colorScheme.yellow
+                            self.lightLevel?.tintColor = UIColor(named: "yellow")
 
                             self.lightLevel?.play()
                         }

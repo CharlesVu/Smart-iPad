@@ -26,16 +26,6 @@ class WeatherView: UIView {
     fileprivate var forecast: Forecast?
     let dateCellFormatter = DateFormatter()
 
-    public var colorScheme: ColorScheme = ColorScheme.solarizedDark {
-        didSet {
-            currentWeather?.tintColor = colorScheme.normalText
-            currentTemerature?.textColor = colorScheme.normalText
-            currentHumanDescription?.textColor = colorScheme.normalText
-            weatherTitle?.textColor = colorScheme.normalText
-            weatherCollectionView?.reloadData()
-        }
-    }
-
     override func awakeFromNib() {
         dateCellFormatter.setLocalizedDateFormatFromTemplate("HH:mm")
         weatherCollectionView?.dataSource = self
@@ -80,7 +70,6 @@ class WeatherView: UIView {
                 let rootObject = result.value.0
                                         DispatchQueue.main.async {
 
-
                     self.weatherMap[location] = rootObject
                     if self.currentLocation == nil {
                         self.currentLocation = location
@@ -118,7 +107,6 @@ class WeatherView: UIView {
             currentWeather?.pushTransition(duration: 0.3)
             currentWeather?.setType = icon
             currentWeather?.play()
-            currentWeather?.tintColor = colorScheme.normalText
         }
         weatherCollectionView?.reloadData()
 
@@ -163,7 +151,6 @@ extension WeatherView: UICollectionViewDataSource {
             cell.icon?.setType = data.icon!
             if let temperature = data.temperature {
                 cell.temperature?.text = "\(Int(temperature))°C"
-                cell.temperature?.textColor = self.colorScheme.normalText
             }
 
             UIView.animate(withDuration: 0.3) {
@@ -172,12 +159,9 @@ extension WeatherView: UICollectionViewDataSource {
                 cell.icon?.play()
             }
 
-            cell.icon?.tintColor = self.colorScheme.normalText
-
             let time = data.time
 
             cell.time?.text = dateCellFormatter.string(from: time)
-            cell.time?.textColor = self.colorScheme.alternativeText
 
         }
 

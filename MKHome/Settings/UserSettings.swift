@@ -15,7 +15,6 @@ class UserSettings {
 
     let weather = Weather()
     let rail = NationalRail()
-    let colorScheme = Color()
 }
 
 protocol WeatherDelegate {
@@ -51,8 +50,6 @@ extension UserSettings {
 // Train Related
 extension UserSettings {
     class NationalRail {
-        static let archiveKey = "NationalRail.journeys"
-
         fileprivate var journeys: [Journey] = []
 
         init() {
@@ -72,32 +69,5 @@ extension UserSettings {
             journeys.removeAll { $0 == journey }
             Persistance.shared.removeJourney(journey: journey)
         }
-    }
-}
-
-extension UserSettings {
-    class Color {
-        static let archiveKey = "Color.selected"
-        static let colorChangedNotificationName = NSNotification.Name("Settings.ColorChanged")
-
-        var scheme: ColorScheme = ColorScheme.solarizedDark {
-            didSet {
-                save()
-                NotificationCenter.default.post(name: Color.colorChangedNotificationName, object: nil, userInfo: ["colorScheme": scheme])
-            }
-        }
-
-        init() {
-            if let colorSchemeName = UserDefaults.standard.object(forKey: Color.archiveKey) as? String {
-                if let colorScheme = ColorScheme.allValues[colorSchemeName] {
-                    self.scheme = colorScheme
-                }
-            }
-        }
-
-        fileprivate func save() {
-            UserDefaults.standard.set(scheme.name, forKey: Color.archiveKey)
-        }
-
     }
 }
