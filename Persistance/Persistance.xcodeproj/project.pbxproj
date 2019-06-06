@@ -15,12 +15,15 @@
 		5646566B22A7CC1000AC5A97 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5646566922A7CC1000AC5A97 /* Realm.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5646566E22A7D2DF00AC5A97 /* Migrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5646566D22A7D2DF00AC5A97 /* Migrations.swift */; };
 		5646567122A7D32700AC5A97 /* Versions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5646567022A7D32700AC5A97 /* Versions.swift */; };
-		5646567722A7D5B300AC5A97 /* WeatherCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5646567622A7D5B300AC5A97 /* WeatherCity.swift */; };
+		5646567722A7D5B300AC5A97 /* RealmWeatherCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5646567622A7D5B300AC5A97 /* RealmWeatherCity.swift */; };
 		5646567A22A7D69300AC5A97 /* WeatherPersistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5646567922A7D69300AC5A97 /* WeatherPersistance.swift */; };
 		5646568222A7D9F500AC5A97 /* RealmJourney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5646568122A7D9F500AC5A97 /* RealmJourney.swift */; };
 		5646568622A7DED400AC5A97 /* JourneyPersistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5646568522A7DED400AC5A97 /* JourneyPersistance.swift */; };
 		5646568822A7FEA600AC5A97 /* RealmTrainStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5646568722A7FEA600AC5A97 /* RealmTrainStation.swift */; };
 		5646568A22A7FEF400AC5A97 /* TrainStationPersistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5646568922A7FEF400AC5A97 /* TrainStationPersistance.swift */; };
+		56CEC54C22A98BAD00D9AFC2 /* TFLPersistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CEC54B22A98BAD00D9AFC2 /* TFLPersistance.swift */; };
+		56CEC54E22A98BD500D9AFC2 /* RealmTFLMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CEC54D22A98BD500D9AFC2 /* RealmTFLMode.swift */; };
+		56CEC55022A98C1D00D9AFC2 /* RealmTFLLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CEC54F22A98C1D00D9AFC2 /* RealmTFLLine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -48,12 +51,15 @@
 		5646566D22A7D2DF00AC5A97 /* Migrations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Migrations.swift; sourceTree = "<group>"; };
 		5646567022A7D32700AC5A97 /* Versions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Versions.swift; sourceTree = "<group>"; };
 		5646567222A7D39E00AC5A97 /* MigrationTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationTemplate.swift; sourceTree = "<group>"; };
-		5646567622A7D5B300AC5A97 /* WeatherCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCity.swift; sourceTree = "<group>"; };
+		5646567622A7D5B300AC5A97 /* RealmWeatherCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmWeatherCity.swift; sourceTree = "<group>"; };
 		5646567922A7D69300AC5A97 /* WeatherPersistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPersistance.swift; sourceTree = "<group>"; };
 		5646568122A7D9F500AC5A97 /* RealmJourney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmJourney.swift; sourceTree = "<group>"; };
 		5646568522A7DED400AC5A97 /* JourneyPersistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyPersistance.swift; sourceTree = "<group>"; };
 		5646568722A7FEA600AC5A97 /* RealmTrainStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTrainStation.swift; sourceTree = "<group>"; };
 		5646568922A7FEF400AC5A97 /* TrainStationPersistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainStationPersistance.swift; sourceTree = "<group>"; };
+		56CEC54B22A98BAD00D9AFC2 /* TFLPersistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFLPersistance.swift; sourceTree = "<group>"; };
+		56CEC54D22A98BD500D9AFC2 /* RealmTFLMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTFLMode.swift; sourceTree = "<group>"; };
+		56CEC54F22A98C1D00D9AFC2 /* RealmTFLLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTFLLine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,7 +135,8 @@
 		5646567522A7D58F00AC5A97 /* RealmModels */ = {
 			isa = PBXGroup;
 			children = (
-				5646567622A7D5B300AC5A97 /* WeatherCity.swift */,
+				56CEC54922A98AC900D9AFC2 /* TFL */,
+				5646567622A7D5B300AC5A97 /* RealmWeatherCity.swift */,
 				5646568122A7D9F500AC5A97 /* RealmJourney.swift */,
 				5646568722A7FEA600AC5A97 /* RealmTrainStation.swift */,
 			);
@@ -139,11 +146,29 @@
 		5646567822A7D68400AC5A97 /* PersistanceExtensions */ = {
 			isa = PBXGroup;
 			children = (
+				56CEC54A22A98AF000D9AFC2 /* TFL */,
 				5646567922A7D69300AC5A97 /* WeatherPersistance.swift */,
 				5646568522A7DED400AC5A97 /* JourneyPersistance.swift */,
 				5646568922A7FEF400AC5A97 /* TrainStationPersistance.swift */,
 			);
 			path = PersistanceExtensions;
+			sourceTree = "<group>";
+		};
+		56CEC54922A98AC900D9AFC2 /* TFL */ = {
+			isa = PBXGroup;
+			children = (
+				56CEC54D22A98BD500D9AFC2 /* RealmTFLMode.swift */,
+				56CEC54F22A98C1D00D9AFC2 /* RealmTFLLine.swift */,
+			);
+			path = TFL;
+			sourceTree = "<group>";
+		};
+		56CEC54A22A98AF000D9AFC2 /* TFL */ = {
+			isa = PBXGroup;
+			children = (
+				56CEC54B22A98BAD00D9AFC2 /* TFLPersistance.swift */,
+			);
+			path = TFL;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,15 +252,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56CEC54E22A98BD500D9AFC2 /* RealmTFLMode.swift in Sources */,
 				5646566E22A7D2DF00AC5A97 /* Migrations.swift in Sources */,
 				5646567A22A7D69300AC5A97 /* WeatherPersistance.swift in Sources */,
-				5646567722A7D5B300AC5A97 /* WeatherCity.swift in Sources */,
+				56CEC54C22A98BAD00D9AFC2 /* TFLPersistance.swift in Sources */,
+				5646567722A7D5B300AC5A97 /* RealmWeatherCity.swift in Sources */,
 				5646568822A7FEA600AC5A97 /* RealmTrainStation.swift in Sources */,
 				5646567122A7D32700AC5A97 /* Versions.swift in Sources */,
 				5646568622A7DED400AC5A97 /* JourneyPersistance.swift in Sources */,
 				5646568A22A7FEF400AC5A97 /* TrainStationPersistance.swift in Sources */,
 				5646568222A7D9F500AC5A97 /* RealmJourney.swift in Sources */,
 				5646566322A7CAE500AC5A97 /* Persistance.swift in Sources */,
+				56CEC55022A98C1D00D9AFC2 /* RealmTFLLine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,7 +20,6 @@
 		56647FC81DDE5E58004C4CE4 /* Main~iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56647FAB1DDE54A7004C4CE4 /* Main~iPhone.storyboard */; };
 		566CBAAA22A7BE20001E2847 /* ForecastIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 566CBAA922A7BE20001E2847 /* ForecastIO.framework */; };
 		566CBAAD22A7BEA4001E2847 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 566CBAAC22A7BEA4001E2847 /* Alamofire */; };
-		566CBAB022A7C14A001E2847 /* TFLSwaggerSwiftAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 566CBAAF22A7C14A001E2847 /* TFLSwaggerSwiftAPI */; };
 		566CBAB122A7C4CA001E2847 /* ForecastIO.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 566CBAA922A7BE20001E2847 /* ForecastIO.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		568D6FF11E21187500E81E47 /* WeatherSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D6FF01E21187500E81E47 /* WeatherSettingsViewController.swift */; };
 		56A1AD1B1DDC54840014047B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1AD1A1DDC54840014047B /* AppDelegate.swift */; };
@@ -35,10 +34,16 @@
 		56BD704C1DDCAFB800CA142D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD704B1DDCAFB800CA142D /* Config.swift */; };
 		56BD704E1DDCBAC200CA142D /* TrainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BD704D1DDCBAC200CA142D /* TrainCell.swift */; };
 		56C2E17E1E0172B20073AC82 /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C2E17D1E0172B20073AC82 /* HomeKit.framework */; };
+		56CEC53E22A95BC500D9AFC2 /* TFLURLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CEC53D22A95BC500D9AFC2 /* TFLURLBuilder.swift */; };
+		56CEC54022A95FB300D9AFC2 /* TFLApiModels in Frameworks */ = {isa = PBXBuildFile; productRef = 56CEC53F22A95FB300D9AFC2 /* TFLApiModels */; };
+		56CEC54622A96C1200D9AFC2 /* TubeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CEC54522A96C1200D9AFC2 /* TubeLine.swift */; };
+		56CEC54822A98A3900D9AFC2 /* TFLCacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CEC54722A98A3900D9AFC2 /* TFLCacher.swift */; };
 		56D83BF222A8FB65004A0A21 /* HuxleyURLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D83BF122A8FB65004A0A21 /* HuxleyURLBuilder.swift */; };
 		56D83BF422A8FEA3004A0A21 /* NationalRail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D83BF322A8FEA3004A0A21 /* NationalRail.swift */; };
 		56D83BFA22A920A6004A0A21 /* NationalRailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D83BF922A920A6004A0A21 /* NationalRailViewController.swift */; };
 		56D83BFD22A925E3004A0A21 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56D83BFC22A925E3004A0A21 /* Settings.storyboard */; };
+		56D83C0022A93055004A0A21 /* TFL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D83BFF22A93055004A0A21 /* TFL.swift */; };
+		56D83C0222A93066004A0A21 /* TFLInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D83C0122A93066004A0A21 /* TFLInteractor.swift */; };
 		56F436851DE1AEE600521991 /* StationChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F436841DE1AEE600521991 /* StationChooserViewController.swift */; };
 		56F436871DE1AF9D00521991 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F436861DE1AF9D00521991 /* AppData.swift */; };
 		56F4D6AA1E0D66660056BCC4 /* LightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F4D6A91E0D66660056BCC4 /* LightCell.swift */; };
@@ -110,10 +115,15 @@
 		56BD704D1DDCBAC200CA142D /* TrainCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainCell.swift; sourceTree = "<group>"; };
 		56C2E17B1E0172B20073AC82 /* BOB.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BOB.entitlements; sourceTree = "<group>"; };
 		56C2E17D1E0172B20073AC82 /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
+		56CEC53D22A95BC500D9AFC2 /* TFLURLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFLURLBuilder.swift; sourceTree = "<group>"; };
+		56CEC54522A96C1200D9AFC2 /* TubeLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TubeLine.swift; sourceTree = "<group>"; };
+		56CEC54722A98A3900D9AFC2 /* TFLCacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFLCacher.swift; sourceTree = "<group>"; };
 		56D83BF122A8FB65004A0A21 /* HuxleyURLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuxleyURLBuilder.swift; sourceTree = "<group>"; };
 		56D83BF322A8FEA3004A0A21 /* NationalRail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationalRail.swift; sourceTree = "<group>"; };
 		56D83BF922A920A6004A0A21 /* NationalRailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationalRailViewController.swift; sourceTree = "<group>"; };
 		56D83BFC22A925E3004A0A21 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		56D83BFF22A93055004A0A21 /* TFL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFL.swift; sourceTree = "<group>"; };
+		56D83C0122A93066004A0A21 /* TFLInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFLInteractor.swift; sourceTree = "<group>"; };
 		56F436841DE1AEE600521991 /* StationChooserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationChooserViewController.swift; sourceTree = "<group>"; };
 		56F436861DE1AF9D00521991 /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		56F4D6A91E0D66660056BCC4 /* LightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightCell.swift; sourceTree = "<group>"; };
@@ -130,11 +140,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56CEC54022A95FB300D9AFC2 /* TFLApiModels in Frameworks */,
 				56FB54B822A681120023964C /* HuxleySwift in Frameworks */,
 				5646567C22A7D7DA00AC5A97 /* Persistance.framework in Frameworks */,
 				566CBAAA22A7BE20001E2847 /* ForecastIO.framework in Frameworks */,
 				5646567D22A7D7E300AC5A97 /* Realm.framework in Frameworks */,
-				566CBAB022A7C14A001E2847 /* TFLSwaggerSwiftAPI in Frameworks */,
 				566CBAAD22A7BEA4001E2847 /* Alamofire in Frameworks */,
 				5646567F22A7D7E500AC5A97 /* RealmSwift.framework in Frameworks */,
 				56C2E17E1E0172B20073AC82 /* HomeKit.framework in Frameworks */,
@@ -174,6 +184,7 @@
 		56A1AD191DDC54840014047B /* MKHome */ = {
 			isa = PBXGroup;
 			children = (
+				56D83BFE22A9303B004A0A21 /* UK - TFL */,
 				56D83BFB22A925CB004A0A21 /* Storyboards - iPad */,
 				56D83BF522A9027F004A0A21 /* Extensions */,
 				56C2E17B1E0172B20073AC82 /* BOB.entitlements */,
@@ -243,6 +254,18 @@
 			path = "Storyboards - iPad";
 			sourceTree = "<group>";
 		};
+		56D83BFE22A9303B004A0A21 /* UK - TFL */ = {
+			isa = PBXGroup;
+			children = (
+				56D83BFF22A93055004A0A21 /* TFL.swift */,
+				56D83C0122A93066004A0A21 /* TFLInteractor.swift */,
+				56CEC53D22A95BC500D9AFC2 /* TFLURLBuilder.swift */,
+				56CEC54522A96C1200D9AFC2 /* TubeLine.swift */,
+				56CEC54722A98A3900D9AFC2 /* TFLCacher.swift */,
+			);
+			path = "UK - TFL";
+			sourceTree = "<group>";
+		};
 		56F436831DE1AE8700521991 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,7 +320,7 @@
 			packageProductDependencies = (
 				56FB54B722A681120023964C /* HuxleySwift */,
 				566CBAAC22A7BEA4001E2847 /* Alamofire */,
-				566CBAAF22A7C14A001E2847 /* TFLSwaggerSwiftAPI */,
+				56CEC53F22A95FB300D9AFC2 /* TFLApiModels */,
 			);
 			productName = MKHome;
 			productReference = 56A1AD171DDC54840014047B /* BOB.app */;
@@ -399,15 +422,20 @@
 				56BD70481DDCA20400CA142D /* TrainInteractor.swift in Sources */,
 				56F4D6B41E0ECE980056BCC4 /* CityChooserViewController.swift in Sources */,
 				56A1AD1D1DDC54840014047B /* RootViewController.swift in Sources */,
+				56CEC53E22A95BC500D9AFC2 /* TFLURLBuilder.swift in Sources */,
 				56A1AD1B1DDC54840014047B /* AppDelegate.swift in Sources */,
 				56BD704C1DDCAFB800CA142D /* Config.swift in Sources */,
+				56D83C0022A93055004A0A21 /* TFL.swift in Sources */,
 				56F4D6B21E0EB9A30056BCC4 /* UIView.swift in Sources */,
 				56D83BF222A8FB65004A0A21 /* HuxleyURLBuilder.swift in Sources */,
+				56CEC54622A96C1200D9AFC2 /* TubeLine.swift in Sources */,
 				563FC6121DE108AA00394E4A /* SettingsViewController.swift in Sources */,
+				56CEC54822A98A3900D9AFC2 /* TFLCacher.swift in Sources */,
 				56D83BFA22A920A6004A0A21 /* NationalRailViewController.swift in Sources */,
 				56D83BF422A8FEA3004A0A21 /* NationalRail.swift in Sources */,
 				56BD704E1DDCBAC200CA142D /* TrainCell.swift in Sources */,
 				562C58E61E2049E200CD000D /* TrainJourneySettingsViewController.swift in Sources */,
+				56D83C0222A93066004A0A21 /* TFLInteractor.swift in Sources */,
 				562A9F5E1DDC6FF600ABC3AD /* Timer.swift in Sources */,
 				56F436851DE1AEE600521991 /* StationChooserViewController.swift in Sources */,
 				56F436871DE1AF9D00521991 /* AppData.swift in Sources */,
@@ -671,10 +699,10 @@
 			package = 566CBAAB22A7BEA4001E2847 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		566CBAAF22A7C14A001E2847 /* TFLSwaggerSwiftAPI */ = {
+		56CEC53F22A95FB300D9AFC2 /* TFLApiModels */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 566CBAAE22A7C14A001E2847 /* XCRemoteSwiftPackageReference "TFLSwaggerSwiftAPI" */;
-			productName = TFLSwaggerSwiftAPI;
+			productName = TFLApiModels;
 		};
 		56FB54B722A681120023964C /* HuxleySwift */ = {
 			isa = XCSwiftPackageProductDependency;

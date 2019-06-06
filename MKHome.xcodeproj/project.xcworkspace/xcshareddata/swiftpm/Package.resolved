@@ -20,11 +20,11 @@
         }
       },
       {
-        "package": "TFLSwaggerSwiftAPI",
+        "package": "TFLApiModels",
         "repositoryURL": "https://github.com/CharlesVu/TFLSwaggerSwiftAPI",
         "state": {
           "branch": "feature/ios13",
-          "revision": "1cbcfb018ab67f4059a557b5f5fb8c71e515a3b8",
+          "revision": "35ba4e399707ffc049bc4e24c2103ab0ea7250a9",
           "version": null
         }
       }

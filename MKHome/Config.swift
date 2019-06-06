@@ -11,9 +11,11 @@ import Foundation
 public class Configuration {
     static var shared = Configuration()
 
-    public var darkSkyApiToken: String = ""
-    public var huxleyProxyEndpoint: String = ""
-    public var huxleyToken: String = ""
+    private (set) public var darkSkyApiToken: String = ""
+    private (set)  var huxleyProxyEndpoint: String = ""
+    private (set)  var huxleyToken: String = ""
+    private (set)  var tflApplicationID: String = ""
+    private (set)  var tflApiKey: String = ""
 
     private init() {
         do {
@@ -24,6 +26,8 @@ public class Configuration {
                 darkSkyApiToken = (plist?["darkSkyApiToken"])!
                 huxleyProxyEndpoint = (plist?["huxleyProxyEndpoint"])!
                 huxleyToken = (plist?["huxleyToken"])!
+                tflApplicationID = (plist?["tfApplicationID"])!
+                tflApiKey = (plist?["tflApiKey"])!
             }
         } catch let error {
             assert(false, "\(error)")

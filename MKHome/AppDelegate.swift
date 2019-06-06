@@ -23,7 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.refreshColors()
         // change navigation item title color
-
+        TFL.TFLCacher().cacheLines()
+        
         // Override point for customization after application launch.
         return true
     }
