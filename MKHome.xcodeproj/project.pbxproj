@@ -38,6 +38,7 @@
 		56D83BF222A8FB65004A0A21 /* HuxleyURLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D83BF122A8FB65004A0A21 /* HuxleyURLBuilder.swift */; };
 		56D83BF422A8FEA3004A0A21 /* NationalRail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D83BF322A8FEA3004A0A21 /* NationalRail.swift */; };
 		56D83BFA22A920A6004A0A21 /* NationalRailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D83BF922A920A6004A0A21 /* NationalRailViewController.swift */; };
+		56D83BFD22A925E3004A0A21 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56D83BFC22A925E3004A0A21 /* Settings.storyboard */; };
 		56F436851DE1AEE600521991 /* StationChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F436841DE1AEE600521991 /* StationChooserViewController.swift */; };
 		56F436871DE1AF9D00521991 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F436861DE1AF9D00521991 /* AppData.swift */; };
 		56F4D6AA1E0D66660056BCC4 /* LightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F4D6A91E0D66660056BCC4 /* LightCell.swift */; };
@@ -112,6 +113,7 @@
 		56D83BF122A8FB65004A0A21 /* HuxleyURLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuxleyURLBuilder.swift; sourceTree = "<group>"; };
 		56D83BF322A8FEA3004A0A21 /* NationalRail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationalRail.swift; sourceTree = "<group>"; };
 		56D83BF922A920A6004A0A21 /* NationalRailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationalRailViewController.swift; sourceTree = "<group>"; };
+		56D83BFC22A925E3004A0A21 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		56F436841DE1AEE600521991 /* StationChooserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationChooserViewController.swift; sourceTree = "<group>"; };
 		56F436861DE1AF9D00521991 /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		56F4D6A91E0D66660056BCC4 /* LightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightCell.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 		56A1AD191DDC54840014047B /* MKHome */ = {
 			isa = PBXGroup;
 			children = (
+				56D83BFB22A925CB004A0A21 /* Storyboards - iPad */,
 				56D83BF522A9027F004A0A21 /* Extensions */,
 				56C2E17B1E0172B20073AC82 /* BOB.entitlements */,
 				56FAE2551DDDE4C80015880C /* config.plist */,
@@ -229,6 +232,14 @@
 				56F4D6B11E0EB9A30056BCC4 /* UIView.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		56D83BFB22A925CB004A0A21 /* Storyboards - iPad */ = {
+			isa = PBXGroup;
+			children = (
+				56D83BFC22A925E3004A0A21 /* Settings.storyboard */,
+			);
+			path = "Storyboards - iPad";
 			sourceTree = "<group>";
 		};
 		56F436831DE1AE8700521991 /* Settings */ = {
@@ -364,6 +375,7 @@
 				56FAE2561DDDE4C80015880C /* config.plist in Resources */,
 				56647FC81DDE5E58004C4CE4 /* Main~iPhone.storyboard in Resources */,
 				56A1AD251DDC54840014047B /* LaunchScreen.storyboard in Resources */,
+				56D83BFD22A925E3004A0A21 /* Settings.storyboard in Resources */,
 				56A1AD221DDC54840014047B /* Assets.xcassets in Resources */,
 				56A1AD201DDC54840014047B /* Main~iPad.storyboard in Resources */,
 			);
