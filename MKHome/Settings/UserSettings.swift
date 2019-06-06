@@ -17,7 +17,7 @@ class UserSettings {
     let rail = NationalRail()
 }
 
-protocol WeatherDelegate {
+protocol WeatherDelegate: class {
     func onCityChanged()
 }
 
@@ -25,7 +25,7 @@ protocol WeatherDelegate {
 extension UserSettings {
     class Weather {
         fileprivate var cities: [WeatherCity] = []
-        var delegate: WeatherDelegate?
+        weak var delegate: WeatherDelegate?
 
         init() {
             cities = Persistance.shared.allWeatherCity()
@@ -36,11 +36,13 @@ extension UserSettings {
         }
 
         func addCity(_ city: WeatherCity) {
+            cities.append(city)
             Persistance.shared.addWeatherCity(city: city)
             delegate?.onCityChanged()
         }
 
         func removeCity(_ city: WeatherCity) {
+            cities.removeAll(where: { $0 == city })
             Persistance.shared.removeWeatherCity(city: city)
             delegate?.onCityChanged()
         }
