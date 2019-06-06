@@ -37,6 +37,7 @@
 		56C2E17E1E0172B20073AC82 /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C2E17D1E0172B20073AC82 /* HomeKit.framework */; };
 		56D83BF222A8FB65004A0A21 /* HuxleyURLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D83BF122A8FB65004A0A21 /* HuxleyURLBuilder.swift */; };
 		56D83BF422A8FEA3004A0A21 /* NationalRail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D83BF322A8FEA3004A0A21 /* NationalRail.swift */; };
+		56D83BFA22A920A6004A0A21 /* NationalRailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D83BF922A920A6004A0A21 /* NationalRailViewController.swift */; };
 		56F436851DE1AEE600521991 /* StationChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F436841DE1AEE600521991 /* StationChooserViewController.swift */; };
 		56F436871DE1AF9D00521991 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F436861DE1AF9D00521991 /* AppData.swift */; };
 		56F4D6AA1E0D66660056BCC4 /* LightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F4D6A91E0D66660056BCC4 /* LightCell.swift */; };
@@ -110,6 +111,7 @@
 		56C2E17D1E0172B20073AC82 /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
 		56D83BF122A8FB65004A0A21 /* HuxleyURLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuxleyURLBuilder.swift; sourceTree = "<group>"; };
 		56D83BF322A8FEA3004A0A21 /* NationalRail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationalRail.swift; sourceTree = "<group>"; };
+		56D83BF922A920A6004A0A21 /* NationalRailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationalRailViewController.swift; sourceTree = "<group>"; };
 		56F436841DE1AEE600521991 /* StationChooserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationChooserViewController.swift; sourceTree = "<group>"; };
 		56F436861DE1AF9D00521991 /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		56F4D6A91E0D66660056BCC4 /* LightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightCell.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				56BD70491DDCA37C00CA142D /* TrainServicesExtension.swift */,
 				56D83BF122A8FB65004A0A21 /* HuxleyURLBuilder.swift */,
 				56D83BF322A8FEA3004A0A21 /* NationalRail.swift */,
+				56D83BF922A920A6004A0A21 /* NationalRailViewController.swift */,
 			);
 			path = "UK - National Rail";
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				56F4D6B21E0EB9A30056BCC4 /* UIView.swift in Sources */,
 				56D83BF222A8FB65004A0A21 /* HuxleyURLBuilder.swift in Sources */,
 				563FC6121DE108AA00394E4A /* SettingsViewController.swift in Sources */,
+				56D83BFA22A920A6004A0A21 /* NationalRailViewController.swift in Sources */,
 				56D83BF422A8FEA3004A0A21 /* NationalRail.swift in Sources */,
 				56BD704E1DDCBAC200CA142D /* TrainCell.swift in Sources */,
 				562C58E61E2049E200CD000D /* TrainJourneySettingsViewController.swift in Sources */,
