@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class TrainStation: Equatable, Hashable {
+public class TrainStation: Equatable, Hashable, Codable {
     public let crsCode: String
     public let stationName: String
 

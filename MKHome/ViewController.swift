@@ -13,14 +13,13 @@ import HomeKit
 import HuxleySwift
 import Persistance
 
-class ViewController: UIViewController {
+class RootViewController: UIViewController {
     fileprivate let userSettings = UserSettings.sharedInstance
     fileprivate let appSettings = AppData.sharedInstance
 
     // Weather Stuff
     @IBOutlet weak var currentTime: UILabel?
     @IBOutlet weak var currentDate: UILabel?
-    @IBOutlet weak var weatherView: WeatherView?
 
     let dateCellFormatter = DateFormatter()
     let currentDayCellFormatter = DateFormatter()
@@ -71,8 +70,8 @@ class ViewController: UIViewController {
     func refreshTrains() {
         if userSettings.rail.getJourneys().count > 0 {
             for journey in userSettings.rail.getJourneys() {
-                TrainClient.getTrains(from: journey.originCRS,
-                                      to: journey.destinationCRS) {
+                NationalRail.TrainInteractor().getTrains(from: journey.originCRS,
+                                                         to: journey.destinationCRS) {
                     departures in
 
                     self.departures[journey] = departures
@@ -95,9 +94,12 @@ class ViewController: UIViewController {
 
             if let source = appSettings.stationMap[journey.originCRS],
                 let destination = appSettings.stationMap[journey.destinationCRS] {
-                let attributedSource = NSMutableAttributedString(string: source.stationName, attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "normalText")!])
-                let attributedDestination = NSAttributedString(string: destination.stationName, attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "normalText")!])
-                attributedSource.append(NSAttributedString(string: " → ", attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "alternativeText")!]))
+                let attributedSource = NSMutableAttributedString(string: source.stationName,
+                                                                 attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "normalText")!])
+                let attributedDestination = NSAttributedString(string: destination.stationName,
+                                                               attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "normalText")!])
+                attributedSource.append(NSAttributedString(string: " → ",
+                                                           attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "alternativeText")!]))
                 attributedSource.append(attributedDestination)
                 trainDestinationLabel?.attributedText = attributedSource
             }
@@ -107,7 +109,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension RootViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if currentJourneyIndex == -1 {
             return 0

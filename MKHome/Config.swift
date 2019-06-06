@@ -9,11 +9,13 @@
 import Foundation
 
 public class Configuration {
+    static var shared = Configuration()
+
     public var darkSkyApiToken: String = ""
     public var huxleyProxyEndpoint: String = ""
     public var huxleyToken: String = ""
 
-    init() {
+    private init() {
         do {
             if let path = Bundle.main.path(forResource: "config", ofType: "plist") {
                 let url = URL(fileURLWithPath: path)
@@ -23,7 +25,8 @@ public class Configuration {
                 huxleyProxyEndpoint = (plist?["huxleyProxyEndpoint"])!
                 huxleyToken = (plist?["huxleyToken"])!
             }
-        } catch {
+        } catch let error {
+            assert(false, "\(error)")
         }
     }
 }

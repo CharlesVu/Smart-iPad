@@ -19,7 +19,7 @@ class AppData {
         stationList = Persistance.shared.allTrainStation()
         populateMap()
         if stationList.count == 0 {
-            TrainClient.getTrainsNames { stations in
+            NationalRail.TrainInteractor().getTrainsNames { stations in
                 Persistance.shared.addTrainStations(trainStation: stations)
                 self.stationList = stations
                 self.populateMap()

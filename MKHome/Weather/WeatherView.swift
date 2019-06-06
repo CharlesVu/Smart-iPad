@@ -11,8 +11,8 @@ import UIKit
 import ForecastIO
 import Persistance
 
-class WeatherView: UIView {
-    private let client = DarkSkyClient(apiKey: Configuration().darkSkyApiToken)
+class WeatherViewController: UIViewController {
+    private let client = DarkSkyClient(apiKey: Configuration.shared.darkSkyApiToken)
     fileprivate var weatherMap: [WeatherCity: Forecast] = [:]
     fileprivate var currentLocation: WeatherCity?
     private var currentAreaIndex = 0
@@ -31,18 +31,10 @@ class WeatherView: UIView {
         weatherCollectionView?.dataSource = self
         UserSettings.sharedInstance.weather.delegate = self
         client.units = .si
-        isHidden = true
+        self.view.isHidden = true
     }
 
-    override func willMove(toSuperview newSuperview: UIView?) {
-        if newSuperview != nil {
-            refreshWeather()
-        }
-
-    }
-    override func didMoveToSuperview() {
-        super.didMoveToSuperview()
-
+    override func viewDidLoad() {
         Timer.every(15.seconds) {
             self.displayNextCity()
         }
@@ -51,6 +43,9 @@ class WeatherView: UIView {
             self.refreshWeather()
         }
     }
+    override func viewWillAppear(_ animated: Bool) {
+        refreshWeather()
+    }
 
     func displayNextCity() {
         if UserSettings.sharedInstance.weather.getCities().count > 0 {
@@ -58,7 +53,7 @@ class WeatherView: UIView {
             currentLocation = UserSettings.sharedInstance.weather.getCities()[currentAreaIndex]
             self.displayWeatherFor(currentLocation)
         } else {
-            self.isHidden = true
+            self.view.isHidden = true
         }
     }
 
@@ -68,14 +63,11 @@ class WeatherView: UIView {
                                     longitude: location.longitude) {
                 result in
                 let rootObject = result.value.0
-                                        DispatchQueue.main.async {
-
                     self.weatherMap[location] = rootObject
                     if self.currentLocation == nil {
                         self.currentLocation = location
                         self.currentAreaIndex = UserSettings.sharedInstance.weather.getCities().firstIndex(of: location)!
                         self.displayWeatherFor(location)
-                                            }
                 }
             }
 
@@ -86,7 +78,7 @@ class WeatherView: UIView {
         DispatchQueue.main.async {
             if let location = location {
                 if let forecast = self.weatherMap[location] {
-                    self.isHidden = false
+                    self.view.isHidden = false
                     self.displayForecast(forecast, city: location)
                 }
             }
@@ -124,13 +116,13 @@ class WeatherView: UIView {
     }
 }
 
-extension WeatherView: WeatherDelegate {
+extension WeatherViewController: WeatherDelegate {
     func onCityChanged() {
         refreshWeather()
     }
 }
 
-extension WeatherView: UICollectionViewDataSource {
+extension WeatherViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
