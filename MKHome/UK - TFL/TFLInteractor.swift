@@ -40,8 +40,9 @@ extension TFL {
             }
         }
 
-        func getLineStatus(completion: @escaping ([Line]) -> Void) {
-            let urlString = StationListURLBuilder()
+        func getLineStatus(mode: Mode, completion: @escaping ([Line]) -> Void) {
+            let urlString = ModeStatusURLBuilder()
+                .setMode(mode: mode)
                 .build()
 
             Alamofire.request(urlString, method: .get)

@@ -21,7 +21,6 @@ public class TFLMode {
         self.name = name
         self.lines = lines
     }
-
 }
 
 public class TFLLine {
@@ -37,7 +36,6 @@ public class TFLLine {
         self.id = id
         self.name = name
     }
-
 }
 
 public extension Persistance {

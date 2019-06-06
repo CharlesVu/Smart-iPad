@@ -21,5 +21,17 @@ extension TFL {
                 }
             }
         }
+
+        func cacheStatus() {
+            let interactor = TFLIntetactor()
+
+            for mode in Mode.allCases {
+                interactor.getLineStatus(mode: mode) { lines in
+                    let mode = TFLMode(name: mode.rawValue, lines: lines.map { TFLLine(id: $0._id!, name: $0.name!) } )
+//                    Persistance.shared.addTFLMode(mode)
+                }
+            }
+        }
+
     }
 }

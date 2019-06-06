@@ -38,6 +38,9 @@
 		56CEC54022A95FB300D9AFC2 /* TFLApiModels in Frameworks */ = {isa = PBXBuildFile; productRef = 56CEC53F22A95FB300D9AFC2 /* TFLApiModels */; };
 		56CEC54622A96C1200D9AFC2 /* TubeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CEC54522A96C1200D9AFC2 /* TubeLine.swift */; };
 		56CEC54822A98A3900D9AFC2 /* TFLCacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CEC54722A98A3900D9AFC2 /* TFLCacher.swift */; };
+		56CEC55422A998E700D9AFC2 /* TFLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CEC55322A998E700D9AFC2 /* TFLViewController.swift */; };
+		56CEC55622A998F100D9AFC2 /* TFL.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56CEC55522A998F100D9AFC2 /* TFL.xcassets */; };
+		56CEC55822A99C1400D9AFC2 /* LineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CEC55722A99C1400D9AFC2 /* LineExtension.swift */; };
 		56D83BF222A8FB65004A0A21 /* HuxleyURLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D83BF122A8FB65004A0A21 /* HuxleyURLBuilder.swift */; };
 		56D83BF422A8FEA3004A0A21 /* NationalRail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D83BF322A8FEA3004A0A21 /* NationalRail.swift */; };
 		56D83BFA22A920A6004A0A21 /* NationalRailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D83BF922A920A6004A0A21 /* NationalRailViewController.swift */; };
@@ -118,6 +121,9 @@
 		56CEC53D22A95BC500D9AFC2 /* TFLURLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFLURLBuilder.swift; sourceTree = "<group>"; };
 		56CEC54522A96C1200D9AFC2 /* TubeLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TubeLine.swift; sourceTree = "<group>"; };
 		56CEC54722A98A3900D9AFC2 /* TFLCacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFLCacher.swift; sourceTree = "<group>"; };
+		56CEC55322A998E700D9AFC2 /* TFLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFLViewController.swift; sourceTree = "<group>"; };
+		56CEC55522A998F100D9AFC2 /* TFL.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TFL.xcassets; sourceTree = "<group>"; };
+		56CEC55722A99C1400D9AFC2 /* LineExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineExtension.swift; sourceTree = "<group>"; };
 		56D83BF122A8FB65004A0A21 /* HuxleyURLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuxleyURLBuilder.swift; sourceTree = "<group>"; };
 		56D83BF322A8FEA3004A0A21 /* NationalRail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationalRail.swift; sourceTree = "<group>"; };
 		56D83BF922A920A6004A0A21 /* NationalRailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NationalRailViewController.swift; sourceTree = "<group>"; };
@@ -262,6 +268,9 @@
 				56CEC53D22A95BC500D9AFC2 /* TFLURLBuilder.swift */,
 				56CEC54522A96C1200D9AFC2 /* TubeLine.swift */,
 				56CEC54722A98A3900D9AFC2 /* TFLCacher.swift */,
+				56CEC55322A998E700D9AFC2 /* TFLViewController.swift */,
+				56CEC55522A998F100D9AFC2 /* TFL.xcassets */,
+				56CEC55722A99C1400D9AFC2 /* LineExtension.swift */,
 			);
 			path = "UK - TFL";
 			sourceTree = "<group>";
@@ -399,6 +408,7 @@
 				56647FC81DDE5E58004C4CE4 /* Main~iPhone.storyboard in Resources */,
 				56A1AD251DDC54840014047B /* LaunchScreen.storyboard in Resources */,
 				56D83BFD22A925E3004A0A21 /* Settings.storyboard in Resources */,
+				56CEC55622A998F100D9AFC2 /* TFL.xcassets in Resources */,
 				56A1AD221DDC54840014047B /* Assets.xcassets in Resources */,
 				56A1AD201DDC54840014047B /* Main~iPad.storyboard in Resources */,
 			);
@@ -416,6 +426,7 @@
 				563FC6101DE0FB3A00394E4A /* UserSettings.swift in Sources */,
 				56F4D6AA1E0D66660056BCC4 /* LightCell.swift in Sources */,
 				56BD704A1DDCA37C00CA142D /* TrainServicesExtension.swift in Sources */,
+				56CEC55822A99C1400D9AFC2 /* LineExtension.swift in Sources */,
 				568D6FF11E21187500E81E47 /* WeatherSettingsViewController.swift in Sources */,
 				56F4D6AC1E0D8EDA0056BCC4 /* WeatherViewController.swift in Sources */,
 				56BD70451DDC7E6F00CA142D /* WeatherCell.swift in Sources */,
@@ -440,6 +451,7 @@
 				56F436851DE1AEE600521991 /* StationChooserViewController.swift in Sources */,
 				56F436871DE1AF9D00521991 /* AppData.swift in Sources */,
 				56F4D6B61E0EDC050056BCC4 /* City.swift in Sources */,
+				56CEC55422A998E700D9AFC2 /* TFLViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

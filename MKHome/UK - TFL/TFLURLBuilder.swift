@@ -18,30 +18,8 @@ private extension String {
 extension TFL {
     static let baseURL = "https://api.tfl.gov.uk/"
 
-    class StationListURLBuilder {
-        private var mode: Mode!
-        private var line: Line!
-
-        func setMode(mode: Mode) -> StationListURLBuilder {
-            self.mode = mode
-            return self
-        }
-
-        func setLine(line: Line) -> StationListURLBuilder {
-            self.line = line
-            return self
-        }
-
-
-        func build() -> String {
-            return "\(baseURL)Line/Mode/\(mode.rawValue)/Status".appendCredentials()
-        }
-    }
-
-
     class ModeStatusURLBuilder {
         private var mode: Mode!
-        private var line: Line!
 
         func setMode(mode: Mode) -> ModeStatusURLBuilder {
             self.mode = mode
