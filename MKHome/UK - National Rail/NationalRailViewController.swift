@@ -13,7 +13,7 @@ import HuxleySwift
 
 class NationalRailViewViewController: UIViewController {
     fileprivate let userSettings = UserSettings.sharedInstance
-    fileprivate let appSettings = AppData.sharedInstance
+    fileprivate let appSettings = NationalRail.AppData.sharedInstance
 
     @IBOutlet weak var tableView: UITableView?
     @IBOutlet weak var trainDestinationLabel: UILabel?

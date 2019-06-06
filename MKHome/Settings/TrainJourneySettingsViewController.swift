@@ -13,7 +13,7 @@ class TrainJourneySettingsViewController: UIViewController {
     @IBOutlet var trainJourneyTableView: UITableView?
 
     fileprivate let userSettings = UserSettings.sharedInstance
-    fileprivate let appSettings = AppData.sharedInstance
+    fileprivate let appSettings = NationalRail.AppData.sharedInstance
 
     override func viewWillAppear(_ animated: Bool) {
         trainJourneyTableView?.reloadData()

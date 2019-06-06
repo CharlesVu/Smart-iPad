@@ -24,7 +24,7 @@
 		566CBAB122A7C4CA001E2847 /* ForecastIO.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 566CBAA922A7BE20001E2847 /* ForecastIO.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		568D6FF11E21187500E81E47 /* WeatherSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D6FF01E21187500E81E47 /* WeatherSettingsViewController.swift */; };
 		56A1AD1B1DDC54840014047B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1AD1A1DDC54840014047B /* AppDelegate.swift */; };
-		56A1AD1D1DDC54840014047B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1AD1C1DDC54840014047B /* ViewController.swift */; };
+		56A1AD1D1DDC54840014047B /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1AD1C1DDC54840014047B /* RootViewController.swift */; };
 		56A1AD201DDC54840014047B /* Main~iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56A1AD1E1DDC54840014047B /* Main~iPad.storyboard */; };
 		56A1AD221DDC54840014047B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56A1AD211DDC54840014047B /* Assets.xcassets */; };
 		56A1AD251DDC54840014047B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56A1AD231DDC54840014047B /* LaunchScreen.storyboard */; };
@@ -97,7 +97,7 @@
 		568D6FF01E21187500E81E47 /* WeatherSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherSettingsViewController.swift; sourceTree = "<group>"; };
 		56A1AD171DDC54840014047B /* BOB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BOB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56A1AD1A1DDC54840014047B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		56A1AD1C1DDC54840014047B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		56A1AD1C1DDC54840014047B /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		56A1AD1F1DDC54840014047B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Main~iPad.storyboard"; sourceTree = "<group>"; };
 		56A1AD211DDC54840014047B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56A1AD241DDC54840014047B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -181,11 +181,10 @@
 				56A1AD261DDC54840014047B /* Info.plist */,
 				56A1AD1A1DDC54840014047B /* AppDelegate.swift */,
 				56BD704B1DDCAFB800CA142D /* Config.swift */,
-				56A1AD1C1DDC54840014047B /* ViewController.swift */,
+				56A1AD1C1DDC54840014047B /* RootViewController.swift */,
 				56A1AD211DDC54840014047B /* Assets.xcassets */,
 				56F4D6B01E0EB7A20056BCC4 /* HomeKit */,
 				56A1AD231DDC54840014047B /* LaunchScreen.storyboard */,
-				56A1AD1E1DDC54840014047B /* Main~iPad.storyboard */,
 				56647FAB1DDE54A7004C4CE4 /* Main~iPhone.storyboard */,
 				56F436831DE1AE8700521991 /* Settings */,
 				56BD70461DDCA1E500CA142D /* UK - National Rail */,
@@ -207,6 +206,7 @@
 		56BD70461DDCA1E500CA142D /* UK - National Rail */ = {
 			isa = PBXGroup;
 			children = (
+				56F436861DE1AF9D00521991 /* AppData.swift */,
 				56BD704D1DDCBAC200CA142D /* TrainCell.swift */,
 				56BD70471DDCA20400CA142D /* TrainInteractor.swift */,
 				56BD70491DDCA37C00CA142D /* TrainServicesExtension.swift */,
@@ -237,6 +237,7 @@
 		56D83BFB22A925CB004A0A21 /* Storyboards - iPad */ = {
 			isa = PBXGroup;
 			children = (
+				56A1AD1E1DDC54840014047B /* Main~iPad.storyboard */,
 				56D83BFC22A925E3004A0A21 /* Settings.storyboard */,
 			);
 			path = "Storyboards - iPad";
@@ -248,7 +249,6 @@
 				563FC60F1DE0FB3A00394E4A /* UserSettings.swift */,
 				563FC6111DE108AA00394E4A /* SettingsViewController.swift */,
 				56F436841DE1AEE600521991 /* StationChooserViewController.swift */,
-				56F436861DE1AF9D00521991 /* AppData.swift */,
 				56F4D6B31E0ECE980056BCC4 /* CityChooserViewController.swift */,
 				562C58E51E2049E200CD000D /* TrainJourneySettingsViewController.swift */,
 				568D6FF01E21187500E81E47 /* WeatherSettingsViewController.swift */,
@@ -398,7 +398,7 @@
 				56BD70451DDC7E6F00CA142D /* WeatherCell.swift in Sources */,
 				56BD70481DDCA20400CA142D /* TrainInteractor.swift in Sources */,
 				56F4D6B41E0ECE980056BCC4 /* CityChooserViewController.swift in Sources */,
-				56A1AD1D1DDC54840014047B /* ViewController.swift in Sources */,
+				56A1AD1D1DDC54840014047B /* RootViewController.swift in Sources */,
 				56A1AD1B1DDC54840014047B /* AppDelegate.swift in Sources */,
 				56BD704C1DDCAFB800CA142D /* Config.swift in Sources */,
 				56F4D6B21E0EB9A30056BCC4 /* UIView.swift in Sources */,

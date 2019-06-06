@@ -16,7 +16,7 @@ class CityChooserViewController: UIViewController {
     @IBOutlet var tableView: UITableView?
     @IBOutlet var spinner: UIActivityIndicatorView?
 
-    fileprivate let appSettings = AppData.sharedInstance
+    fileprivate let appSettings = NationalRail.AppData.sharedInstance
     fileprivate var searchResults: [CLPlacemark] = []
     fileprivate let geocoder = CLGeocoder()
 

@@ -14,7 +14,7 @@ class StationChooserViewController: UIViewController {
     @IBOutlet var searchBar: UISearchBar?
     @IBOutlet var tableView: UITableView?
 
-    fileprivate let appSettings = AppData.sharedInstance
+    fileprivate let appSettings = NationalRail.AppData.sharedInstance
     fileprivate var filteredStations: [TrainStation]?
 
     var selectedCRS: String?

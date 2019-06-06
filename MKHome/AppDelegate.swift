@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationBarAppearace.tintColor = UIColor(named: "normalText")
         navigationBarAppearace.barTintColor = UIColor(named: "alternativeBackground")
         navigationBarAppearace.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "normalText")!]
-
     }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.refreshColors()
         // change navigation item title color
