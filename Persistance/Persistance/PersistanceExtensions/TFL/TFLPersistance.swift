@@ -38,6 +38,24 @@ public class TFLLine {
     }
 }
 
+public class TFLStatusDescription {
+    public let mode: String
+    public let name: String
+    public let level: Int
+
+    init(realmObject: RealmTFLStatusDescription) {
+        self.level = realmObject.severityLevel
+        self.name = realmObject.name
+        self.mode = realmObject.mode
+    }
+
+    public init(mode: String, level: Int, name: String) {
+        self.mode = mode
+        self.level = level
+        self.name = name
+    }
+}
+
 public extension Persistance {
     func addTFLMode(_ mode: TFLMode) {
         try! realm.write {
@@ -48,5 +66,21 @@ public extension Persistance {
 
     func allTFLModes() -> [TFLMode] {
         return realm.objects(RealmTFLMode.self).map { TFLMode(realmObject: $0) }
+    }
+
+    func addStatusDescription(_ statuses: [TFLStatusDescription]) {
+        let realmStatus = statuses.map { RealmTFLStatusDescription(status: $0) }
+
+        try! realm.write {
+            for realmObject in realmStatus {
+                realm.add(realmObject, update: .modified)
+            }
+        }
+    }
+
+    func statusDescription(`for` mode: String, level: Int) -> TFLStatusDescription? {
+        realm.objects(RealmTFLStatusDescription.self).filter { (description) -> Bool in
+            return description.severityLevel == level && description.mode == mode
+            }.map { TFLStatusDescription(realmObject: $0) }.first
     }
 }

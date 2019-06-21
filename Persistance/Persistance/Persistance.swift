@@ -7,6 +7,7 @@
 //
 
 import RealmSwift
+import os.log
 
 protocol Migrating {
     var schemaVersion: UInt64 { get }
@@ -41,7 +42,7 @@ public class Persistance {
         var configuration = Realm.Configuration()
         configuration.fileURL = localDocumentPath(for: "default.realm")
 
-        print("Realm Location: \(String(describing: configuration.fileURL))")
+        os_log("💙 Realm Location: %@", configuration.fileURL!.absoluteString)
         configuration.schemaVersion = Version.current
         return configuration
     }

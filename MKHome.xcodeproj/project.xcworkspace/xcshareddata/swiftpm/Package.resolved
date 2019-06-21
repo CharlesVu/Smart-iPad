@@ -1,7 +1,6 @@
 {
   "object": {
-    "pins": [
-      {
+    "pins": [ {
         "package": "Alamofire",
         "repositoryURL": "https://github.com/Alamofire/Alamofire",
         "state": {
@@ -9,8 +8,7 @@
           "revision": "75bba56748359f297a83f620d45f72cf4ebee4e7",
           "version": "4.8.2"
         }
-      },
-      {
+      }, {
         "package": "HuxleySwift",
         "repositoryURL": "git@github.com:CharlesVu/HuxleySwift.git",
         "state": {
@@ -18,13 +16,12 @@
           "revision": "ff9cd114d80eb9b12fcfd941aebaff3e6be4fefe",
           "version": null
         }
-      },
-      {
+      }, {
         "package": "TFLApiModels",
         "repositoryURL": "https://github.com/CharlesVu/TFLSwaggerSwiftAPI",
         "state": {
           "branch": "feature/ios13",
-          "revision": "35ba4e399707ffc049bc4e24c2103ab0ea7250a9",
+          "revision": "6892a6871cc0234ad8157c6c4ce90852823b1f7e",
           "version": null
         }
       }

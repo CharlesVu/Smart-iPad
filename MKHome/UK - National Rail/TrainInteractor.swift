@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 import HuxleySwift
 import Persistance
+import os.log
 
 extension NationalRail {
     struct TrainInteractor {
@@ -26,7 +27,7 @@ extension NationalRail {
                             let departures = try JSONDecoder().decode(Departures.self, from: data)
                             completion(departures)
                         } catch let error {
-                            print(error)
+                            os_log("❤️ %@", error.localizedDescription)
                         }
                     }
             }
@@ -43,7 +44,7 @@ extension NationalRail {
                         let departures = try JSONDecoder().decode([TrainStation].self, from: data)
                         completion(departures)
                     } catch let error {
-                        print(error)
+                        os_log("❤️ %@", error.localizedDescription)
                     }
                 }
             }

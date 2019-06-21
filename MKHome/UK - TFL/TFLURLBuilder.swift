@@ -44,4 +44,12 @@ extension TFL {
         }
     }
 
+    class StatusDescriptionURLBuilder {
+        private var mode: Mode!
+
+        func build() -> String {
+            return "\(baseURL)Line/Meta/Severity".appendCredentials()
+        }
+    }
+
 }

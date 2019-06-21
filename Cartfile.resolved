@@ -1,2 +1,2 @@
-github "realm/realm-cocoa" "14a15cf2bebc83b9b0d066d4095f773bed978c85"
+github "realm/realm-cocoa" "v3.16.2"
 github "sxg/ForecastIO" "6.0.1"

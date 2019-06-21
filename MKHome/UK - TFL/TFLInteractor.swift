@@ -9,6 +9,7 @@
 import Foundation
 import TFLApiModels
 import Alamofire
+import os.log
 
 extension TFL {
     struct TFLIntetactor {
@@ -34,7 +35,7 @@ extension TFL {
                             let lines = try self.jsonDecoder.decode([Line].self, from: data)
                             completion(lines)
                         } catch let error {
-                            print(error)
+                            os_log("❤️ %@", error.localizedDescription)
                         }
                     }
             }
@@ -52,10 +53,28 @@ extension TFL {
                             let lines = try self.jsonDecoder.decode([Line].self, from: data)
                             completion(lines)
                         } catch let error {
-                            print(error)
+                            os_log("❤️ %@", error.localizedDescription)
                         }
                     }
             }
         }
+
+        func getStatusDescription(completion: @escaping ([StatusSeverity]) -> Void) {
+            let urlString = StatusDescriptionURLBuilder()
+                .build()
+
+            Alamofire.request(urlString, method: .get)
+                .response { response in
+                    if let data = response.data {
+                        do {
+                            let statuses = try self.jsonDecoder.decode([StatusSeverity].self, from: data)
+                            completion(statuses)
+                        } catch let error {
+                            os_log("❤️ %@", error.localizedDescription)
+                        }
+                    }
+            }
+        }
+
     }
 }

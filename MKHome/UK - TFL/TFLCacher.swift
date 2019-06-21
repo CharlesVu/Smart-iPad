@@ -8,6 +8,15 @@
 
 import Foundation
 import Persistance
+import TFLApiModels
+
+extension TFLStatusDescription {
+    convenience init(_ status: StatusSeverity) {
+        self.init(mode: status.modeName!,
+                  level: status.severityLevel!,
+                  name: status._description!)
+    }
+}
 
 extension TFL {
     class TFLCacher {
@@ -16,9 +25,17 @@ extension TFL {
 
             for mode in Mode.allCases {
                 interactor.getLines(mode: mode) { lines in
-                    let mode = TFLMode(name: mode.rawValue, lines: lines.map { TFLLine(id: $0._id!, name: $0.name!) } )
+                    let mode = TFLMode(name: mode.rawValue, lines: lines.map { TFLLine(id: $0._id!, name: $0.name!) })
                     Persistance.shared.addTFLMode(mode)
                 }
+            }
+        }
+
+        func cacheStatusDescription() {
+            let interactor = TFLIntetactor()
+
+            interactor.getStatusDescription { statusDescriptions in
+                Persistance.shared.addStatusDescription(statusDescriptions.map { TFLStatusDescription($0)})
             }
         }
 
@@ -27,7 +44,7 @@ extension TFL {
 
             for mode in Mode.allCases {
                 interactor.getLineStatus(mode: mode) { lines in
-                    let mode = TFLMode(name: mode.rawValue, lines: lines.map { TFLLine(id: $0._id!, name: $0.name!) } )
+                    let mode = TFLMode(name: mode.rawValue, lines: lines.map { TFLLine(id: $0._id!, name: $0.name!) })
 //                    Persistance.shared.addTFLMode(mode)
                 }
             }

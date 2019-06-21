@@ -21,6 +21,7 @@
 		5646568622A7DED400AC5A97 /* JourneyPersistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5646568522A7DED400AC5A97 /* JourneyPersistance.swift */; };
 		5646568822A7FEA600AC5A97 /* RealmTrainStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5646568722A7FEA600AC5A97 /* RealmTrainStation.swift */; };
 		5646568A22A7FEF400AC5A97 /* TrainStationPersistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5646568922A7FEF400AC5A97 /* TrainStationPersistance.swift */; };
+		56B5900E22BCD0D500119F04 /* RealmTFLStatusDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B5900D22BCD0D500119F04 /* RealmTFLStatusDescription.swift */; };
 		56CEC54C22A98BAD00D9AFC2 /* TFLPersistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CEC54B22A98BAD00D9AFC2 /* TFLPersistance.swift */; };
 		56CEC54E22A98BD500D9AFC2 /* RealmTFLMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CEC54D22A98BD500D9AFC2 /* RealmTFLMode.swift */; };
 		56CEC55022A98C1D00D9AFC2 /* RealmTFLLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CEC54F22A98C1D00D9AFC2 /* RealmTFLLine.swift */; };
@@ -57,6 +58,7 @@
 		5646568522A7DED400AC5A97 /* JourneyPersistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyPersistance.swift; sourceTree = "<group>"; };
 		5646568722A7FEA600AC5A97 /* RealmTrainStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTrainStation.swift; sourceTree = "<group>"; };
 		5646568922A7FEF400AC5A97 /* TrainStationPersistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainStationPersistance.swift; sourceTree = "<group>"; };
+		56B5900D22BCD0D500119F04 /* RealmTFLStatusDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTFLStatusDescription.swift; sourceTree = "<group>"; };
 		56CEC54B22A98BAD00D9AFC2 /* TFLPersistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFLPersistance.swift; sourceTree = "<group>"; };
 		56CEC54D22A98BD500D9AFC2 /* RealmTFLMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTFLMode.swift; sourceTree = "<group>"; };
 		56CEC54F22A98C1D00D9AFC2 /* RealmTFLLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTFLLine.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			children = (
 				56CEC54D22A98BD500D9AFC2 /* RealmTFLMode.swift */,
 				56CEC54F22A98C1D00D9AFC2 /* RealmTFLLine.swift */,
+				56B5900D22BCD0D500119F04 /* RealmTFLStatusDescription.swift */,
 			);
 			path = TFL;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				5646568A22A7FEF400AC5A97 /* TrainStationPersistance.swift in Sources */,
 				5646568222A7D9F500AC5A97 /* RealmJourney.swift in Sources */,
 				5646566322A7CAE500AC5A97 /* Persistance.swift in Sources */,
+				56B5900E22BCD0D500119F04 /* RealmTFLStatusDescription.swift in Sources */,
 				56CEC55022A98C1D00D9AFC2 /* RealmTFLLine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

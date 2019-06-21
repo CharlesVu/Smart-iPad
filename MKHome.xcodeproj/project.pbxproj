@@ -47,6 +47,7 @@
 		56D83BFD22A925E3004A0A21 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56D83BFC22A925E3004A0A21 /* Settings.storyboard */; };
 		56D83C0022A93055004A0A21 /* TFL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D83BFF22A93055004A0A21 /* TFL.swift */; };
 		56D83C0222A93066004A0A21 /* TFLInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D83C0122A93066004A0A21 /* TFLInteractor.swift */; };
+		56E96C0922BA4CB200511AC6 /* TFLCellNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E96C0822BA4CB200511AC6 /* TFLCellNormal.swift */; };
 		56F436851DE1AEE600521991 /* StationChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F436841DE1AEE600521991 /* StationChooserViewController.swift */; };
 		56F436871DE1AF9D00521991 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F436861DE1AF9D00521991 /* AppData.swift */; };
 		56F4D6AA1E0D66660056BCC4 /* LightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F4D6A91E0D66660056BCC4 /* LightCell.swift */; };
@@ -130,6 +131,7 @@
 		56D83BFC22A925E3004A0A21 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		56D83BFF22A93055004A0A21 /* TFL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFL.swift; sourceTree = "<group>"; };
 		56D83C0122A93066004A0A21 /* TFLInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFLInteractor.swift; sourceTree = "<group>"; };
+		56E96C0822BA4CB200511AC6 /* TFLCellNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFLCellNormal.swift; sourceTree = "<group>"; };
 		56F436841DE1AEE600521991 /* StationChooserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationChooserViewController.swift; sourceTree = "<group>"; };
 		56F436861DE1AF9D00521991 /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		56F4D6A91E0D66660056BCC4 /* LightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightCell.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				56CEC55322A998E700D9AFC2 /* TFLViewController.swift */,
 				56CEC55522A998F100D9AFC2 /* TFL.xcassets */,
 				56CEC55722A99C1400D9AFC2 /* LineExtension.swift */,
+				56E96C0822BA4CB200511AC6 /* TFLCellNormal.swift */,
 			);
 			path = "UK - TFL";
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				562A9F5E1DDC6FF600ABC3AD /* Timer.swift in Sources */,
 				56F436851DE1AEE600521991 /* StationChooserViewController.swift in Sources */,
 				56F436871DE1AF9D00521991 /* AppData.swift in Sources */,
+				56E96C0922BA4CB200511AC6 /* TFLCellNormal.swift in Sources */,
 				56F4D6B61E0EDC050056BCC4 /* City.swift in Sources */,
 				56CEC55422A998E700D9AFC2 /* TFLViewController.swift in Sources */,
 			);
