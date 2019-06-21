@@ -14,6 +14,7 @@ import Persistance
 // Train Only
 class TFLViewController: UIViewController {
     var statusSet: Set<Line> = []
+    var orderedStatuses = [Line]()
     let interactor = TFL.TFLIntetactor()
     @IBOutlet weak var tableView: UITableView?
 
@@ -31,6 +32,8 @@ class TFLViewController: UIViewController {
         TFL.Mode.allCases.forEach { mode in
             interactor.getLineStatus(mode: mode) { (lines) in
                 lines.forEach { self.statusSet.insert($0) }
+                self.orderedStatuses = self.orderStatuses()
+
                 self.reloadDisplay()
             }
         }
@@ -64,7 +67,6 @@ extension TFLViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let orderedStatuses = orderStatuses()
         let currentLine = orderedStatuses[indexPath.row]
         let lineID = currentLine._id!
         let allStatus = currentLine.lineStatuses!.compactMap {$0}.sorted(by: { (status1, status2) -> Bool in

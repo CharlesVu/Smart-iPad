@@ -12,7 +12,7 @@ extension TFL {
     enum Mode: String, CaseIterable {
         case tube
         case dlr
-//        case bus
+        case bus
         case overground
     }
 }
