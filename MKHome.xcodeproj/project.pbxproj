@@ -10,7 +10,6 @@
 		562A9F5E1DDC6FF600ABC3AD /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A9F5D1DDC6FF600ABC3AD /* Timer.swift */; };
 		562C58E61E2049E200CD000D /* TrainJourneySettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562C58E51E2049E200CD000D /* TrainJourneySettingsViewController.swift */; };
 		563FC6101DE0FB3A00394E4A /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563FC60F1DE0FB3A00394E4A /* UserSettings.swift */; };
-		563FC6121DE108AA00394E4A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563FC6111DE108AA00394E4A /* SettingsViewController.swift */; };
 		5646567B22A7D7D600AC5A97 /* Persistance.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5646566122A7CAD400AC5A97 /* Persistance.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5646567C22A7D7DA00AC5A97 /* Persistance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5646566122A7CAD400AC5A97 /* Persistance.framework */; };
 		5646567D22A7D7E300AC5A97 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 566CBAB222A7C6F0001E2847 /* Realm.framework */; };
@@ -56,6 +55,9 @@
 		56F4D6B21E0EB9A30056BCC4 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F4D6B11E0EB9A30056BCC4 /* UIView.swift */; };
 		56F4D6B41E0ECE980056BCC4 /* CityChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F4D6B31E0ECE980056BCC4 /* CityChooserViewController.swift */; };
 		56F4D6B61E0EDC050056BCC4 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F4D6B51E0EDC050056BCC4 /* City.swift */; };
+		56F9838222BD1F280063F79F /* UKNationalRailSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56F9838122BD1F280063F79F /* UKNationalRailSettings.storyboard */; };
+		56F9838422BD1F740063F79F /* UKSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56F9838322BD1F740063F79F /* UKSettings.storyboard */; };
+		56F9838522BD2B480063F79F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563FC6111DE108AA00394E4A /* SettingsViewController.swift */; };
 		56FAE2561DDDE4C80015880C /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 56FAE2551DDDE4C80015880C /* config.plist */; };
 		56FB54B822A681120023964C /* HuxleySwift in Frameworks */ = {isa = PBXBuildFile; productRef = 56FB54B722A681120023964C /* HuxleySwift */; };
 /* End PBXBuildFile section */
@@ -140,6 +142,8 @@
 		56F4D6B11E0EB9A30056BCC4 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		56F4D6B31E0ECE980056BCC4 /* CityChooserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityChooserViewController.swift; sourceTree = "<group>"; };
 		56F4D6B51E0EDC050056BCC4 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		56F9838122BD1F280063F79F /* UKNationalRailSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UKNationalRailSettings.storyboard; sourceTree = "<group>"; };
+		56F9838322BD1F740063F79F /* UKSettings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UKSettings.storyboard; sourceTree = "<group>"; };
 		56FAE2551DDDE4C80015880C /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -192,7 +196,8 @@
 		56A1AD191DDC54840014047B /* MKHome */ = {
 			isa = PBXGroup;
 			children = (
-				56D83BFE22A9303B004A0A21 /* UK - TFL */,
+				56F9838022BD1C730063F79F /* France */,
+				56F9837F22BD1C6D0063F79F /* UK */,
 				56D83BFB22A925CB004A0A21 /* Storyboards - iPad */,
 				56D83BF522A9027F004A0A21 /* Extensions */,
 				56C2E17B1E0172B20073AC82 /* BOB.entitlements */,
@@ -206,7 +211,6 @@
 				56A1AD231DDC54840014047B /* LaunchScreen.storyboard */,
 				56647FAB1DDE54A7004C4CE4 /* Main~iPhone.storyboard */,
 				56F436831DE1AE8700521991 /* Settings */,
-				56BD70461DDCA1E500CA142D /* UK - National Rail */,
 				56F4D6AF1E0EB7930056BCC4 /* Weather */,
 			);
 			path = MKHome;
@@ -232,6 +236,7 @@
 				56D83BF122A8FB65004A0A21 /* HuxleyURLBuilder.swift */,
 				56D83BF322A8FEA3004A0A21 /* NationalRail.swift */,
 				56D83BF922A920A6004A0A21 /* NationalRailViewController.swift */,
+				56F9838122BD1F280063F79F /* UKNationalRailSettings.storyboard */,
 			);
 			path = "UK - National Rail";
 			sourceTree = "<group>";
@@ -309,6 +314,23 @@
 				56F4D6AD1E0D9A250056BCC4 /* LightView.swift */,
 			);
 			path = HomeKit;
+			sourceTree = "<group>";
+		};
+		56F9837F22BD1C6D0063F79F /* UK */ = {
+			isa = PBXGroup;
+			children = (
+				56F9838322BD1F740063F79F /* UKSettings.storyboard */,
+				56D83BFE22A9303B004A0A21 /* UK - TFL */,
+				56BD70461DDCA1E500CA142D /* UK - National Rail */,
+			);
+			path = UK;
+			sourceTree = "<group>";
+		};
+		56F9838022BD1C730063F79F /* France */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = France;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -413,6 +435,8 @@
 				56D83BFD22A925E3004A0A21 /* Settings.storyboard in Resources */,
 				56CEC55622A998F100D9AFC2 /* TFL.xcassets in Resources */,
 				56A1AD221DDC54840014047B /* Assets.xcassets in Resources */,
+				56F9838422BD1F740063F79F /* UKSettings.storyboard in Resources */,
+				56F9838222BD1F280063F79F /* UKNationalRailSettings.storyboard in Resources */,
 				56A1AD201DDC54840014047B /* Main~iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,6 +455,7 @@
 				56BD704A1DDCA37C00CA142D /* TrainServicesExtension.swift in Sources */,
 				56CEC55822A99C1400D9AFC2 /* LineExtension.swift in Sources */,
 				568D6FF11E21187500E81E47 /* WeatherSettingsViewController.swift in Sources */,
+				56F9838522BD2B480063F79F /* SettingsViewController.swift in Sources */,
 				56F4D6AC1E0D8EDA0056BCC4 /* WeatherViewController.swift in Sources */,
 				56BD70451DDC7E6F00CA142D /* WeatherCell.swift in Sources */,
 				56BD70481DDCA20400CA142D /* TrainInteractor.swift in Sources */,
@@ -443,7 +468,6 @@
 				56F4D6B21E0EB9A30056BCC4 /* UIView.swift in Sources */,
 				56D83BF222A8FB65004A0A21 /* HuxleyURLBuilder.swift in Sources */,
 				56CEC54622A96C1200D9AFC2 /* TubeLine.swift in Sources */,
-				563FC6121DE108AA00394E4A /* SettingsViewController.swift in Sources */,
 				56CEC54822A98A3900D9AFC2 /* TFLCacher.swift in Sources */,
 				56D83BFA22A920A6004A0A21 /* NationalRailViewController.swift in Sources */,
 				56D83BF422A8FEA3004A0A21 /* NationalRail.swift in Sources */,

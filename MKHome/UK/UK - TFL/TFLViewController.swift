@@ -54,7 +54,11 @@ class TFLViewController: UIViewController {
             }).first!
 
             if firstLineStatus.statusSeverity! == secondLineStatus.statusSeverity! {
-                return line1._id! < line2._id!
+                if line1.modeName == line2.modeName {
+                    return line1._id! < line2._id!
+                } else {
+                    return line1.modeName! < line2.modeName!
+                }
             }
             return firstLineStatus.statusSeverity! < secondLineStatus.statusSeverity!
         }
