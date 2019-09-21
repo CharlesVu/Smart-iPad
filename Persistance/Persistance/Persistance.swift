@@ -51,4 +51,16 @@ public class Persistance {
         let migrations = Persistance.reduceMigrationBlock(migrators: Migrations.allMigrations())
         return try! Realm(configuration: Persistance.realmConfiguration(migrationBlock: migrations))
     }
+
+    internal func userPreferences() -> RealmUserPreferences {
+        guard let preferences = realm.objects(RealmUserPreferences.self).first else {
+            let newPreferences = RealmUserPreferences()
+            try! realm.write {
+                realm.add(newPreferences)
+            }
+            return newPreferences
+        }
+        return preferences
+    }
+
 }

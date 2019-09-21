@@ -25,7 +25,8 @@ extension TFL {
 
             for mode in Mode.allCases {
                 interactor.getLines(mode: mode) { lines in
-                    let mode = TFLMode(name: mode.rawValue, lines: lines.map { TFLLine(id: $0._id!, name: $0.name!) })
+                    let mode = TFLMode(name: mode.rawValue,
+                                       lines: lines.map { TFLLine(id: $0._id!, name: $0.name!) })
                     Persistance.shared.addTFLMode(mode)
                 }
             }

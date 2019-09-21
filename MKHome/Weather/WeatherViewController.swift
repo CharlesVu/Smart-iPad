@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import ForecastIO
 import Persistance
+import CoreLocation
 
 class WeatherViewController: UIViewController {
     private let client = DarkSkyClient(apiKey: Configuration.shared.darkSkyApiToken)
@@ -53,21 +54,26 @@ class WeatherViewController: UIViewController {
             currentLocation = UserSettings.sharedInstance.weather.getCities()[currentAreaIndex]
             self.displayWeatherFor(currentLocation)
         } else {
-            self.view.isHidden = true
+            view.isHidden = true
         }
     }
 
     func refreshWeather() {
         for location in UserSettings.sharedInstance.weather.getCities() {
-            self.client.getForecast(latitude: location.latitude,
-                                    longitude: location.longitude) {
+            let coordinates = CLLocationCoordinate2D(latitude: location.latitude,
+            longitude: location.longitude)
+            client.getForecast(location: coordinates) {
                 result in
-                let rootObject = result.value.0
-                    self.weatherMap[location] = rootObject
+                switch result {
+                case .success(let forecast, _):
+                    self.weatherMap[location] = forecast
                     if self.currentLocation == nil {
                         self.currentLocation = location
                         self.currentAreaIndex = UserSettings.sharedInstance.weather.getCities().firstIndex(of: location)!
                         self.displayWeatherFor(location)
+                    }
+                case .failure:
+                    ()
                 }
             }
 

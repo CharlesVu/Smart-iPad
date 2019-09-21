@@ -83,4 +83,26 @@ public extension Persistance {
             return description.severityLevel == level && description.mode == mode
             }.map { TFLStatusDescription(realmObject: $0) }.first
     }
+
+    func isLineActivated(_ line: TFLLine) -> Bool {
+        let preferences = userPreferences()
+        return preferences.activeLines.contains { $0.id == line.id }
+    }
+
+    func activateLine(_ line: TFLLine) {
+        let preferences = userPreferences()
+        let line = realm.objects(RealmTFLLine.self).first { $0.id == line.id }!
+        try! realm.write {
+            preferences.activeLines.append(line)
+        }
+    }
+
+    func disableLine(_ line: TFLLine) {
+        let preferences = userPreferences()
+        try! realm.write {
+            if let index = preferences.activeLines.index(matching: "id == %@", line.id) {
+                preferences.activeLines.remove(at: index)
+            }
+        }
+    }
 }

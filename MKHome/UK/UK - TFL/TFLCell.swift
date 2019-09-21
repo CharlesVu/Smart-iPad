@@ -1,5 +1,5 @@
 //
-//  TFLCellNormal.swift
+//  TFLCell.swift
 //  MKHome
 //
 //  Created by Charles Vu on 19/06/2019.

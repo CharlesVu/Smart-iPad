@@ -20,6 +20,9 @@
 		566CBAAA22A7BE20001E2847 /* ForecastIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 566CBAA922A7BE20001E2847 /* ForecastIO.framework */; };
 		566CBAAD22A7BEA4001E2847 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 566CBAAC22A7BEA4001E2847 /* Alamofire */; };
 		566CBAB122A7C4CA001E2847 /* ForecastIO.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 566CBAA922A7BE20001E2847 /* ForecastIO.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		56885D2E2307F25200DE3A34 /* TFLSetttings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56885D2D2307F25200DE3A34 /* TFLSetttings.storyboard */; };
+		56885D302307F2D900DE3A34 /* TFLModeSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56885D2F2307F2D900DE3A34 /* TFLModeSettingsViewController.swift */; };
+		56885D322307F61300DE3A34 /* TFLModeDetailSettingsViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56885D312307F61300DE3A34 /* TFLModeDetailSettingsViewControler.swift */; };
 		568D6FF11E21187500E81E47 /* WeatherSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568D6FF01E21187500E81E47 /* WeatherSettingsViewController.swift */; };
 		56A1AD1B1DDC54840014047B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1AD1A1DDC54840014047B /* AppDelegate.swift */; };
 		56A1AD1D1DDC54840014047B /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A1AD1C1DDC54840014047B /* RootViewController.swift */; };
@@ -46,7 +49,7 @@
 		56D83BFD22A925E3004A0A21 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56D83BFC22A925E3004A0A21 /* Settings.storyboard */; };
 		56D83C0022A93055004A0A21 /* TFL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D83BFF22A93055004A0A21 /* TFL.swift */; };
 		56D83C0222A93066004A0A21 /* TFLInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D83C0122A93066004A0A21 /* TFLInteractor.swift */; };
-		56E96C0922BA4CB200511AC6 /* TFLCellNormal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E96C0822BA4CB200511AC6 /* TFLCellNormal.swift */; };
+		56E96C0922BA4CB200511AC6 /* TFLCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E96C0822BA4CB200511AC6 /* TFLCell.swift */; };
 		56F436851DE1AEE600521991 /* StationChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F436841DE1AEE600521991 /* StationChooserViewController.swift */; };
 		56F436871DE1AF9D00521991 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F436861DE1AF9D00521991 /* AppData.swift */; };
 		56F4D6AA1E0D66660056BCC4 /* LightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F4D6A91E0D66660056BCC4 /* LightCell.swift */; };
@@ -105,6 +108,9 @@
 		566CBAA922A7BE20001E2847 /* ForecastIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ForecastIO.framework; path = Carthage/Build/iOS/ForecastIO.framework; sourceTree = "<group>"; };
 		566CBAB222A7C6F0001E2847 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		566CBAB422A7C7DF001E2847 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		56885D2D2307F25200DE3A34 /* TFLSetttings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TFLSetttings.storyboard; sourceTree = "<group>"; };
+		56885D2F2307F2D900DE3A34 /* TFLModeSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFLModeSettingsViewController.swift; sourceTree = "<group>"; };
+		56885D312307F61300DE3A34 /* TFLModeDetailSettingsViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFLModeDetailSettingsViewControler.swift; sourceTree = "<group>"; };
 		568D6FF01E21187500E81E47 /* WeatherSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherSettingsViewController.swift; sourceTree = "<group>"; };
 		56A1AD171DDC54840014047B /* BOB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BOB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56A1AD1A1DDC54840014047B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -133,7 +139,7 @@
 		56D83BFC22A925E3004A0A21 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		56D83BFF22A93055004A0A21 /* TFL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFL.swift; sourceTree = "<group>"; };
 		56D83C0122A93066004A0A21 /* TFLInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFLInteractor.swift; sourceTree = "<group>"; };
-		56E96C0822BA4CB200511AC6 /* TFLCellNormal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFLCellNormal.swift; sourceTree = "<group>"; };
+		56E96C0822BA4CB200511AC6 /* TFLCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFLCell.swift; sourceTree = "<group>"; };
 		56F436841DE1AEE600521991 /* StationChooserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationChooserViewController.swift; sourceTree = "<group>"; };
 		56F436861DE1AF9D00521991 /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		56F4D6A91E0D66660056BCC4 /* LightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightCell.swift; sourceTree = "<group>"; };
@@ -278,7 +284,10 @@
 				56CEC55322A998E700D9AFC2 /* TFLViewController.swift */,
 				56CEC55522A998F100D9AFC2 /* TFL.xcassets */,
 				56CEC55722A99C1400D9AFC2 /* LineExtension.swift */,
-				56E96C0822BA4CB200511AC6 /* TFLCellNormal.swift */,
+				56E96C0822BA4CB200511AC6 /* TFLCell.swift */,
+				56885D2D2307F25200DE3A34 /* TFLSetttings.storyboard */,
+				56885D2F2307F2D900DE3A34 /* TFLModeSettingsViewController.swift */,
+				56885D312307F61300DE3A34 /* TFLModeDetailSettingsViewControler.swift */,
 			);
 			path = "UK - TFL";
 			sourceTree = "<group>";
@@ -432,6 +441,7 @@
 				56FAE2561DDDE4C80015880C /* config.plist in Resources */,
 				56647FC81DDE5E58004C4CE4 /* Main~iPhone.storyboard in Resources */,
 				56A1AD251DDC54840014047B /* LaunchScreen.storyboard in Resources */,
+				56885D2E2307F25200DE3A34 /* TFLSetttings.storyboard in Resources */,
 				56D83BFD22A925E3004A0A21 /* Settings.storyboard in Resources */,
 				56CEC55622A998F100D9AFC2 /* TFL.xcassets in Resources */,
 				56A1AD221DDC54840014047B /* Assets.xcassets in Resources */,
@@ -459,6 +469,7 @@
 				56F4D6AC1E0D8EDA0056BCC4 /* WeatherViewController.swift in Sources */,
 				56BD70451DDC7E6F00CA142D /* WeatherCell.swift in Sources */,
 				56BD70481DDCA20400CA142D /* TrainInteractor.swift in Sources */,
+				56885D322307F61300DE3A34 /* TFLModeDetailSettingsViewControler.swift in Sources */,
 				56F4D6B41E0ECE980056BCC4 /* CityChooserViewController.swift in Sources */,
 				56A1AD1D1DDC54840014047B /* RootViewController.swift in Sources */,
 				56CEC53E22A95BC500D9AFC2 /* TFLURLBuilder.swift in Sources */,
@@ -467,6 +478,7 @@
 				56D83C0022A93055004A0A21 /* TFL.swift in Sources */,
 				56F4D6B21E0EB9A30056BCC4 /* UIView.swift in Sources */,
 				56D83BF222A8FB65004A0A21 /* HuxleyURLBuilder.swift in Sources */,
+				56885D302307F2D900DE3A34 /* TFLModeSettingsViewController.swift in Sources */,
 				56CEC54622A96C1200D9AFC2 /* TubeLine.swift in Sources */,
 				56CEC54822A98A3900D9AFC2 /* TFLCacher.swift in Sources */,
 				56D83BFA22A920A6004A0A21 /* NationalRailViewController.swift in Sources */,
@@ -477,7 +489,7 @@
 				562A9F5E1DDC6FF600ABC3AD /* Timer.swift in Sources */,
 				56F436851DE1AEE600521991 /* StationChooserViewController.swift in Sources */,
 				56F436871DE1AF9D00521991 /* AppData.swift in Sources */,
-				56E96C0922BA4CB200511AC6 /* TFLCellNormal.swift in Sources */,
+				56E96C0922BA4CB200511AC6 /* TFLCell.swift in Sources */,
 				56F4D6B61E0EDC050056BCC4 /* City.swift in Sources */,
 				56CEC55422A998E700D9AFC2 /* TFLViewController.swift in Sources */,
 			);
