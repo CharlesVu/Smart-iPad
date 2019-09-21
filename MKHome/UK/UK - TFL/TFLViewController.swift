@@ -31,7 +31,9 @@ class TFLViewController: UIViewController {
     func reloadStatus() {
         TFL.Mode.allCases.forEach { mode in
             interactor.getLineStatus(mode: mode) { (lines) in
-                lines.forEach { self.statusSet.insert($0) }
+                lines.forEach {
+                    self.statusSet.insert($0)
+                }
                 self.orderedStatuses = self.orderStatuses()
 
                 self.reloadDisplay()
@@ -61,13 +63,13 @@ class TFLViewController: UIViewController {
                 }
             }
             return firstLineStatus.statusSeverity! < secondLineStatus.statusSeverity!
-        }
+        }.filter { Persistance.shared.isLineActivated(TFLLine(id: $0._id!, name: $0.name!)) }
     }
 }
 
 extension TFLViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return statusSet.count
+        return orderedStatuses.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
