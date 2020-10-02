@@ -7,12 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5627A9A725272DD2008CF2EE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5627A9A625272DD2008CF2EE /* RealmSwift */; };
+		5627A9A925272DD2008CF2EE /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 5627A9A825272DD2008CF2EE /* Realm */; };
 		5646565622A7CAD300AC5A97 /* Persistance.h in Headers */ = {isa = PBXBuildFile; fileRef = 5646565422A7CAD300AC5A97 /* Persistance.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5646566322A7CAE500AC5A97 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5646566222A7CAE500AC5A97 /* Persistance.swift */; };
-		5646566622A7CC0B00AC5A97 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5646566522A7CC0B00AC5A97 /* RealmSwift.framework */; platformFilter = ios; };
-		5646566722A7CC0B00AC5A97 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5646566522A7CC0B00AC5A97 /* RealmSwift.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5646566A22A7CC1000AC5A97 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5646566922A7CC1000AC5A97 /* Realm.framework */; platformFilter = ios; };
-		5646566B22A7CC1000AC5A97 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5646566922A7CC1000AC5A97 /* Realm.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5646566E22A7D2DF00AC5A97 /* Migrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5646566D22A7D2DF00AC5A97 /* Migrations.swift */; };
 		5646567122A7D32700AC5A97 /* Versions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5646567022A7D32700AC5A97 /* Versions.swift */; };
 		5646567722A7D5B300AC5A97 /* RealmWeatherCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5646567622A7D5B300AC5A97 /* RealmWeatherCity.swift */; };
@@ -27,21 +25,6 @@
 		56CEC54E22A98BD500D9AFC2 /* RealmTFLMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CEC54D22A98BD500D9AFC2 /* RealmTFLMode.swift */; };
 		56CEC55022A98C1D00D9AFC2 /* RealmTFLLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CEC54F22A98C1D00D9AFC2 /* RealmTFLLine.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		5646566822A7CC0B00AC5A97 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				5646566B22A7CC1000AC5A97 /* Realm.framework in Embed Frameworks */,
-				5646566722A7CC0B00AC5A97 /* RealmSwift.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5646565122A7CAD300AC5A97 /* Persistance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Persistance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,8 +54,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5646566A22A7CC1000AC5A97 /* Realm.framework in Frameworks */,
-				5646566622A7CC0B00AC5A97 /* RealmSwift.framework in Frameworks */,
+				5627A9A725272DD2008CF2EE /* RealmSwift in Frameworks */,
+				5627A9A925272DD2008CF2EE /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,13 +190,16 @@
 				5646564D22A7CAD300AC5A97 /* Sources */,
 				5646564E22A7CAD300AC5A97 /* Frameworks */,
 				5646564F22A7CAD300AC5A97 /* Resources */,
-				5646566822A7CC0B00AC5A97 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Persistance;
+			packageProductDependencies = (
+				5627A9A625272DD2008CF2EE /* RealmSwift */,
+				5627A9A825272DD2008CF2EE /* Realm */,
+			);
 			productName = Persistance;
 			productReference = 5646565122A7CAD300AC5A97 /* Persistance.framework */;
 			productType = "com.apple.product-type.framework";
@@ -224,7 +210,7 @@
 		5646564822A7CAD300AC5A97 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Charles Vu";
 				TargetAttributes = {
 					5646565022A7CAD300AC5A97 = {
@@ -242,6 +228,9 @@
 				Base,
 			);
 			mainGroup = 5646564722A7CAD300AC5A97;
+			packageReferences = (
+				5627A9A525272DD2008CF2EE /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+			);
 			productRefGroup = 5646565222A7CAD300AC5A97 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -312,6 +301,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -375,6 +365,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -416,7 +407,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "${SRCROOT}/../Carthage/Build/iOS";
 				INFOPLIST_FILE = Persistance/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -427,6 +417,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = vu.charles.Persistance;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -443,7 +434,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = "${SRCROOT}/../Carthage/Build/iOS";
 				INFOPLIST_FILE = Persistance/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -454,6 +444,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = vu.charles.Persistance;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -481,6 +472,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5627A9A525272DD2008CF2EE /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.7;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5627A9A625272DD2008CF2EE /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5627A9A525272DD2008CF2EE /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+		5627A9A825272DD2008CF2EE /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5627A9A525272DD2008CF2EE /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5646564822A7CAD300AC5A97 /* Project object */;
 }

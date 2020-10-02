@@ -7,19 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5627A9A425272D92008CF2EE /* ForecastIO in Frameworks */ = {isa = PBXBuildFile; productRef = 5627A9A325272D92008CF2EE /* ForecastIO */; };
 		562A9F5E1DDC6FF600ABC3AD /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562A9F5D1DDC6FF600ABC3AD /* Timer.swift */; };
 		562C58E61E2049E200CD000D /* TrainJourneySettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562C58E51E2049E200CD000D /* TrainJourneySettingsViewController.swift */; };
 		563FC6101DE0FB3A00394E4A /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563FC60F1DE0FB3A00394E4A /* UserSettings.swift */; };
 		5646567B22A7D7D600AC5A97 /* Persistance.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5646566122A7CAD400AC5A97 /* Persistance.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5646567C22A7D7DA00AC5A97 /* Persistance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5646566122A7CAD400AC5A97 /* Persistance.framework */; };
-		5646567D22A7D7E300AC5A97 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 566CBAB222A7C6F0001E2847 /* Realm.framework */; };
-		5646567E22A7D7E300AC5A97 /* Realm.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 566CBAB222A7C6F0001E2847 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5646567F22A7D7E500AC5A97 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 566CBAB422A7C7DF001E2847 /* RealmSwift.framework */; };
-		5646568022A7D7E500AC5A97 /* RealmSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 566CBAB422A7C7DF001E2847 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		56647FC81DDE5E58004C4CE4 /* Main~iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56647FAB1DDE54A7004C4CE4 /* Main~iPhone.storyboard */; };
-		566CBAAA22A7BE20001E2847 /* ForecastIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 566CBAA922A7BE20001E2847 /* ForecastIO.framework */; };
 		566CBAAD22A7BEA4001E2847 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 566CBAAC22A7BEA4001E2847 /* Alamofire */; };
-		566CBAB122A7C4CA001E2847 /* ForecastIO.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 566CBAA922A7BE20001E2847 /* ForecastIO.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		56885D2E2307F25200DE3A34 /* TFLSetttings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56885D2D2307F25200DE3A34 /* TFLSetttings.storyboard */; };
 		56885D302307F2D900DE3A34 /* TFLModeSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56885D2F2307F2D900DE3A34 /* TFLModeSettingsViewController.swift */; };
 		56885D322307F61300DE3A34 /* TFLModeDetailSettingsViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56885D312307F61300DE3A34 /* TFLModeDetailSettingsViewControler.swift */; };
@@ -62,7 +57,7 @@
 		56F9838422BD1F740063F79F /* UKSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56F9838322BD1F740063F79F /* UKSettings.storyboard */; };
 		56F9838522BD2B480063F79F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563FC6111DE108AA00394E4A /* SettingsViewController.swift */; };
 		56FAE2561DDDE4C80015880C /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 56FAE2551DDDE4C80015880C /* config.plist */; };
-		56FB54B822A681120023964C /* HuxleySwift in Frameworks */ = {isa = PBXBuildFile; productRef = 56FB54B722A681120023964C /* HuxleySwift */; };
+		56FB54B822A681120023964C /* HuxleySwift in Frameworks */ = {isa = PBXBuildFile; productRef = 56FB54B722A681120023964C /* HuxleySwift */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,10 +84,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5646567E22A7D7E300AC5A97 /* Realm.framework in CopyFiles */,
 				5646567B22A7D7D600AC5A97 /* Persistance.framework in CopyFiles */,
-				5646568022A7D7E500AC5A97 /* RealmSwift.framework in CopyFiles */,
-				566CBAB122A7C4CA001E2847 /* ForecastIO.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,9 +97,6 @@
 		563FC6111DE108AA00394E4A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5646565C22A7CAD300AC5A97 /* Persistance.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Persistance.xcodeproj; path = Persistance/Persistance.xcodeproj; sourceTree = "<group>"; };
 		56647FAC1DDE54A7004C4CE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Main~iPhone.storyboard"; sourceTree = "<group>"; };
-		566CBAA922A7BE20001E2847 /* ForecastIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ForecastIO.framework; path = Carthage/Build/iOS/ForecastIO.framework; sourceTree = "<group>"; };
-		566CBAB222A7C6F0001E2847 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
-		566CBAB422A7C7DF001E2847 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		56885D2D2307F25200DE3A34 /* TFLSetttings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TFLSetttings.storyboard; sourceTree = "<group>"; };
 		56885D2F2307F2D900DE3A34 /* TFLModeSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFLModeSettingsViewController.swift; sourceTree = "<group>"; };
 		56885D312307F61300DE3A34 /* TFLModeDetailSettingsViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFLModeDetailSettingsViewControler.swift; sourceTree = "<group>"; };
@@ -158,13 +147,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5627A9A425272D92008CF2EE /* ForecastIO in Frameworks */,
 				56CEC54022A95FB300D9AFC2 /* TFLApiModels in Frameworks */,
 				56FB54B822A681120023964C /* HuxleySwift in Frameworks */,
 				5646567C22A7D7DA00AC5A97 /* Persistance.framework in Frameworks */,
-				566CBAAA22A7BE20001E2847 /* ForecastIO.framework in Frameworks */,
-				5646567D22A7D7E300AC5A97 /* Realm.framework in Frameworks */,
 				566CBAAD22A7BEA4001E2847 /* Alamofire in Frameworks */,
-				5646567F22A7D7E500AC5A97 /* RealmSwift.framework in Frameworks */,
 				56C2E17E1E0172B20073AC82 /* HomeKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,7 +189,6 @@
 		56A1AD191DDC54840014047B /* MKHome */ = {
 			isa = PBXGroup;
 			children = (
-				56F9838022BD1C730063F79F /* France */,
 				56F9837F22BD1C6D0063F79F /* UK */,
 				56D83BFB22A925CB004A0A21 /* Storyboards - iPad */,
 				56D83BF522A9027F004A0A21 /* Extensions */,
@@ -225,9 +211,6 @@
 		56BB045C1DDC585800C274A9 /* External */ = {
 			isa = PBXGroup;
 			children = (
-				566CBAB422A7C7DF001E2847 /* RealmSwift.framework */,
-				566CBAB222A7C6F0001E2847 /* Realm.framework */,
-				566CBAA922A7BE20001E2847 /* ForecastIO.framework */,
 			);
 			name = External;
 			sourceTree = "<group>";
@@ -335,13 +318,6 @@
 			path = UK;
 			sourceTree = "<group>";
 		};
-		56F9838022BD1C730063F79F /* France */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = France;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -364,6 +340,7 @@
 				56FB54B722A681120023964C /* HuxleySwift */,
 				566CBAAC22A7BEA4001E2847 /* Alamofire */,
 				56CEC53F22A95FB300D9AFC2 /* TFLApiModels */,
+				5627A9A325272D92008CF2EE /* ForecastIO */,
 			);
 			productName = MKHome;
 			productReference = 56A1AD171DDC54840014047B /* BOB.app */;
@@ -376,7 +353,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = charles;
 				TargetAttributes = {
 					56A1AD161DDC54830014047B = {
@@ -407,6 +384,7 @@
 				56FB54B622A681120023964C /* XCRemoteSwiftPackageReference "HuxleySwift" */,
 				566CBAAB22A7BEA4001E2847 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				566CBAAE22A7C14A001E2847 /* XCRemoteSwiftPackageReference "TFLSwaggerSwiftAPI" */,
+				5627A9A225272D92008CF2EE /* XCRemoteSwiftPackageReference "ForecastIO" */,
 			);
 			productRefGroup = 56A1AD181DDC54840014047B /* Products */;
 			projectDirPath = "";
@@ -559,6 +537,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -619,6 +598,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -654,10 +634,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MKHome/BOB.entitlements;
 				DEVELOPMENT_TEAM = 3976UC954J;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = MKHome/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -666,6 +642,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = vu.charles.smartipad;
 				PRODUCT_NAME = BOB;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -677,10 +654,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MKHome/BOB.entitlements;
 				DEVELOPMENT_TEAM = 3976UC954J;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = MKHome/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -689,6 +662,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = vu.charles.smartipad;
 				PRODUCT_NAME = BOB;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -718,6 +692,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5627A9A225272D92008CF2EE /* XCRemoteSwiftPackageReference "ForecastIO" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:CharlesVu/ForecastIO.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		566CBAAB22A7BEA4001E2847 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -746,6 +728,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5627A9A325272D92008CF2EE /* ForecastIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5627A9A225272D92008CF2EE /* XCRemoteSwiftPackageReference "ForecastIO" */;
+			productName = ForecastIO;
+		};
 		566CBAAC22A7BEA4001E2847 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 566CBAAB22A7BEA4001E2847 /* XCRemoteSwiftPackageReference "Alamofire" */;

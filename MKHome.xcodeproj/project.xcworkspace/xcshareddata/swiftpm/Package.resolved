@@ -1,6 +1,7 @@
 {
   "object": {
-    "pins": [ {
+    "pins": [
+      {
         "package": "Alamofire",
         "repositoryURL": "https://github.com/Alamofire/Alamofire",
         "state": {
@@ -8,7 +9,17 @@
           "revision": "75bba56748359f297a83f620d45f72cf4ebee4e7",
           "version": "4.8.2"
         }
-      }, {
+      },
+      {
+        "package": "ForecastIO",
+        "repositoryURL": "git@github.com:CharlesVu/ForecastIO.git",
+        "state": {
+          "branch": "master",
+          "revision": "5f8667b1fcc5afd03a01c1a34b384780ce835f6a",
+          "version": null
+        }
+      },
+      {
         "package": "HuxleySwift",
         "repositoryURL": "git@github.com:CharlesVu/HuxleySwift.git",
         "state": {
@@ -16,7 +27,26 @@
           "revision": "ff9cd114d80eb9b12fcfd941aebaff3e6be4fefe",
           "version": null
         }
-      }, {
+      },
+      {
+        "package": "Realm",
+        "repositoryURL": "https://github.com/realm/realm-cocoa",
+        "state": {
+          "branch": null,
+          "revision": "2dc2d259095051b997b76a07e859822661105303",
+          "version": "5.4.7"
+        }
+      },
+      {
+        "package": "RealmCore",
+        "repositoryURL": "https://github.com/realm/realm-core",
+        "state": {
+          "branch": null,
+          "revision": "2df510904ad04287926b287b4e89b786de2808c8",
+          "version": "6.1.3"
+        }
+      },
+      {
         "package": "TFLApiModels",
         "repositoryURL": "https://github.com/CharlesVu/TFLSwaggerSwiftAPI",
         "state": {
