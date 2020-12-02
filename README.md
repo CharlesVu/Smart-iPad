@@ -14,7 +14,7 @@ Smart-iPad (the name is lame) is an app for people who doesn't have the skill to
   - https://github.com/radex/SwiftyTimer (included) to have easy timers in Swift
   - https://github.com/miwand/Skycons-Swift (included) for the weather icons
   - http://ethanschoonover.com/solarized for the colour scheme
-  - carthage for dependecies
+  - SWiftPM for dependecies
   
 ## To-do list:
  - [x] Have somewhere in the app to change the cities/stations
